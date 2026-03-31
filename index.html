@@ -3,45 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>広島タクシー会話練習</title>
+<title>広島タクシー韓国語会話</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f5f3ef; --surface:#fff; --surface2:#faf8f5;
-  --border:#e8e2d9; --border2:#d4ccbe;
-  --en:#e05a2b; --en-light:#fdf0eb; --en-border:rgba(224,90,43,0.28);
-  --kr:#3b5bdb; --kr-light:#eef2ff; --kr-border:rgba(59,91,219,0.28);
-  --primary:#e05a2b; --primary-light:#fdf0eb; --primary-border:rgba(224,90,43,0.28);
-  --accent:#2b7de0; --accent-light:#ebf3fd; --accent-border:rgba(43,125,224,0.25);
+  --bg:#f4f6fb; --surface:#fff; --surface2:#f0f4fa;
+  --border:#dde3f0; --border2:#c8d2e8;
+  --primary:#3b5bdb; --primary-light:#eef2ff; --primary-border:rgba(59,91,219,0.28);
+  --accent:#e03131; --accent-light:#fff5f5; --accent-border:rgba(224,49,49,0.25);
   --green:#1a9e5c; --green-light:#e8f7ef; --green-border:rgba(26,158,92,0.25);
   --amber:#d97706; --amber-light:#fef3c7; --amber-border:rgba(217,119,6,0.25);
   --orange:#ea580c; --orange-light:#fff7ed;
   --teal:#0891b2; --teal-light:#ecfeff; --teal-border:rgba(8,145,178,0.25);
   --purple:#7048e8; --purple-light:#f3f0ff; --purple-border:rgba(112,72,232,0.25);
-  --text:#1c1917; --text-mid:#57534e; --text-soft:#a8a29e;
-  --radius:14px; --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
+  --text:#1a1b2e; --text-mid:#4a5070; --text-soft:#9ba3c0;
+  --radius:14px;
+  --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
   --sh-md:0 4px 14px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
 
 /* HEADER */
-header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 14px;height:54px;display:flex;align-items:center;gap:8px;flex-shrink:0;box-shadow:var(--sh);}
-.taxi-badge{background:var(--primary);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:1.5px;padding:4px 9px;border-radius:6px;flex-shrink:0;}
-.header-text h1{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--text);line-height:1.1;}
-.header-text p{font-size:11px;color:var(--text-soft);margin-top:1px;}
-#scoreDisplay{background:var(--amber-light);color:var(--amber);border:1px solid var(--amber-border);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;flex-shrink:0;}
-
-/* LANG SWITCHER */
-.lang-switcher{margin-left:auto;display:flex;gap:4px;flex-shrink:0;}
-.lang-btn{padding:5px 10px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;}
-.lang-btn:hover{border-color:var(--primary-border);}
-.lang-btn.en.active{background:var(--en-light);border-color:var(--en-border);color:var(--en);}
-.lang-btn.kr.active{background:var(--kr-light);border-color:var(--kr-border);color:var(--kr);}
+header{background:linear-gradient(135deg,#3b5bdb,#5c7cfa);padding:0 16px;height:56px;display:flex;align-items:center;gap:10px;flex-shrink:0;box-shadow:var(--sh-md);}
+.taxi-badge{background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.3);flex-shrink:0;}
+.header-text h1{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:#fff;line-height:1.1;}
+.header-text p{font-size:11px;color:rgba(255,255,255,.75);margin-top:1px;}
+#scoreDisplay{margin-left:auto;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;flex-shrink:0;}
 
 /* MODE BAR */
-.mode-bar{background:var(--surface);border-bottom:2px solid var(--border);padding:0 14px;display:flex;gap:0;flex-shrink:0;height:40px;align-items:flex-end;}
-.mode-btn{padding:0 16px;height:40px;border:none;border-bottom:3px solid transparent;background:transparent;color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;flex-shrink:0;margin-bottom:-2px;}
+.mode-bar{background:var(--surface);border-bottom:2px solid var(--border);padding:0 14px;display:flex;gap:0;flex-shrink:0;height:42px;align-items:flex-end;}
+.mode-btn{padding:0 18px;height:42px;border:none;border-bottom:3px solid transparent;background:transparent;color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;flex-shrink:0;margin-bottom:-2px;}
 .mode-btn:hover{color:var(--text-mid);}
 .mode-btn.active{color:var(--primary);border-bottom-color:var(--primary);}
 
@@ -72,40 +64,33 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .driver .msg-label{color:var(--primary);}
 .passenger .msg-label{color:var(--accent);}
 
-/* BUBBLES */
-.bubble{padding:10px 14px;border-radius:var(--radius);font-size:14px;line-height:1.6;box-shadow:var(--sh);}
-.driver .bubble{background:var(--primary);color:#fff;border-bottom-right-radius:4px;}
-/* EN passenger */
-.en-mode .passenger .bubble{background:var(--surface);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px;}
-.en-mode .passenger .bubble .main{font-size:15px;margin-bottom:4px;}
-.en-mode .passenger .bubble .ja-line{margin-top:5px;padding-top:5px;border-top:1px solid var(--border);font-size:11px;color:var(--text-soft);font-style:italic;}
-/* KR passenger */
-.kr-mode .passenger .bubble{background:var(--surface);border:1px solid var(--kr-border);color:var(--text);border-bottom-left-radius:4px;}
-.kr-mode .passenger .bubble .kor{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:.3px;}
-.kr-mode .passenger .bubble .read{font-size:11px;font-weight:700;color:var(--kr);background:var(--kr-light);padding:2px 8px;border-radius:6px;display:inline-block;margin-bottom:4px;}
-.kr-mode .passenger .bubble .ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
+/* DRIVER BUBBLE — shows Korean the driver typed */
+.driver .bubble{background:var(--primary);color:#fff;border-bottom-right-radius:4px;padding:10px 14px;border-radius:var(--radius);box-shadow:var(--sh);}
+.driver .bubble .kor{font-size:16px;font-weight:700;margin-bottom:3px;letter-spacing:.5px;}
+.driver .bubble .read{font-size:11px;color:rgba(255,255,255,.8);margin-bottom:2px;}
+.driver .bubble .ja{font-size:11px;color:rgba(255,255,255,.7);font-style:italic;}
+
+/* PASSENGER BUBBLE — Korean tourist */
+.passenger .bubble{background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:4px;padding:10px 14px;border-radius:var(--radius);box-shadow:var(--sh);}
+.passenger .bubble .kor{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:.3px;}
+.passenger .bubble .read{font-size:11px;color:var(--text-soft);background:var(--primary-light);padding:2px 7px;border-radius:6px;display:inline-block;margin-bottom:4px;font-weight:600;}
+.passenger .bubble .ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
 
 /* FEEDBACK */
 .feedback-box{margin-top:4px;border-radius:12px;padding:8px 13px;font-size:12px;line-height:1.6;max-width:90%;align-self:flex-end;animation:popIn .2s ease .08s both;box-shadow:var(--sh);}
 .feedback-box.good{background:var(--green-light);border:1px solid var(--green-border);color:var(--green);}
 .feedback-box.fix{background:var(--orange-light);border:1px solid rgba(234,88,12,.2);color:var(--orange);}
 
-/* VOCAB TIP — EN */
-.en-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--amber-light);border:1px solid var(--amber-border);border-radius:12px;padding:6px 12px;font-size:12px;color:var(--amber);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);}
-/* VOCAB TIP — KR */
-.kr-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--purple-light);border:1px solid var(--purple-border);border-radius:12px;padding:7px 12px;font-size:12px;color:var(--purple);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);line-height:1.7;}
-.kr-mode .vocab-tip .v-kor{font-size:15px;font-weight:800;letter-spacing:.3px;display:block;}
-.kr-mode .vocab-tip .v-read{font-size:11px;opacity:.8;display:block;}
-.kr-mode .vocab-tip .v-ja{font-size:11px;font-style:italic;opacity:.85;display:block;}
+/* VOCAB TIP */
+.vocab-tip{align-self:flex-start;margin-top:2px;background:var(--purple-light);border:1px solid var(--purple-border);border-radius:12px;padding:7px 12px;font-size:12px;color:var(--purple);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);line-height:1.6;}
+.vocab-tip .v-kor{font-size:15px;font-weight:800;letter-spacing:.3px;}
+.vocab-tip .v-read{font-size:11px;opacity:.8;}
+.vocab-tip .v-ja{font-size:11px;font-style:italic;margin-top:2px;opacity:.85;}
 
 /* SUGGESTIONS */
-.sugg-row{align-self:flex-end;display:flex;flex-wrap:wrap;gap:5px;margin-top:3px;max-width:96%;justify-content:flex-end;animation:popIn .2s ease .15s both;}
-/* EN chip */
-.en-mode .sugg-chip{background:var(--surface);border:1px solid var(--border);color:var(--text-mid);padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all .15s;box-shadow:var(--sh);}
-.en-mode .sugg-chip:hover{border-color:var(--en-border);color:var(--en);background:var(--en-light);transform:translateY(-1px);}
-/* KR chip — 3 lines */
-.kr-mode .sugg-chip{background:var(--surface);border:1.5px solid var(--border);padding:5px 11px;border-radius:12px;font-size:11px;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all .15s;box-shadow:var(--sh);text-align:left;}
-.kr-mode .sugg-chip:hover{border-color:var(--kr-border);background:var(--kr-light);transform:translateY(-1px);}
+.sugg-row{align-self:flex-end;display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;max-width:96%;justify-content:flex-end;animation:popIn .2s ease .15s both;}
+.sugg-chip{background:var(--surface);border:1.5px solid var(--border);padding:5px 11px;border-radius:12px;font-size:11px;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all .15s;box-shadow:var(--sh);text-align:left;}
+.sugg-chip:hover{border-color:var(--primary-border);background:var(--primary-light);transform:translateY(-1px);}
 .sugg-chip .s-kor{font-size:13px;font-weight:700;color:var(--text);display:block;}
 .sugg-chip .s-read{font-size:10px;color:var(--text-soft);display:block;}
 .sugg-chip .s-ja{font-size:10px;color:var(--text-soft);font-style:italic;display:block;}
@@ -117,30 +102,30 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 @keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
 
 /* END CARD */
-.end-card{align-self:center;text-align:center;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--amber);border-radius:var(--radius);padding:16px 22px;margin-top:6px;animation:popIn .3s ease;box-shadow:var(--sh-md);}
+.end-card{align-self:center;text-align:center;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--amber);border-radius:var(--radius);padding:18px 22px;margin-top:6px;animation:popIn .3s ease;box-shadow:var(--sh-md);}
 .end-card h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--amber);margin-bottom:6px;}
 .end-card p{font-size:12px;color:var(--text-mid);line-height:1.7;margin-bottom:14px;}
 .retry-btn{background:var(--primary);color:#fff;border:none;padding:9px 24px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .15s;box-shadow:var(--sh);}
-.retry-btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+.retry-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
 
 /* WELCOME */
-.welcome{text-align:center;padding:18px 16px;animation:popIn .35s ease;}
-.welcome .big{font-size:44px;margin-bottom:8px;}
-.welcome h2{font-family:'Nunito',sans-serif;font-weight:800;font-size:19px;color:var(--text);margin-bottom:8px;}
-.welcome p{font-size:12px;color:var(--text-mid);line-height:1.7;max-width:300px;margin:0 auto 14px;}
-.spot-grid{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px;}
+.welcome{text-align:center;padding:20px 16px;animation:popIn .35s ease;}
+.welcome .big{font-size:46px;margin-bottom:8px;}
+.welcome h2{font-family:'Nunito',sans-serif;font-weight:800;font-size:20px;color:var(--text);margin-bottom:8px;}
+.welcome p{font-size:12px;color:var(--text-mid);line-height:1.7;max-width:300px;margin:0 auto 16px;}
+.spot-grid{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px;}
 .spot-tag{background:var(--surface);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:11px;color:var(--text-mid);font-weight:600;box-shadow:var(--sh);}
 .start-btn{background:var(--primary);color:#fff;border:none;padding:11px 30px;border-radius:24px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-md);}
 .start-btn:hover{filter:brightness(1.06);transform:translateY(-1px);}
 
 /* PHRASE PANEL */
-#phrasePanel{background:var(--surface2);border-top:1px solid var(--border);padding:9px 12px;flex-shrink:0;display:none;max-height:130px;overflow-y:auto;}
+#phrasePanel{background:var(--surface2);border-top:1px solid var(--border);padding:9px 12px;flex-shrink:0;display:none;max-height:140px;overflow-y:auto;}
 #phrasePanel.open{display:block;}
 .phrase-title{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--primary);text-transform:uppercase;margin-bottom:7px;}
 .phrase-grid{display:flex;flex-wrap:wrap;gap:5px;}
-.phrase-item{background:var(--surface);border:1px solid var(--border);padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .15s;font-family:'Nunito Sans',sans-serif;line-height:1.5;}
+.phrase-item{background:var(--surface);border:1px solid var(--border);padding:5px 11px;border-radius:12px;font-size:12px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .15s;font-family:'Nunito Sans',sans-serif;line-height:1.5;}
 .phrase-item:hover{border-color:var(--primary-border);color:var(--primary);background:var(--primary-light);}
-.phrase-item .pi-sub{font-size:10px;display:block;color:var(--text-soft);}
+.phrase-item .pi-read{font-size:10px;display:block;color:var(--text-soft);}
 
 /* INPUT AREA */
 .input-area{background:var(--surface);border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0;box-shadow:0 -1px 4px rgba(0,0,0,.04);}
@@ -152,14 +137,14 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text-soft);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh);}
 .icon-btn:hover{border-color:var(--primary-border);color:var(--primary);background:var(--primary-light);}
 .icon-btn.on{background:var(--primary-light);border-color:var(--primary-border);color:var(--primary);}
-#micBtn.recording{background:var(--primary);border-color:var(--primary);color:#fff;animation:pulse 1s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,90,43,.4);}50%{box-shadow:0 0 0 7px rgba(224,90,43,0);}}
+#micBtn.recording{background:var(--accent);border-color:var(--accent);color:#fff;animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,49,49,.4);}50%{box-shadow:0 0 0 7px rgba(224,49,49,0);}}
 #sendBtn{width:42px;height:42px;background:var(--primary);border:none;border-radius:12px;color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh-md);}
 #sendBtn:hover:not(:disabled){filter:brightness(1.07);transform:scale(1.04);}
 #sendBtn:disabled{opacity:.35;cursor:default;transform:none;}
 .voice-status{font-size:11px;text-align:center;margin-top:5px;min-height:15px;color:var(--text-soft);font-weight:600;}
-.voice-status.listening{color:var(--primary);}
-.voice-status.speaking{color:var(--accent);}
+.voice-status.listening{color:var(--accent);}
+.voice-status.speaking{color:var(--primary);}
 
 /* ═══ GUIDE MODE ═══ */
 #guideView{flex:1;overflow-y:auto;display:none;flex-direction:column;min-height:0;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
@@ -175,7 +160,8 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .spot-thumb{height:84px;display:flex;align-items:center;justify-content:center;font-size:38px;}
 .spot-card-body{padding:9px 11px 11px;}
 .spot-card-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:var(--text);margin-bottom:1px;}
-.spot-card-sub{font-size:11px;color:var(--text-soft);margin-bottom:5px;}
+.spot-card-kor{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:1px;}
+.spot-card-read{font-size:10px;color:var(--text-soft);margin-bottom:5px;}
 .spot-card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px;}
 .spot-card-tag{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:700;font-family:'Nunito',sans-serif;}
 .spot-card-desc{font-size:11px;color:var(--text-mid);line-height:1.5;}
@@ -189,42 +175,42 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .detail-title-sub{font-size:11px;color:var(--text-soft);}
 .detail-body{flex:1;overflow-y:auto;padding:14px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
 .detail-hero{height:130px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:60px;margin-bottom:14px;box-shadow:var(--sh);}
-.detail-section{margin-bottom:14px;}
-.detail-section-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--text-soft);margin-bottom:7px;}
+.detail-section{margin-bottom:16px;}
+.detail-section-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--text-soft);margin-bottom:8px;}
 .detail-section p{font-size:13px;color:var(--text-mid);line-height:1.65;}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
 .info-cell{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 11px;box-shadow:var(--sh);}
 .info-cell-label{font-size:10px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
 .info-cell-value{font-size:12px;font-weight:600;color:var(--text);line-height:1.5;}
-.phrase-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;box-shadow:var(--sh);margin-bottom:14px;}
-.phrase-block-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:var(--primary);margin-bottom:10px;}
-.detail-phrase-row{padding:8px 0;border-bottom:1px solid var(--border);}
-.detail-phrase-row:last-child{border-bottom:none;padding-bottom:0;}
-.dpr-main{font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
-.dpr-read{display:inline-block;font-size:11px;font-weight:700;color:var(--kr);background:var(--kr-light);padding:1px 8px;border-radius:6px;margin-bottom:3px;}
-.dpr-ja{font-size:11px;color:var(--text-mid);font-style:italic;}
-.map-placeholder{height:110px;background:var(--teal-light);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .15s;margin-bottom:14px;border:1px solid var(--teal-border);}
+
+/* Korean phrase block in detail */
+.phrase-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;box-shadow:var(--sh);margin-bottom:16px;}
+.phrase-block-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:var(--primary);margin-bottom:10px;display:flex;align-items:center;gap:5px;}
+.kor-phrase-row{padding:9px 0;border-bottom:1px solid var(--border);}
+.kor-phrase-row:last-child{border-bottom:none;padding-bottom:0;}
+.kpr-kor{font-size:16px;font-weight:800;color:var(--text);letter-spacing:.3px;margin-bottom:3px;}
+.kpr-read{display:inline-block;font-size:11px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:1px 8px;border-radius:6px;margin-bottom:3px;}
+.kpr-ja{font-size:12px;color:var(--text-mid);font-style:italic;}
+
+.practice-link-btn{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-md);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.practice-link-btn:hover{filter:brightness(1.06);transform:translateY(-1px);}
+.map-container{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);margin-bottom:16px;box-shadow:var(--sh);}
+.map-placeholder{height:120px;background:var(--teal-light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .15s;}
 .map-placeholder:hover{background:#ccf2f8;}
 .map-placeholder span{font-size:26px;}
 .map-placeholder p{font-size:12px;font-weight:700;color:var(--teal);}
 .map-placeholder small{font-size:10px;color:var(--text-soft);}
-.practice-link-btn{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-md);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
-.practice-link-btn:hover{filter:brightness(1.06);transform:translateY(-1px);}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="taxi-badge">TAXI</div>
+  <div class="taxi-badge">TAXI 택시</div>
   <div class="header-text">
-    <h1 id="headerTitle">広島タクシー英会話</h1>
-    <p id="headerSub">Hiroshima Taxi English Practice</p>
+    <h1>広島タクシー 韓国語会話</h1>
+    <p>초급 한국어 연습 — 한글・읽기・일본어 표기</p>
   </div>
   <div id="scoreDisplay">⭐ 0 pts</div>
-  <div class="lang-switcher">
-    <button class="lang-btn en active" onclick="switchLang('en')">🇬🇧 EN</button>
-    <button class="lang-btn kr" onclick="switchLang('kr')">🇰🇷 KR</button>
-  </div>
 </header>
 
 <div class="mode-bar">
@@ -232,35 +218,52 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   <button class="mode-btn" id="modeGuide" onclick="switchMode('guide')">🗾 観光案内</button>
 </div>
 
+<!-- ══ PRACTICE MODE ══ -->
 <div id="practiceView" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;">
-  <div class="scenario-bar" id="scenarioBar"></div>
+  <div class="scenario-bar">
+    <button class="sc-btn active" data-sc="pickup">🚦 乗車・行き先</button>
+    <button class="sc-btn" data-sc="peace">☮️ 平和公園</button>
+    <button class="sc-btn" data-sc="miyajima">⛩️ 宮島</button>
+    <button class="sc-btn" data-sc="food">🍳 お好み焼き</button>
+    <button class="sc-btn" data-sc="payment">💳 料金・支払い</button>
+    <button class="sc-btn" data-sc="trouble">⚠️ トラブル</button>
+  </div>
+
   <div id="sceneCard">
     <div class="scene-icon" id="sceneIcon">🚦</div>
     <div class="scene-info">
-      <h3 id="sceneTitle"></h3>
-      <p id="sceneDesc"></p>
+      <h3 id="sceneTitle">乗車・行き先確認</h3>
+      <p id="sceneDesc">韓国人観光客が乗車。行き先を韓国語で確認しましょう。</p>
       <div class="scene-tags">
-        <span class="tag role" id="driverTag">🚕 あなた＝ドライバー</span>
-        <span class="tag spot" id="spotTag"></span>
+        <span class="tag role">🚕 あなた＝ドライバー</span>
+        <span class="tag spot" id="spotTag">📍 広島市内</span>
       </div>
     </div>
   </div>
+
   <div id="chat">
     <div class="welcome" id="welcome">
-      <div class="big" id="welcomeEmoji">🚕</div>
-      <h2 id="welcomeTitle">ようこそ！</h2>
-      <p id="welcomeDesc"></p>
-      <div class="spot-grid" id="welcomeGrid"></div>
+      <div class="big">🇰🇷</div>
+      <h2>韓国語タクシー会話を練習しよう！</h2>
+      <p>韓国人観光客との会話を練習します。<br>ハングル・読み方・日本語がセットで表示されます。<br>🎤 マイクまたはテキスト入力で練習できます。</p>
+      <div class="spot-grid">
+        <span class="spot-tag">어서 오세요 オソ オセヨ</span>
+        <span class="spot-tag">감사합니다 カムサハムニダ</span>
+        <span class="spot-tag">알겠습니다 アルゲッスムニダ</span>
+        <span class="spot-tag">잠깐만요 チャムカンマニョ</span>
+      </div>
       <button class="start-btn" onclick="startScenario()">▶ 乗客を乗せる</button>
     </div>
   </div>
+
   <div id="phrasePanel">
-    <div class="phrase-title" id="phraseTitle">📋 フレーズ集</div>
+    <div class="phrase-title">📋 よく使う韓国語フレーズ</div>
     <div class="phrase-grid" id="phraseGrid"></div>
   </div>
+
   <div class="input-area">
     <div class="input-row">
-      <textarea id="userInput" placeholder="入力または🎤マイクで話す..."></textarea>
+      <textarea id="userInput" placeholder="🎤 韓国語で話すか、ハングルまたは読み方を入力..."></textarea>
       <div class="btn-row">
         <button class="icon-btn on" id="voiceToggle" onclick="toggleVoice()" title="読み上げON/OFF">🔊</button>
         <button class="icon-btn" id="phraseBtn" onclick="togglePhrase()" title="フレーズ集">📋</button>
@@ -272,18 +275,19 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   </div>
 </div>
 
+<!-- ══ GUIDE MODE ══ -->
 <div id="guideView">
   <div class="guide-filter" id="guideFilter">
     <button class="cat-btn active" data-cat="all">🗾 すべて</button>
     <button class="cat-btn" data-cat="history">🕊️ 歴史</button>
-    <button class="cat-btn" data-cat="nature">🌿 自然</button>
+    <button class="cat-btn" data-cat="nature">🌿 自然・島</button>
     <button class="cat-btn" data-cat="food">🍳 グルメ</button>
     <button class="cat-btn" data-cat="culture">🏯 文化</button>
-    <button class="cat-btn" data-cat="transport">🚌 移動</button>
   </div>
   <div class="spot-cards" id="spotCards"></div>
 </div>
 
+<!-- SPOT DETAIL -->
 <div id="spotDetail">
   <div class="detail-header">
     <button class="back-btn" onclick="closeDetail()">←</button>
@@ -297,331 +301,525 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 
 <script>
 // ═══════════════════════════════════════════════
-//  LANGUAGE CONFIG
+//  SCENARIO DATA
+//  各ターン: p=乗客の韓国語, read=読み方, ja=日本語訳
+//  kw=ドライバー返答のキーワード(韓国語OR読み方)
+//  sugg=[ {kor, read, ja} ] 提案フレーズ
 // ═══════════════════════════════════════════════
-let lang = 'en'; // 'en' | 'kr'
+const SC = {
 
-const LANG_CONFIG = {
-  en: {
-    headerTitle: '広島タクシー英会話',
-    headerSub: 'Hiroshima Taxi English Practice',
-    welcomeEmoji: '🚕',
-    welcomeTitle: 'ようこそ、広島へ！',
-    welcomeDesc: '外国人観光客との英会話を練習しましょう。\n🎤 マイクで話すか、テキストで入力できます。',
-    welcomeTags: ['🕊️ 原爆ドーム','⛩️ 厳島神社','🍳 お好み焼き','✈️ 広島空港','🚢 宮島フェリー','🏯 広島城'],
-    driverLabel: '🚕 Driver (You)',
-    passengerLabel: '✈️ Tourist',
-    phraseTitle: '📋 English Phrases',
-    voiceLang: 'en-US',
-    micLang: 'en-US',
-  },
-  kr: {
-    headerTitle: '広島タクシー韓国語会話',
-    headerSub: '초급 한국어 연습 — 한글・읽기・일본어',
-    welcomeEmoji: '🇰🇷',
-    welcomeTitle: '韓国語タクシー会話を練習しよう！',
-    welcomeDesc: '韓国人観光客との会話を練習します。\nハングル・読み方・日本語がセットで表示されます。',
-    welcomeTags: ['어서 오세요 オソオセヨ','알겠습니다 アルゲッスムニダ','감사합니다 カムサハムニダ','잠깐만요 チャムカンマニョ'],
-    driverLabel: '🚕 Driver (You)',
-    passengerLabel: '🇰🇷 Tourist',
-    phraseTitle: '📋 よく使う韓国語フレーズ',
-    voiceLang: 'ko-KR',
-    micLang: 'ko-KR',
-  }
-};
+pickup:{
+  icon:'🚦', title:'乗車・行き先確認', desc:'韓国人観光客が乗車。行き先を韓国語で確認しましょう。', spot:'📍 広島市内',
+  phrases:[
+    {kor:'어서 오세요!', read:'オソ オセヨ', ja:'いらっしゃいませ！'},
+    {kor:'어디로 가시겠어요?', read:'オディロ ガシゲッソヨ?', ja:'どちらへ行かれますか？'},
+    {kor:'알겠습니다', read:'アルゲッスムニダ', ja:'わかりました'},
+    {kor:'안전벨트를 매주세요', read:'アンジョンベルトゥルル メジュセヨ', ja:'シートベルトをお締めください'},
+    {kor:'약 10분 걸려요', read:'ヤク シップン コルリョヨ', ja:'約10分かかります'},
+    {kor:'잠깐만요', read:'チャムカンマニョ', ja:'少々お待ちください'},
+  ],
+  turns:[
+    {
+      p:'안녕하세요! 히로시마역까지 가주세요.',
+      read:'アンニョンハセヨ！ ヒロシマヨッカジ カジュセヨ。',
+      ja:'こんにちは！広島駅まで行ってください。',
+      kw:['알겠','알게','네','예','히로시마역','아르게','안전','벨트','분','걸'],
+      good:'✅ 잘했어요！ (チャレッソヨ) よくできました！自然な返答です。',
+      fix:'📝 Try: 「알겠습니다（アルゲッスムニダ）」= わかりました。行き先を繰り返すと◎',
+      vocab:{kor:'알겠습니다', read:'アルゲッスムニダ', ja:'わかりました。タクシーで最もよく使う返答です。'},
+      sugg:[
+        {kor:'알겠습니다! 히로시마역이죠?', read:'アルゲッスムニダ！ ヒロシマヨギジョ?', ja:'わかりました！広島駅ですね？'},
+        {kor:'네, 알겠습니다. 잠깐만요.', read:'ネ、アルゲッスムニダ。チャムカンマニョ。', ja:'はい、わかりました。少々お待ちください。'},
+        {kor:'어서 오세요! 안전벨트를 매주세요.', read:'オソ オセヨ！アンジョンベルトゥルル メジュセヨ。', ja:'いらっしゃいませ！シートベルトをお締めください。'},
+      ]
+    },
+    {
+      p:'시간이 얼마나 걸려요?',
+      read:'シガニ オルマナ コルリョヨ?',
+      ja:'時間はどのくらいかかりますか？',
+      kw:['분','걸','약','정도','한','두','세'],
+      good:'✅ 잘했어요！所要時間を韓国語で伝えられました！',
+      fix:'📝 Try: 「약 15분 걸려요（ヤク シボン コルリョヨ）」= 約15分かかります。',
+      vocab:{kor:'약 ~분 걸려요', read:'ヤク ~プン コルリョヨ', ja:'約〜分かかります。분(プン)=分、약(ヤク)=約。'},
+      sugg:[
+        {kor:'약 15분 걸려요.', read:'ヤク シボン コルリョヨ。', ja:'約15分かかります。'},
+        {kor:'10분에서 15분 정도요.', read:'シップネソ シボン チョンドヨ。', ja:'10〜15分程度です。'},
+        {kor:'막히면 조금 더 걸려요.', read:'マキミョン チョグム ト コルリョヨ。', ja:'混んでいたら少し長くなります。'},
+      ]
+    },
+    {
+      p:'감사합니다. 히로시마에 처음 왔어요.',
+      read:'カムサハムニダ。ヒロシマエ チョウム ワッソヨ。',
+      ja:'ありがとうございます。広島は初めてです。',
+      kw:['환영','오셨','처음','좋','곳','맛있','먹','볼거','추천','어서'],
+      good:'✅ 素晴らしい！歓迎の言葉が自然に言えました！',
+      fix:'📝 Try: 「환영합니다（ファニョンハムニダ）」= ようこそ。または「広島에 잘 오셨어요」',
+      vocab:{kor:'환영합니다', read:'ファニョンハムニダ', ja:'ようこそ。歓迎のときに使う丁寧な表現。'},
+      sugg:[
+        {kor:'환영합니다! 히로시마에 잘 오셨어요.', read:'ファニョンハムニダ！ヒロシマエ チャル オショッソヨ。', ja:'ようこそ！広島にようこそいらっしゃいました。'},
+        {kor:'처음이세요? 좋은 곳이 많아요!', read:'チョウミセヨ? チョウン コシ マナヨ！', ja:'初めてですか？良いところがたくさんありますよ！'},
+        {kor:'히로시마는 아주 좋은 도시예요.', read:'ヒロシマヌン アジュ チョウン トシエヨ。', ja:'広島はとても良い街ですよ。'},
+      ]
+    },
+    {
+      p:'도착했어요. 얼마예요?',
+      read:'トチャケッソヨ。オルマエヨ?',
+      ja:'到着しました。いくらですか？',
+      kw:['엔','円','원','얼마','천','백','카드','현금','영수증'],
+      good:'✅ 료금을 韓国語で伝えられました！プロのサービスです。',
+      fix:'📝 Try: 「~엔이에요（〜エニエヨ）」= 〜円です。엔(エン)=円、이에요=〜です。',
+      vocab:{kor:'~엔이에요', read:'~エニエヨ', ja:'〜円です。엔(エン)=日本円。'},
+      sugg:[
+        {kor:'1,800엔이에요.', read:'チョンパルベゲン イエヨ。', ja:'1,800円です。'},
+        {kor:'카드로 하시겠어요?', read:'カドゥロ ハシゲッソヨ?', ja:'カードでよろしいですか？'},
+        {kor:'영수증 드릴까요?', read:'ヨンスジュン トゥリルカヨ?', ja:'領収書をお渡ししましょうか？'},
+      ]
+    },
+  ]
+},
 
-// ═══════════════════════════════════════════════
-//  SCENARIO DATA — ENGLISH
-// ═══════════════════════════════════════════════
-const SC_EN = {
-peace:{icon:'☮️',title:'平和記念公園への送迎',desc:'外国人観光客を平和記念公園・原爆ドームへ案内します。',spot:'📍 中区 / 原爆ドーム近く',
-phrases:[
-  {main:"We're heading to Peace Memorial Park.",sub:''},
-  {main:"It takes about 10 minutes.",sub:''},
-  {main:"The park is free to enter.",sub:''},
-  {main:"I recommend going early in the morning.",sub:''},
-  {main:"The Atomic Bomb Dome is right next to the park.",sub:''},
-  {main:"August 6th is a very important day here.",sub:''},
-],
-turns:[
-  {p:"Hi! Can you take me to the Peace Memorial Park, please?",ja:"こんにちは！平和記念公園まで連れて行ってもらえますか？",kw:["peace","park","sure","yes","ok","no problem","of course","10","minutes","fasten"],good:"✅ Great start! Natural and friendly.",fix:'📝 Try: "Of course! It\'s about 10 minutes from here."',vocab:'💡 Peace Memorial Park = 平和記念公園。"Peace" is the key word tourists use.',sugg:[{main:"Of course! It's about 10 minutes."},{main:"Sure! Please fasten your seatbelt."},{main:"Yes! The park is not far from here."}]},
-  {p:"Is the Atomic Bomb Dome near the park?",ja:"原爆ドームは公園の近くですか？",kw:["yes","right","next","near","close","beside","walk","same"],good:"✅ Perfect! Clear and helpful.",fix:'📝 Try: "Yes, it\'s right next to the park."',vocab:'💡 Atomic Bomb Dome = 原爆ドーム。UNESCO World Heritage Site.',sugg:[{main:"Yes, it's right next to the park."},{main:"The dome is just beside the park."},{main:"They're in the same area — very close."}]},
-  {p:"What time does the Peace Museum open?",ja:"平和記念資料館は何時に開きますか？",kw:["open","8","9","morning","early","am","time"],good:"✅ Well done! Giving extra advice is great service.",fix:'📝 Try: "It opens at 8:30 AM. Go early to avoid crowds!"',vocab:'💡 "avoid crowds" = 混雑を避ける。Very useful in tourist contexts.',sugg:[{main:"It opens at 8:30 AM."},{main:"Opens at 8:30. Go early to avoid crowds!"},{main:"Usually 8:30 in the morning."}]},
-  {p:"Is there an entrance fee?",ja:"入場料はありますか？",kw:["free","charge","200","fee","ticket","pay","yen","no"],good:"✅ Excellent! Clear distinction between park and museum.",fix:'📝 Try: "The park is free, but the museum is 200 yen."',vocab:'💡 "entrance fee" = 入場料。"It\'s free of charge" = 無料です。',sugg:[{main:"The park is free, but the museum is 200 yen."},{main:"No fee for the park. Museum is 200 yen."},{main:"The park itself is free!"}]},
-  {p:"We're here! Thank you so much. This looks amazing.",ja:"到着しました！ありがとうございます。素晴らしい場所ですね。",kw:["welcome","enjoy","hope","thank","pleasure","wonderful","safe"],good:"✅ Warm and welcoming — perfect closing!",fix:'📝 Try: "You\'re welcome! Enjoy your visit."',vocab:'💡 "You\'re welcome" = どういたしまして。"My pleasure" is also great.',sugg:[{main:"You're welcome! Enjoy your visit!"},{main:"Thank you! Have a wonderful time."},{main:"You're welcome. Hiroshima is very special."}]}
-]},
-itsukushima:{icon:'⛩️',title:'宮島・厳島神社への送迎',desc:'宮島口フェリー乗り場まで。島の情報も案内できると◎',spot:'📍 廿日市市 / 宮島口',
-phrases:[{main:"We're heading to Miyajimaguchi Ferry Terminal.",sub:''},{main:"The ferry takes about 10 minutes.",sub:''},{main:"Watch out for the deer — they grab bags!",sub:''},{main:"The torii gate is beautiful at high tide.",sub:''},{main:"Hiroshima oysters are a must-try.",sub:''},{main:"It's about a 30-minute drive.",sub:''}],
-turns:[
-  {p:"Hello! Miyajima Island, please. I want to see the floating torii gate!",ja:"宮島に行ってください。浮かぶ鳥居が見たいです！",kw:["miyajima","ferry","terminal","sure","30","minutes","drive"],good:"✅ Perfect! You confirmed the destination and travel time.",fix:'📝 Try: "Sure! The ferry terminal is about 30 minutes away."',vocab:'💡 Miyajimaguchi = 宮島口（フェリー乗り場）。',sugg:[{main:"Sure! The ferry terminal is 30 minutes away."},{main:"Great choice! 30 minutes to Miyajimaguchi."},{main:"Of course! I'll take you to the ferry terminal."}]},
-  {p:"How long is the ferry ride?",ja:"フェリーはどのくらいかかりますか？",kw:["10","ten","minutes","short","quick","frequent","every","15"],good:"✅ Excellent! Giving the frequency is very helpful.",fix:'📝 Try: "About 10 minutes. Ferries run every 15 minutes."',vocab:'💡 "runs frequently" = 頻繁に運行している。',sugg:[{main:"About 10 minutes. They run every 15 minutes."},{main:"The ferry is about 10 minutes."},{main:"Very short — only 10 minutes!"}]},
-  {p:"I heard there are wild deer on the island. Is that true?",ja:"島には野生の鹿がいると聞きました。本当ですか？",kw:["yes","true","deer","roam","free","friendly","bag","watch"],good:"✅ Great! The warning about bags is very practical advice.",fix:'📝 Try: "Yes! Deer roam freely — they\'re friendly but watch your bags!"',vocab:'💡 "roam freely" = 自由に歩き回る。"Watch your belongings" = 荷物に注意して。',sugg:[{main:"Yes! Deer are everywhere. Watch your bags!"},{main:"True! Deer roam freely — they're friendly."},{main:"Yes, lots of deer! Don't feed them though."}]},
-  {p:"What food should I try on the island?",ja:"島では何を食べるべきですか？",kw:["oyster","momiji","manju","anago","eel","must","try","famous","recommend"],good:"✅ Fantastic local recommendation!",fix:'📝 Try: "Try the oysters and momiji manju! Both are local specialties."',vocab:'💡 Momiji manju = もみじ饅頭。The most famous Miyajima souvenir.',sugg:[{main:"Try the oysters — Hiroshima is famous for them!"},{main:"Momiji manju and oysters are must-tries."},{main:"Oysters are the best here!"}]},
-  {p:"We're at the terminal. What a lovely area!",ja:"到着しました！素敵なエリアですね！",kw:["enjoy","welcome","hope","wonderful","safe","tide","torii"],good:"✅ Perfect send-off with a pro tip!",fix:'📝 Try: "Enjoy! Visit at high tide for the best view of the torii gate."',vocab:'💡 High tide = 満潮。The torii gate looks magical at high tide.',sugg:[{main:"Enjoy! Visit at high tide for the best view."},{main:"Have a wonderful time on the island!"},{main:"Thank you! Enjoy Miyajima!"}]}
-]},
-airport:{icon:'✈️',title:'広島空港への送迎',desc:'広島空港まで。フライト時間と出発ターミナルを確認しましょう。',spot:'📍 三原市 / 広島空港',
-phrases:[{main:"Hiroshima Airport is about 50 minutes away.",sub:''},{main:"What time is your flight?",sub:''},{main:"We'll take the expressway.",sub:''},{main:"Which terminal — domestic or international?",sub:''},{main:"Let me put your bags in the trunk.",sub:''},{main:"You should arrive in plenty of time.",sub:''}],
-turns:[
-  {p:"Hi, I need to catch a flight. Can you take me to Hiroshima Airport?",ja:"広島空港まで連れて行ってもらえますか？",kw:["sure","50","minutes","flight","time","what","when"],good:"✅ Great! Asking about flight time shows professionalism.",fix:'📝 Try: "Sure! What time is your flight? It\'s about 50 minutes."',vocab:'💡 Always ask "What time is your flight?" first.',sugg:[{main:"Of course! What time is your flight?"},{main:"Sure! The airport is about 50 minutes away."},{main:"No problem! When is your flight?"}]},
-  {p:"My flight is at 3:15 PM. Is that enough time?",ja:"フライトは午後3時15分です。時間は十分ですか？",kw:["yes","plenty","enough","fine","expressway","highway","arrive"],good:"✅ Excellent! Giving arrival time reassures the passenger.",fix:'📝 Try: "Yes, plenty of time! We\'ll take the expressway."',vocab:'💡 "Plenty of time" = 十分な時間があります。',sugg:[{main:"Yes, plenty of time! We'll take the expressway."},{main:"You'll be there by 2:15 — one hour early."},{main:"No worries! Expressway is fast."}]},
-  {p:"Is this an international flight? Does it matter which terminal?",ja:"これは国際線です。ターミナルは関係ありますか？",kw:["yes","international","terminal","domestic","separate","different"],good:"✅ Perfect! Clear and practical.",fix:'📝 Try: "Yes, there are separate terminals. I\'ll take you to the international one."',vocab:'💡 International = 国際線、Domestic = 国内線。',sugg:[{main:"Yes, international and domestic are separate."},{main:"I'll drop you at the international entrance."},{main:"Different terminals — I'll go to international."}]},
-  {p:"Could you open the trunk? I have two large suitcases.",ja:"トランクを開けてもらえますか？大きなスーツケースが2つあります。",kw:["sure","open","help","trunk","luggage","bag","let"],good:"✅ Great! Offering to help with luggage is excellent service.",fix:'📝 Try: "Of course! I\'ll open the trunk and help you."',vocab:'💡 Trunk = トランク。"Let me help you with that" = お手伝いします。',sugg:[{main:"Of course! I'll open the trunk now."},{main:"Sure! Let me help with your luggage."},{main:"No problem! Trunk is open."}]},
-  {p:"Thank you so much! Have a good day.",ja:"本当にありがとうございました！良い一日を。",kw:["welcome","pleasure","safe","flight","trip","enjoy"],good:"✅ Warm and professional finish!",fix:'📝 Try: "You\'re welcome! Have a safe flight!"',vocab:'💡 "Have a safe flight" = 良いフライトを。空港送迎の定番フレーズ。',sugg:[{main:"Have a safe flight!"},{main:"You're welcome! Safe travels!"},{main:"Thank you! Enjoy your flight!"}]}
-]},
-station:{icon:'🚉',title:'広島駅周辺',desc:'広島駅への送迎や、駅から観光スポットへの案内。',spot:'📍 南区 / 広島駅',
-phrases:[{main:"Which exit — north or south?",sub:''},{main:"The shinkansen is on the 2nd floor.",sub:''},{main:"The tram stops right in front.",sub:''},{main:"Peace Park is about 15 minutes by tram.",sub:''},{main:"Do you have a JR Pass?",sub:''},{main:"Shall I drop you at the main entrance?",sub:''}],
-turns:[
-  {p:"Hiroshima Station, please. I need to catch a bullet train.",ja:"広島駅をお願いします。新幹線に乗らないといけません。",kw:["sure","shinkansen","bullet","floor","2nd","north","south"],good:"✅ Excellent! Giving the floor information is very helpful.",fix:'📝 Try: "Sure! The shinkansen is on the 2nd floor, north side."',vocab:'💡 Shinkansen = 新幹線 (bullet train).',sugg:[{main:"Sure! Shinkansen is on the 2nd floor."},{main:"North exit for the shinkansen!"},{main:"Of course! Which entrance do you need?"}]},
-  {p:"How far is Peace Park from the station? Can I walk?",ja:"駅から平和公園はどのくらいですか？歩けますか？",kw:["tram","streetcar","15","20","minutes","walk","far","recommend"],good:"✅ Great! Recommending the tram is the best advice.",fix:'📝 Try: "It\'s too far to walk. Take the tram — about 15 minutes."',vocab:'💡 Streetcar/Tram = 路面電車。広島市内の観光に最も便利。',sugg:[{main:"Take the tram — 15 minutes from the station."},{main:"A bit far to walk. The tram is right outside."},{main:"I recommend the tram. Very convenient."}]},
-  {p:"Do you know a good place to eat near the station?",ja:"駅の近くに良いレストランはありますか？",kw:["okonomiyaki","hiroshima","food","restaurant","2nd","floor","recommend"],good:"✅ Perfect local recommendation!",fix:'📝 Try: "Try Hiroshima okonomiyaki! Good restaurants inside the station on the 2nd floor."',vocab:'💡 Hiroshima-style okonomiyaki = 広島焼き。Layered with noodles!',sugg:[{main:"Try Hiroshima okonomiyaki in the station!"},{main:"There are restaurants on the 2nd floor inside."},{main:"Okonomiyaki is a must-try here!"}]},
-  {p:"Is Hiroshima Castle worth visiting?",ja:"広島城は訪れる価値がありますか？",kw:["yes","worth","castle","view","top","history","tram"],good:"✅ Great recommendation with practical directions!",fix:'📝 Try: "Yes! Great view from the top. Take the tram — about 10 minutes."',vocab:'💡 Hiroshima Castle was rebuilt in 1958. Great city views from the top.',sugg:[{main:"Yes! Great view from the top floor."},{main:"Definitely worth it! 10 minutes by tram."},{main:"Yes, the castle is lovely."}]},
-  {p:"We're here. Thanks for all the tips!",ja:"到着しました。色々とありがとう！",kw:["welcome","pleasure","enjoy","hiroshima","wonderful","stay"],good:"✅ Warm and natural closing!",fix:'📝 Try: "My pleasure! Enjoy Hiroshima — it\'s a wonderful city."',vocab:'💡 "My pleasure" = どういたしまして（丁寧な表現）。',sugg:[{main:"My pleasure! Enjoy Hiroshima!"},{main:"You're welcome! Have a great stay."},{main:"Enjoy your visit! Hiroshima is wonderful."}]}
-]},
-food:{icon:'🍳',title:'お好み焼き・広島グルメ',desc:'食事スポットへの送迎。広島グルメを英語で紹介してみよう！',spot:'📍 広島市内 / お好み村など',
-phrases:[{main:"Hiroshima okonomiyaki has noodles inside.",sub:''},{main:"It's different from Osaka style.",sub:''},{main:"Okonomi-mura has 24 restaurants!",sub:''},{main:"Hiroshima oysters are the best in Japan.",sub:''},{main:"Would you like a recommendation?",sub:''},{main:"It's a must-try when visiting Hiroshima!",sub:''}],
-turns:[
-  {p:"I want to try okonomiyaki! Is it really different from Osaka style?",ja:"お好み焼きを食べたいです！大阪と本当に違うのですか？",kw:["yes","different","layer","noodle","soba","mix","osaka","hiroshima"],good:"✅ Perfect explanation of the difference!",fix:'📝 Try: "Yes! Hiroshima style is layered with noodles inside. Osaka style is mixed."',vocab:'💡 Osaka = mixed together. Hiroshima = layered with noodles.',sugg:[{main:"Yes! Hiroshima style is layered with noodles."},{main:"Very different — we put noodles inside!"},{main:"Hiroshima style is layered, not mixed."}]},
-  {p:"Where is the best place to eat okonomiyaki?",ja:"お好み焼きを食べるのに最も良い場所はどこですか？",kw:["okonomi","mura","village","building","floor","24","restaurant","recommend"],good:"✅ Excellent local knowledge!",fix:'📝 Try: "Okonomi-mura is the best — a whole building with 24 restaurants!"',vocab:'💡 Okonomi-mura (お好み村) = a 6-story food complex in Naka-ku.',sugg:[{main:"Okonomi-mura is the best — 24 restaurants!"},{main:"Try Okonomi-mura in the city center."},{main:"Okonomi-mura — a whole building of okonomiyaki!"}]},
-  {p:"What else is Hiroshima famous for food-wise?",ja:"食べ物で広島が有名なものは他にありますか？",kw:["oyster","anago","eel","momiji","manju","seafood","famous","local"],good:"✅ Great! Two specific local foods with context.",fix:'📝 Try: "Oysters are huge here — 60% of Japan\'s oysters! And anago near Miyajima."',vocab:'💡 Anago (穴子) = conger eel. Anago meshi near Miyajima is a famous dish.',sugg:[{main:"Oysters! Hiroshima is Japan's #1 oyster area."},{main:"Try oysters and anago rice near Miyajima."},{main:"Oysters — 60% of Japan's supply come from here!"}]},
-  {p:"Can you recommend a good restaurant? Not too expensive.",ja:"良いレストランを勧めてもらえますか？",kw:["recommend","okonomi","mura","reasonable","budget","1000","1500","yen"],good:"✅ Perfect! Price range makes the recommendation very helpful.",fix:'📝 Try: "Okonomi-mura is great — around 1,000 to 1,500 yen per meal."',vocab:'💡 "Reasonable price" = リーズナブルな価格。',sugg:[{main:"Okonomi-mura! Around 1,000 yen per meal."},{main:"Very reasonable — about 1,000 to 1,500 yen."},{main:"Okonomi-mura is affordable and delicious!"}]},
-  {p:"We're here! I'm so hungry. This smells amazing already!",ja:"着きました！お腹が空いています。良い匂いがしますね！",kw:["enjoy","delicious","wonderful","welcome","meal","eat","love"],good:"✅ Great! Sharing enthusiasm makes it special.",fix:'📝 Try: "Enjoy! It tastes even better than it smells!"',vocab:'💡 "It smells amazing" = 良い匂いがする。',sugg:[{main:"Enjoy your meal! It's delicious!"},{main:"You'll love it! Have a great meal."},{main:"Enjoy! Hiroshima okonomiyaki is the best."}]}
-]},
-sightseeing:{icon:'🗺️',title:'市内観光案内',desc:'観光客から広島の見どころを聞かれています。',spot:'📍 広島市内 周遊',
-phrases:[{main:"I recommend starting at Peace Park.",sub:''},{main:"Hiroshima Castle is worth a visit.",sub:''},{main:"Shukkei-en Garden is beautiful.",sub:''},{main:"Orizuru Tower has an amazing view.",sub:''},{main:"How many days are you in Hiroshima?",sub:''},{main:"The tram is very convenient.",sub:''}],
-turns:[
-  {p:"I only have one day in Hiroshima. What should I see?",ja:"広島には一日しかいません。何を見るべきでしょうか？",kw:["peace","park","museum","dome","castle","miyajima","start","morning","recommend"],good:"✅ Perfect one-day itinerary!",fix:'📝 Try: "Start with Peace Park in the morning. Then Hiroshima Castle. Try Miyajima if you can!"',vocab:'💡 "I recommend starting with..." = まず〜から始めることをお勧めします。',sugg:[{main:"Start with Peace Park, then Hiroshima Castle."},{main:"Peace Park in the morning, Miyajima after!"},{main:"Must-sees: Peace Park, castle, and Miyajima."}]},
-  {p:"Is Orizuru Tower worth visiting?",ja:"おりづるタワーは訪れる価値がありますか？",kw:["yes","worth","view","city","glass","floor","crane","paper","fold"],good:"✅ Excellent! Glass floor and paper cranes are memorable details.",fix:'📝 Try: "Yes! Great view. You can fold paper cranes there — very special."',vocab:'💡 Orizuru Tower = おりづるタワー。13 floors with glass floor on top.',sugg:[{main:"Yes! Great view and glass floor — very cool."},{main:"Definitely! You can fold paper cranes there."},{main:"Yes, amazing city view from the top!"}]},
-  {p:"What is Shukkei-en Garden?",ja:"縮景園とは何ですか？",kw:["garden","japanese","traditional","beautiful","peaceful","pond","walk","relax"],good:"✅ Great description!",fix:'📝 Try: "It\'s a beautiful traditional garden with a pond. Very peaceful."',vocab:'💡 Shukkei-en (縮景園) = historic garden built in 1620.',sugg:[{main:"It's a peaceful traditional Japanese garden."},{main:"Beautiful garden with a pond — very relaxing."},{main:"Old Japanese garden, very quiet and lovely."}]},
-  {p:"How do I get around Hiroshima city?",ja:"広島市内はどうやって移動すればいいですか？",kw:["tram","streetcar","convenient","easy","ic","card","suica","pass","tourist","cheap"],good:"✅ Practical and complete answer!",fix:'📝 Try: "Take the tram! It goes to all the main spots. IC cards like Suica work."',vocab:'💡 Hiroshima tram (路面電車). Day pass = 一日乗車券 (around 700 yen).',sugg:[{main:"Take the tram — it goes everywhere."},{main:"The tram is easy and cheap. Use a day pass!"},{main:"Tram is best. IC cards work too."}]},
-  {p:"Thank you for all the great tips! I love this city already.",ja:"素晴らしいアドバイスをありがとう！もうこの街が大好きです。",kw:["welcome","glad","hope","enjoy","wonderful","special","hiroshima"],good:"✅ Warm and genuine ending!",fix:'📝 Try: "I\'m glad you like it! Hiroshima is very special. Enjoy your visit!"',vocab:'💡 "I\'m glad to hear that" = それを聞いて嬉しいです。',sugg:[{main:"I'm glad! Enjoy every moment here."},{main:"Hiroshima is special — enjoy your visit!"},{main:"Thank you! Have a wonderful time!"}]}
-]},
-payment:{icon:'💳',title:'料金・支払い',desc:'目的地に到着。料金案内と支払いをスムーズに。',spot:'📍 目的地 到着',
-phrases:[{main:"That will be 1,800 yen, please.",sub:''},{main:"We accept credit cards and IC cards.",sub:''},{main:"Here's your receipt.",sub:''},{main:"Thank you for riding with us!",sub:''},{main:"Watch your step getting out.",sub:''},{main:"Please come back to Hiroshima!",sub:''}],
-turns:[
-  {p:"Are we here already? That was quick!",ja:"もう着いたんですか？早かったですね！",kw:["yes","arrive","here","fare","yen","meter","total","cash","card"],good:"✅ Perfect! Clear fare announcement.",fix:'📝 Try: "Yes, we\'re here! The fare is 1,800 yen. Cash or card is fine."',vocab:'💡 "The fare is..." = 料金は〜です。',sugg:[{main:"Yes! The fare is 1,800 yen. Cash or card?"},{main:"We're here! That's 1,800 yen please."},{main:"Arrived! The total is 1,800 yen."}]},
-  {p:"Do you accept credit cards?",ja:"クレジットカードは使えますか？",kw:["yes","card","credit","ic","suica","visa","mastercard","accept"],good:"✅ Excellent! Listing specific card types is reassuring.",fix:'📝 Try: "Yes! Visa, Mastercard, and IC cards are all accepted."',vocab:'💡 IC cards accepted: Suica, ICOCA, Pasmo.',sugg:[{main:"Yes! Visa, Mastercard, and IC cards."},{main:"Of course! Cards and IC cards are fine."},{main:"Yes, all major cards accepted."}]},
-  {p:"Could I get a receipt, please?",ja:"領収書をもらえますか？",kw:["sure","yes","here","receipt","you go"],good:"✅ Good! Confirming the amount is professional.",fix:'📝 Try: "Sure! Here is your receipt."',vocab:'💡 Receipt = 領収書。"Here is your receipt" = こちらが領収書です。',sugg:[{main:"Of course! Here is your receipt."},{main:"Sure! Here you go."},{main:"Here's your receipt. Is the amount correct?"}]},
-  {p:"Keep the change! Thank you for the great ride.",ja:"おつりはいいですよ！素晴らしいドライブでした。",kw:["thank","appreciate","kind","welcome","pleasure","enjoy","wonderful"],good:"✅ Natural and warm finish!",fix:'📝 Try: "Thank you so much! That\'s very kind. Enjoy Hiroshima!"',vocab:'💡 "Keep the change" = おつりはいりません。',sugg:[{main:"Thank you so much! Enjoy Hiroshima!"},{main:"That's very kind! Have a great stay."},{main:"Thank you! Please come back again!"}]},
-  {p:"I'll definitely use your taxi again if I come back!",ja:"また来たときは絶対またあなたのタクシーを使います！",kw:["thank","welcome","hope","come","back","again","hiroshima","anytime"],good:"✅ Perfect warm and inviting close.",fix:'📝 Try: "I hope to see you again! Hiroshima welcomes you anytime."',vocab:'💡 "I hope to see you again" = またお会いできることを楽しみにしています。',sugg:[{main:"I hope to see you again!"},{main:"Come back to Hiroshima anytime!"},{main:"Thank you! Hiroshima welcomes you back!"}]}
-]},
-};
+peace:{
+  icon:'☮️', title:'平和記念公園への案内', desc:'平和記念公園・原爆ドームへ向かいます。韓国語で案内しましょう。', spot:'📍 中区 / 原爆ドーム近く',
+  phrases:[
+    {kor:'평화공원에 가겠습니다', read:'ピョンファゴンウォネ カゲッスムニダ', ja:'平和公園に向かいます'},
+    {kor:'약 10분 걸려요', read:'ヤク シップン コルリョヨ', ja:'約10分かかります'},
+    {kor:'입장료는 무료예요', read:'イプチャンニョヌン ムリョエヨ', ja:'入場料は無料です'},
+    {kor:'아침 일찍 가시는 게 좋아요', read:'アチム イルチク カシヌン ゲ チョアヨ', ja:'朝早く行かれるのがいいですよ'},
+    {kor:'원폭 돔은 바로 옆에 있어요', read:'ウォンポク トムン パロ ヨペ イッソヨ', ja:'原爆ドームはすぐ隣にあります'},
+  ],
+  turns:[
+    {
+      p:'평화기념공원에 데려다 주세요.',
+      read:'ピョンファキニョムゴンウォネ テリョダ ジュセヨ。',
+      ja:'平和記念公園まで連れて行ってください。',
+      kw:['알겠','네','평화','공원','분','걸','안전','벨트'],
+      good:'✅ 完璧です！目的地を確認して所要時間も伝えられました。',
+      fix:'📝 Try: 「알겠습니다. 약 10분 걸려요」= わかりました。約10分かかります。',
+      vocab:{kor:'평화기념공원', read:'ピョンファキニョムゴンウォン', ja:'平和記念公園。평화(ピョンファ)=平和、기념(キニョム)=記念。'},
+      sugg:[
+        {kor:'알겠습니다. 약 10분 걸려요.', read:'アルゲッスムニダ。ヤク シップン コルリョヨ。', ja:'わかりました。約10分かかります。'},
+        {kor:'네! 안전벨트 매주세요.', read:'ネ！アンジョンベルトゥ メジュセヨ。', ja:'はい！シートベルトをお締めください。'},
+        {kor:'평화공원이죠? 바로 가겠습니다.', read:'ピョンファゴンウォニジョ？パロ カゲッスムニダ。', ja:'平和公園ですね？すぐ向かいます。'},
+      ]
+    },
+    {
+      p:'원폭 돔이 공원 근처에 있나요?',
+      read:'ウォンポク トミ ゴンウォン クンチョエ インナヨ?',
+      ja:'原爆ドームは公園の近くにありますか？',
+      kw:['네','바로','옆','근처','있','걸어','도보','같'],
+      good:'✅ 잘했어요！場所を韓国語で説明できました！',
+      fix:'📝 Try: 「네, 바로 옆에 있어요（ネ、パロ ヨペ イッソヨ）」= はい、すぐ隣にあります。',
+      vocab:{kor:'바로 옆에 있어요', read:'パロ ヨペ イッソヨ', ja:'すぐ隣にあります。바로(パロ)=すぐ、옆(ヨプ)=隣。'},
+      sugg:[
+        {kor:'네, 바로 옆에 있어요.', read:'ネ、パロ ヨペ イッソヨ。', ja:'はい、すぐ隣にあります。'},
+        {kor:'걸어서 2분이에요.', read:'コロソ イブニエヨ。', ja:'歩いて2分です。'},
+        {kor:'같은 구역이에요.', read:'カトゥン クヨギエヨ。', ja:'同じエリアです。'},
+      ]
+    },
+    {
+      p:'입장료가 있어요?',
+      read:'イプチャンニョガ イッソヨ?',
+      ja:'入場料はありますか？',
+      kw:['무료','공원','박물관','있','엔','원'],
+      good:'✅ 公園と博物館の料金を区別して説明できました！',
+      fix:'📝 Try: 「공원은 무료예요（ゴンウォヌン ムリョエヨ）」= 公園は無料です。',
+      vocab:{kor:'무료예요', read:'ムリョエヨ', ja:'無料です。무료(ムリョ)=無料。反対は유료(ユリョ)=有料。'},
+      sugg:[
+        {kor:'공원은 무료예요.', read:'ゴンウォヌン ムリョエヨ。', ja:'公園は無料です。'},
+        {kor:'박물관은 200엔이에요.', read:'バンムルグァヌン イベゲン イエヨ。', ja:'博物館は200円です。'},
+        {kor:'공원은 무료, 박물관은 200엔이에요.', read:'ゴンウォヌン ムリョ、パンムルグァヌン イベゲン イエヨ。', ja:'公園は無料、博物館は200円です。'},
+      ]
+    },
+    {
+      p:'다 왔어요? 감사합니다!',
+      read:'タ ワッソヨ? カムサハムニダ！',
+      ja:'着きましたか？ありがとうございます！',
+      kw:['천만에','아니에요','좋은','관람','즐겁','히로시마','시간','보내'],
+      good:'✅ 温かいお見送りができました！素晴らしいサービスです。',
+      fix:'📝 Try: 「천만에요（チョンマネヨ）」= どういたしまして。または「즐거운 관람 되세요！」',
+      vocab:{kor:'천만에요', read:'チョンマネヨ', ja:'どういたしまして。「감사합니다」へのお返しの定番フレーズ。'},
+      sugg:[
+        {kor:'천만에요! 즐거운 관람 되세요!', read:'チョンマネヨ！チュルゴウン グァルラム テセヨ！', ja:'どういたしまして！楽しい見学を！'},
+        {kor:'좋은 시간 보내세요!', read:'チョウン シガン ポネセヨ！', ja:'良い時間をお過ごしください！'},
+        {kor:'히로시마를 즐겨 주세요!', read:'ヒロシマルル チュルギョ ジュセヨ！', ja:'広島を楽しんでください！'},
+      ]
+    },
+  ]
+},
 
-// ═══════════════════════════════════════════════
-//  SCENARIO DATA — KOREAN
-// ═══════════════════════════════════════════════
-const SC_KR = {
-pickup:{icon:'🚦',title:'乗車・行き先確認',desc:'韓国人観光客が乗車。行き先を韓国語で確認しましょう。',spot:'📍 広島市内',
-phrases:[
-  {main:'어서 오세요!',sub:'オソ オセヨ — いらっしゃいませ！'},
-  {main:'어디로 가시겠어요?',sub:'オディロ ガシゲッソヨ? — どちらへ？'},
-  {main:'알겠습니다',sub:'アルゲッスムニダ — わかりました'},
-  {main:'안전벨트를 매주세요',sub:'アンジョンベルトゥルル メジュセヨ — シートベルトを'},
-  {main:'약 10분 걸려요',sub:'ヤク シップン コルリョヨ — 約10分'},
-  {main:'잠깐만요',sub:'チャムカンマニョ — 少々お待ちください'},
-],
-turns:[
-  {p:'안녕하세요! 히로시마역까지 가주세요.',read:'アンニョンハセヨ！ヒロシマヨッカジ カジュセヨ。',ja:'こんにちは！広島駅まで行ってください。',kw:['알겠','네','예','히로시마역','안전','벨트','분','걸'],good:'✅ 잘했어요！よくできました！自然な返答です。',fix:'📝 Try: 「알겠습니다（アルゲッスムニダ）」= わかりました',vocab:{kor:'알겠습니다',read:'アルゲッスムニダ',ja:'わかりました。タクシーで最もよく使う返答。'},sugg:[{kor:'알겠습니다! 히로시마역이죠?',read:'アルゲッスムニダ！ヒロシマヨギジョ?',ja:'わかりました！広島駅ですね？'},{kor:'네, 알겠습니다. 잠깐만요.',read:'ネ、アルゲッスムニダ。チャムカンマニョ。',ja:'はい、わかりました。少々お待ちください。'},{kor:'어서 오세요! 안전벨트를 매주세요.',read:'オソ オセヨ！アンジョンベルトゥルル メジュセヨ。',ja:'いらっしゃいませ！シートベルトをお締めください。'}]},
-  {p:'시간이 얼마나 걸려요?',read:'シガニ オルマナ コルリョヨ?',ja:'時間はどのくらいかかりますか？',kw:['분','걸','약','정도','한','두','세','시'],good:'✅ 잘했어요！所要時間を韓国語で伝えられました！',fix:'📝 Try: 「약 15분 걸려요（ヤク シボブン コルリョヨ）」= 約15分かかります。',vocab:{kor:'약 ~분 걸려요',read:'ヤク ~プン コルリョヨ',ja:'約〜分かかります。분(プン)=分、약(ヤク)=約。'},sugg:[{kor:'약 15분 걸려요.',read:'ヤク シボブン コルリョヨ。',ja:'約15分かかります。'},{kor:'10분에서 15분 정도요.',read:'シップネソ シボブン チョンドヨ。',ja:'10〜15分程度です。'},{kor:'막히면 조금 더 걸려요.',read:'マキミョン チョグム ト コルリョヨ。',ja:'混んでいたら少し長くなります。'}]},
-  {p:'감사합니다. 히로시마에 처음 왔어요.',read:'カムサハムニダ。ヒロシマエ チョウム ワッソヨ。',ja:'ありがとうございます。広島は初めてです。',kw:['환영','오셨','처음','좋','곳','맛있','먹','볼거','추천','어서'],good:'✅ 歓迎の言葉が自然に言えました！',fix:'📝 Try: 「환영합니다（ファニョンハムニダ）」= ようこそ。',vocab:{kor:'환영합니다',read:'ファニョンハムニダ',ja:'ようこそ。歓迎のときに使う丁寧な表現。'},sugg:[{kor:'환영합니다! 히로시마에 잘 오셨어요.',read:'ファニョンハムニダ！ヒロシマエ チャル オショッソヨ。',ja:'ようこそ！広島にようこそいらっしゃいました。'},{kor:'처음이세요? 좋은 곳이 많아요!',read:'チョウミセヨ? チョウン コシ マナヨ！',ja:'初めてですか？良いところがたくさんありますよ！'},{kor:'히로시마는 아주 좋은 도시예요.',read:'ヒロシマヌン アジュ チョウン トシエヨ。',ja:'広島はとても良い街ですよ。'}]},
-  {p:'도착했어요. 얼마예요?',read:'トチャケッソヨ。オルマエヨ?',ja:'到着しました。いくらですか？',kw:['엔','원','얼마','천','백','카드','현금','영수증'],good:'✅ 료금を韓国語で伝えられました！',fix:'📝 Try: 「~엔이에요（〜エニエヨ）」= 〜円です。',vocab:{kor:'~엔이에요',read:'~エニエヨ',ja:'〜円です。엔(エン)=日本円。'},sugg:[{kor:'1,800엔이에요.',read:'チョンパルベゲン イエヨ。',ja:'1,800円です。'},{kor:'카드로 하시겠어요?',read:'カドゥロ ハシゲッソヨ?',ja:'カードでよろしいですか？'},{kor:'영수증 드릴까요?',read:'ヨンスジュン トゥリルカヨ?',ja:'領収書をお渡ししましょうか？'}]}
-]},
-peace:{icon:'☮️',title:'平和記念公園への案内',desc:'平和記念公園・原爆ドームへ向かいます。韓国語で案内しましょう。',spot:'📍 中区 / 原爆ドーム近く',
-phrases:[
-  {main:'평화공원에 가겠습니다',sub:'ピョンファゴンウォネ カゲッスムニダ — 平和公園に向かいます'},
-  {main:'입장료는 무료예요',sub:'イプチャンニョヌン ムリョエヨ — 入場料は無料です'},
-  {main:'원폭 돔은 바로 옆에 있어요',sub:'ウォンポク トムン パロ ヨペ イッソヨ — 原爆ドームはすぐ隣'},
-  {main:'아침 일찍 가시는 게 좋아요',sub:'アチム イルチク カシヌン ゲ チョアヨ — 朝早く行くのが◎'},
-  {main:'약 10분 걸려요',sub:'ヤク シップン コルリョヨ — 約10分かかります'},
-],
-turns:[
-  {p:'평화기념공원에 데려다 주세요.',read:'ピョンファキニョムゴンウォネ テリョダ ジュセヨ。',ja:'平和記念公園まで連れて行ってください。',kw:['알겠','네','평화','공원','분','걸','안전','벨트'],good:'✅ 完璧です！目的地確認と所要時間が伝えられました。',fix:'📝 Try: 「알겠습니다. 약 10분 걸려요」= わかりました。約10分かかります。',vocab:{kor:'평화기념공원',read:'ピョンファキニョムゴンウォン',ja:'平和記念公園。평화(平和)・기념(記念)。'},sugg:[{kor:'알겠습니다. 약 10분 걸려요.',read:'アルゲッスムニダ。ヤク シップン コルリョヨ。',ja:'わかりました。約10分かかります。'},{kor:'네! 안전벨트 매주세요.',read:'ネ！アンジョンベルトゥ メジュセヨ。',ja:'はい！シートベルトをお締めください。'},{kor:'평화공원이죠? 바로 가겠습니다.',read:'ピョンファゴンウォニジョ？パロ カゲッスムニダ。',ja:'平和公園ですね？すぐ向かいます。'}]},
-  {p:'원폭 돔이 공원 근처에 있나요?',read:'ウォンポク トミ ゴンウォン クンチョエ インナヨ?',ja:'原爆ドームは公園の近くにありますか？',kw:['네','바로','옆','근처','있','걸어','도보','같'],good:'✅ 잘했어요！場所を韓国語で説明できました！',fix:'📝 Try: 「네, 바로 옆에 있어요（ネ、パロ ヨペ イッソヨ）」= はい、すぐ隣にあります。',vocab:{kor:'바로 옆에 있어요',read:'パロ ヨペ イッソヨ',ja:'すぐ隣にあります。바로(パロ)=すぐ、옆(ヨプ)=隣。'},sugg:[{kor:'네, 바로 옆에 있어요.',read:'ネ、パロ ヨペ イッソヨ。',ja:'はい、すぐ隣にあります。'},{kor:'걸어서 2분이에요.',read:'コロソ イブニエヨ。',ja:'歩いて2分です。'},{kor:'같은 구역이에요.',read:'カトゥン クヨギエヨ。',ja:'同じエリアです。'}]},
-  {p:'입장료가 있어요?',read:'イプチャンニョガ イッソヨ?',ja:'入場料はありますか？',kw:['무료','공원','박물관','있','엔','원'],good:'✅ 公園と博物館の料金を区別して説明できました！',fix:'📝 Try: 「공원은 무료예요（ゴンウォヌン ムリョエヨ）」= 公園は無料です。',vocab:{kor:'무료예요',read:'ムリョエヨ',ja:'無料です。무료(ムリョ)=無料。反対は유료(ユリョ)=有料。'},sugg:[{kor:'공원은 무료예요.',read:'ゴンウォヌン ムリョエヨ。',ja:'公園は無料です。'},{kor:'박물관은 200엔이에요.',read:'パンムルグァヌン イベゲン イエヨ。',ja:'博物館は200円です。'},{kor:'공원은 무료, 박물관은 200엔이에요.',read:'ゴンウォヌン ムリョ、パンムルグァヌン イベゲン イエヨ。',ja:'公園は無料、博物館は200円です。'}]},
-  {p:'다 왔어요? 감사합니다!',read:'タ ワッソヨ? カムサハムニダ！',ja:'着きましたか？ありがとうございます！',kw:['천만에','아니에요','좋은','관람','즐겁','히로시마','시간','보내'],good:'✅ 温かいお見送りができました！',fix:'📝 Try: 「천만에요（チョンマネヨ）！즐거운 관람 되세요！」',vocab:{kor:'천만에요',read:'チョンマネヨ',ja:'どういたしまして。「감사합니다」へのお返しの定番。'},sugg:[{kor:'천만에요! 즐거운 관람 되세요!',read:'チョンマネヨ！チュルゴウン グァルラム テセヨ！',ja:'どういたしまして！楽しい見学を！'},{kor:'좋은 시간 보내세요!',read:'チョウン シガン ポネセヨ！',ja:'良い時間をお過ごしください！'},{kor:'히로시마를 즐겨 주세요!',read:'ヒロシマルル チュルギョ ジュセヨ！',ja:'広島を楽しんでください！'}]}
-]},
-miyajima:{icon:'⛩️',title:'宮島・厳島神社への案内',desc:'宮島口フェリー乗り場まで。韓国語で宮島を紹介しましょう。',spot:'📍 廿日市市 / 宮島口',
-phrases:[
-  {main:'미야지마구치로 가겠습니다',sub:'ミヤジマグチロ カゲッスムニダ — 宮島口に向かいます'},
-  {main:'페리로 약 10분이에요',sub:'ペリロ ヤク シップニエヨ — フェリーで約10分'},
-  {main:'사슴이 자유롭게 돌아다녀요',sub:'サスミ チャユロプケ トラダニョヨ — 鹿が自由に歩き回っています'},
-  {main:'굴이 유명해요',sub:'クリ ユミョンヘヨ — 牡蠣が有名です'},
-  {main:'만조 때가 제일 아름다워요',sub:'マンジョ テガ チェイル アルムダウォヨ — 満潮が一番美しい'},
-],
-turns:[
-  {p:'미야지마 섬에 가고 싶어요. 도리이가 보고 싶어요!',read:'ミヤジマ ソメ カゴ シポヨ。トリイガ ポゴ シポヨ！',ja:'宮島に行きたいです。鳥居が見たいです！',kw:['미야지마','페리','터미널','분','걸','알겠','가겠'],good:'✅ 目的地とフェリー乗り場への案内が完璧です！',fix:'📝 Try: 「미야지마구치까지 약 30분이에요」',vocab:{kor:'페리 터미널',read:'ペリ トミノル',ja:'フェリー乗り場。페리(ペリ)=フェリー。'},sugg:[{kor:'미야지마구치까지 약 30분이에요.',read:'ミヤジマグチカジ ヤク サムシップニエヨ。',ja:'宮島口まで約30分です。'},{kor:'알겠습니다! 페리 터미널까지 가겠습니다.',read:'アルゲッスムニダ！ペリ トミノルカジ カゲッスムニダ。',ja:'わかりました！フェリー乗り場まで向かいます。'},{kor:'좋은 선택이에요! 아름다운 곳이에요.',read:'チョウン ソンテギエヨ！アルムダウン コシエヨ。',ja:'良い選択です！美しいところですよ。'}]},
-  {p:'섬에 사슴이 정말 있어요?',read:'ソメ サスミ チョンマル イッソヨ?',ja:'島に鹿は本当にいますか？',kw:['네','있','사슴','자유','돌아','가방','조심','먹이'],good:'✅ 鹿の情報を韓国語で伝えられました！',fix:'📝 Try: 「네! 사슴이 자유롭게 돌아다녀요」',vocab:{kor:'사슴',read:'サスム',ja:'鹿。가방 조심하세요(カバン チョシムハセヨ)=カバンに注意して。'},sugg:[{kor:'네! 사슴이 자유롭게 돌아다녀요.',read:'ネ！サスミ チャユロプケ トラダニョヨ。',ja:'はい！鹿が自由に歩き回っています。'},{kor:'가방 조심하세요!',read:'カバン チョシムハセヨ！',ja:'カバンに気をつけてください！'},{kor:'먹이를 주면 안 돼요.',read:'モギルル ジュミョン アン テヨ。',ja:'餌をあげてはいけません。'}]},
-  {p:'섬에서 무슨 음식을 먹어야 해요?',read:'ソメソ ムスン ウムシグル モゴヤ ヘヨ?',ja:'島では何の食べ物を食べなければなりませんか？',kw:['굴','모미지','만쥬','아나고','해산물','유명','맛있','꼭'],good:'✅ 地元グルメを韓国語で紹介できました！',fix:'📝 Try: 「굴이 유명해요（クリ ユミョンヘヨ）꼭 드세요！」',vocab:{kor:'꼭 드세요!',read:'コク トゥセヨ！',ja:'ぜひ食べてください！꼭=必ず、드세요=召し上がって。'},sugg:[{kor:'굴이 유명해요! 꼭 드세요.',read:'クリ ユミョンヘヨ！コク トゥセヨ。',ja:'牡蠣が有名です！ぜひ食べてください。'},{kor:'모미지만쥬도 맛있어요.',read:'モミジマンジュド マシッソヨ。',ja:'もみじ饅頭も美味しいですよ。'},{kor:'굴하고 모미지만쥬가 유명해요.',read:'クラゴ モミジマンジュガ ユミョンヘヨ。',ja:'牡蠣ともみじ饅頭が有名です。'}]},
-  {p:'터미널 도착했어요. 고마워요!',read:'トミノル トチャケッソヨ。コマウォヨ！',ja:'ターミナルに到着しました。ありがとう！',kw:['천만에','아니에요','좋은','즐','만조','도리이','아름','히로시마'],good:'✅ 温かい見送りができました！',fix:'📝 Try: 「만조 때 도리이가 아름다워요」= 満潮の時の鳥居が美しい。',vocab:{kor:'만조',read:'マンジョ',ja:'満潮。반조(バンジョ)=干潮。'},sugg:[{kor:'천만에요! 만조 때 도리이가 아름다워요.',read:'チョンマネヨ！マンジョ テ トリイガ アルムダウォヨ。',ja:'どういたしまして！満潮の時の鳥居が美しいです。'},{kor:'즐거운 여행 하세요!',read:'チュルゴウン ヨヘン ハセヨ！',ja:'楽しい旅行を！'},{kor:'히로시마를 즐겨 주세요!',read:'ヒロシマルル チュルギョ ジュセヨ！',ja:'広島を楽しんでください！'}]}
-]},
-food:{icon:'🍳',title:'お好み焼き・広島グルメ',desc:'食事スポットへの送迎。広島グルメを韓国語で紹介しましょう。',spot:'📍 広島市内 / お好み村',
-phrases:[
-  {main:'오코노미야키가 유명해요',sub:'オコノミヤキガ ユミョンヘヨ — お好み焼きが有名です'},
-  {main:'오사카랑 달라요',sub:'オサカラン タルラヨ — 大阪と違います'},
-  {main:'면이 들어가요',sub:'ミョニ トゥロガヨ — 麺が入ります'},
-  {main:'1,000엔에서 1,500엔 정도예요',sub:'チョネソ チョノペゲン チョンドエヨ'},
-  {main:'꼭 드셔 보세요!',sub:'コク トゥショ ボセヨ！— ぜひ食べてみてください！'},
-],
-turns:[
-  {p:'오코노미야키가 뭐예요? 먹어봐도 돼요?',read:'オコノミヤキガ ムォエヨ? モゴパド テヨ?',ja:'お好み焼きって何ですか？食べてもいいですか？',kw:['유명','면','밀가루','오사카','달라','히로시마','오코노미야키'],good:'✅ お好み焼きを韓国語で説明できました！',fix:'📝 Try: 「히로시마 오코노미야키는 면이 들어가요」',vocab:{kor:'면이 들어가요',read:'ミョニ トゥロガヨ',ja:'麺が入ります。면(ミョン)=麺、들어가요=入ります。'},sugg:[{kor:'히로시마 오코노미야키는 면이 들어가요!',read:'ヒロシマ オコノミヤキヌン ミョニ トゥロガヨ！',ja:'広島のお好み焼きには麺が入ります！'},{kor:'오사카랑 달라요. 층층이 쌓아요.',read:'オサカラン タルラヨ。チュンチュンイ サアヨ。',ja:'大阪と違います。層に重ねます。'},{kor:'광장히 맛있어요! 꼭 드세요.',read:'グァンジャンヒ マシッソヨ！コク トゥセヨ。',ja:'すごく美味しいですよ！ぜひ食べてください。'}]},
-  {p:'어디서 먹는 게 좋아요?',read:'オディソ モンヌン ゲ チョアヨ?',ja:'どこで食べるのがいいですか？',kw:['오코노미무라','무라','빌딩','가게','곳','추천','시내'],good:'✅ お好み村を紹介できました！',fix:'📝 Try: 「오코노미무라가 유명해요」= お好み村が有名です。',vocab:{kor:'오코노미무라',read:'オコノミムラ',ja:'お好み村。6階建てに24店舗！'},sugg:[{kor:'오코노미무라가 유명해요!',read:'オコノミムラガ ユミョンヘヨ！',ja:'お好み村が有名です！'},{kor:'6층 빌딩에 24개 가게가 있어요.',read:'ユクチュン ビルディンエ イシプサゲ カゲガ イッソヨ。',ja:'6階のビルに24店舗あります。'},{kor:'오코노미무라에 데려다 드릴까요?',read:'オコノミムラエ テリョダ トゥリルカヨ?',ja:'お好み村までお連れしましょうか？'}]},
-  {p:'얼마예요? 비싸요?',read:'オルマエヨ? ビッサヨ?',ja:'いくらですか？高いですか？',kw:['엔','원','천','백','정도','비싸지','저렴','싸','합리'],good:'✅ 価格を韓国語で伝えられました！',fix:'📝 Try: 「1,000엔에서 1,500엔 정도예요」',vocab:{kor:'비싸지 않아요',read:'ビッサジ アナヨ',ja:'高くないです。비싸다=高い、지 않아요=〜ではない。'},sugg:[{kor:'1,000엔에서 1,500엔 정도예요.',read:'チョネソ チョノペゲン チョンドエヨ。',ja:'1,000円から1,500円程度です。'},{kor:'비싸지 않아요! 맛도 있어요.',read:'ビッサジ アナヨ！マッド イッソヨ。',ja:'高くないです！美味しいですよ。'},{kor:'합리적인 가격이에요.',read:'ハムニジョギン カギョギエヨ。',ja:'リーズナブルな価格です。'}]},
-  {p:'다 왔어요! 냄새가 좋아요!',read:'タ ワッソヨ！ネムセガ チョアヨ！',ja:'着きました！いい匂いがします！',kw:['맛있','즐','드세요','맛','좋아하','히로시마'],good:'✅ 乗客の期待を高める一言が言えました！',fix:'📝 Try: 「맛있게 드세요（マシッケ トゥセヨ）！」',vocab:{kor:'맛있게 드세요!',read:'マシッケ トゥセヨ！',ja:'おいしく食べてください！食事の見送りの定番フレーズ。'},sugg:[{kor:'맛있게 드세요!',read:'マシッケ トゥセヨ！',ja:'おいしく食べてください！'},{kor:'히로시마 오코노미야키는 최고예요!',read:'ヒロシマ オコノミヤキヌン チェゴエヨ！',ja:'広島のお好み焼きは最高です！'},{kor:'즐거운 식사 하세요!',read:'チュルゴウン シクサ ハセヨ！',ja:'楽しいお食事を！'}]}
-]},
-payment:{icon:'💳',title:'料金・支払い',desc:'目的地に到着。料金と支払いを韓国語でスムーズに。',spot:'📍 目的地 到着',
-phrases:[
-  {main:'요금은 ~엔이에요',sub:'ヨグムン ~エニエヨ — 料金は〜円です'},
-  {main:'카드 되세요?',sub:'カドゥ テセヨ? — カードは使えますか？'},
-  {main:'영수증 드릴까요?',sub:'ヨンスジュン トゥリルカヨ? — 領収書をお渡ししましょうか？'},
-  {main:'감사합니다! 또 오세요',sub:'カムサハムニダ！ット オセヨ — またお越しください'},
-  {main:'발 조심하세요',sub:'パル チョシムハセヨ — 足元に気をつけて'},
-],
-turns:[
-  {p:'여기예요? 빨랐네요!',read:'ヨギエヨ? パルランネヨ！',ja:'ここですか？早かったですね！',kw:['요금','엔','천','현금','카드','네','도착','맞'],good:'✅ 料金を明確に韓国語で伝えられました！',fix:'📝 Try: 「요금은 1,800엔이에요（ヨグムン チョンパルベゲン イエヨ）」',vocab:{kor:'요금',read:'ヨグム',ja:'料金。도착했습니다(トチャケッスムニダ)=到着しました。'},sugg:[{kor:'요금은 1,800엔이에요.',read:'ヨグムン チョンパルベゲン イエヨ。',ja:'料金は1,800円です。'},{kor:'현금이에요, 카드예요?',read:'ヒョングミエヨ、カドゥエヨ?',ja:'現金ですか、カードですか？'},{kor:'네, 도착했습니다!',read:'ネ、トチャケッスムニダ！',ja:'はい、到着しました！'}]},
-  {p:'카드 돼요?',read:'カドゥ テヨ?',ja:'カードは使えますか？',kw:['네','카드','가능','돼','됩니다','비자','마스터','아이씨'],good:'✅ カードOKを韓国語で伝えられました！',fix:'📝 Try: 「네, 카드 됩니다（ネ、カドゥ テムニダ）」',vocab:{kor:'카드 됩니다',read:'カドゥ テムニダ',ja:'カードが使えます。됩니다=できます。'},sugg:[{kor:'네, 카드 됩니다!',read:'ネ、カドゥ テムニダ！',ja:'はい、カードが使えます！'},{kor:'비자, 마스터카드 다 됩니다.',read:'ビジャ、マストゥカドゥ タ テムニダ。',ja:'ビザ、マスターカードどちらも使えます。'},{kor:'IC카드도 됩니다.',read:'アイシー カドゥド テムニダ。',ja:'ICカードも使えます。'}]},
-  {p:'영수증 주세요.',read:'ヨンスジュン ジュセヨ。',ja:'領収書をください。',kw:['네','영수증','드리','드릴게','줄게','잠깐'],good:'✅ 領収書をスムーズに渡せました！',fix:'📝 Try: 「네, 영수증 드릴게요（ネ、ヨンスジュン トゥリルゲヨ）」',vocab:{kor:'영수증',read:'ヨンスジュン',ja:'領収書。드릴게요=お渡しします。'},sugg:[{kor:'네, 영수증 드릴게요.',read:'ネ、ヨンスジュン トゥリルゲヨ。',ja:'はい、領収書をお渡しします。'},{kor:'잠깐만요, 바로 드릴게요.',read:'チャムカンマニョ、パロ トゥリルゲヨ。',ja:'少々お待ちください、すぐお渡しします。'},{kor:'여기 있습니다.',read:'ヨギ イッスムニダ。',ja:'こちらです。'}]},
-  {p:'감사합니다! 히로시마 정말 좋아요!',read:'カムサハムニダ！ヒロシマ チョンマル チョアヨ！',ja:'ありがとうございます！広島、本当に好きです！',kw:['천만에','기쁘','좋아','또','다시','히로시마','오세요','즐'],good:'✅ 完璧な見送りができました！',fix:'📝 Try: 「또 오세요（ット オセヨ）！」= またお越しください！',vocab:{kor:'또 오세요!',read:'ット オセヨ！',ja:'またお越しください！別れ際の定番フレーズ。'},sugg:[{kor:'감사합니다! 또 오세요!',read:'カムサハムニダ！ット オセヨ！',ja:'ありがとうございます！またお越しください！'},{kor:'기뻐요! 히로시마를 즐겨 주세요!',read:'キッポヨ！ヒロシマルル チュルギョ ジュセヨ！',ja:'嬉しいです！広島を楽しんでください！'},{kor:'다음에 또 만나요!',read:'タウメ ット マンナヨ！',ja:'また次回会いましょう！'}]}
-]},
-trouble:{icon:'⚠️',title:'トラブル対応',desc:'問題が起きたとき、韓国語で落ち着いて対応しましょう。',spot:'📍 車内',
-phrases:[
-  {main:'죄송합니다',sub:'チェソンハムニダ — 申し訳ありません'},
-  {main:'다른 길로 가겠습니다',sub:'タルン キルロ カゲッスムニダ — 別の道で行きます'},
-  {main:'길이 막혀요',sub:'キリ マキョヨ — 道が渋滞しています'},
-  {main:'잠깐만 기다려 주세요',sub:'チャムカンマン キダリョ ジュセヨ — 少々お待ちください'},
-  {main:'뭔가 두고 가셨어요?',sub:'ムォンガ トゥゴ カショッソヨ? — 忘れ物はありますか？'},
-],
-turns:[
-  {p:'왜 이렇게 막혀요? 시간이 없어요!',read:'ウェ イロケ マキョヨ? シガニ オプソヨ！',ja:'なぜこんなに渋滞してるの？時間がありません！',kw:['죄송','막혀','다른','길','돌아','빨리','최대한','노력'],good:'✅ 落ち着いて対応できました！謝罪と代替案がセットで◎',fix:'📝 Try: 「죄송합니다。다른 길로 가겠습니다」',vocab:{kor:'다른 길로 가겠습니다',read:'タルン キルロ カゲッスムニダ',ja:'別の道で行きます。トラブル時の重要フレーズ。'},sugg:[{kor:'죄송합니다. 다른 길로 가겠습니다.',read:'チェソンハムニダ。タルン キルロ カゲッスムニダ。',ja:'申し訳ありません。別の道で行きます。'},{kor:'최대한 빨리 가겠습니다.',read:'チェデハン パルリ カゲッスムニダ。',ja:'できるだけ急ぎます。'},{kor:'죄송합니다. 최대한 노력하겠습니다.',read:'チェソンハムニダ。チェデハン ノリョカゲッスムニダ。',ja:'申し訳ありません。最善を尽くします。'}]},
-  {p:'주소를 모르겠어요. 어떻게 해요?',read:'チュソルル モルゲッソヨ。オトッケ ヘヨ?',ja:'住所がわかりません。どうしたらいいですか？',kw:['네','괜찮아','지도','앱','보여','알려','휴대폰','스마트폰','찾','도와'],good:'✅ 地図アプリで住所を一緒に探すアプローチが完璧です！',fix:'📝 Try: 「지도 앱으로 찾아볼까요?（チド エプロ チャジャボルカヨ?）」',vocab:{kor:'지도 앱으로 찾아볼까요?',read:'チド エプロ チャジャボルカヨ?',ja:'地図アプリで探してみましょうか？'},sugg:[{kor:'지도 앱으로 찾아볼까요?',read:'チド エプロ チャジャボルカヨ?',ja:'地図アプリで探してみましょうか？'},{kor:'스마트폰 보여 주세요.',read:'スマトゥポン ポヨ ジュセヨ。',ja:'スマートフォンを見せてください。'},{kor:'같이 찾아볼게요.',read:'カチ チャジャボルゲヨ。',ja:'一緒に探してみます。'}]},
-  {p:'차 안에 지갑을 두고 내렸어요!',read:'チャ アネ チガブル トゥゴ ネリョッソヨ！',ja:'車の中に財布を忘れて降りました！',kw:['네','있','확인','잠깐','기다려','열','찾','드릴','걱정'],good:'✅ 素早く確認して安心させることができました！',fix:'📝 Try: 「잠깐만요, 확인해 볼게요（チャムカンマニョ、ファギンヘ ボルゲヨ）」',vocab:{kor:'잠깐만요, 확인해 볼게요',read:'チャムカンマニョ、ファギンヘ ボルゲヨ',ja:'少々お待ちください、確認してみます。'},sugg:[{kor:'잠깐만요, 확인해 볼게요!',read:'チャムカンマニョ、ファギンヘ ボルゲヨ！',ja:'少々お待ちください、確認してみます！'},{kor:'걱정 마세요. 찾아 드릴게요.',read:'コクチョン マセヨ。チャジャ トゥリルゲヨ。',ja:'ご心配なく。探してお届けします。'},{kor:'있어요! 여기 지갑이에요.',read:'イッソヨ！ヨギ チガビエヨ。',ja:'あります！こちらが財布です。'}]},
-  {p:'정말 도움이 됐어요. 고마워요!',read:'チョンマル トウミ テッソヨ。コマウォヨ！',ja:'本当に助かりました。ありがとう！',kw:['천만에','아니에요','기쁘','도움','괜찮아','별말씀','편하','언제든'],good:'✅ 優しく心強い見送りができました！',fix:'📝 Try: 「별말씀을요（ピョルマルスムルヨ）！」= とんでもないです。',vocab:{kor:'별말씀을요',read:'ピョルマルスムルヨ',ja:'いいえ、とんでもございません。丁寧な謙遜表現。'},sugg:[{kor:'별말씀을요! 괜찮으세요?',read:'ピョルマルスムルヨ！クェンチャヌセヨ?',ja:'とんでもないです！大丈夫ですか？'},{kor:'도움이 돼서 기뻐요!',read:'トウミ テソ キッポヨ！',ja:'お役に立てて嬉しいです！'},{kor:'언제든지 이용해 주세요.',read:'オンジェドゥンジ イヨンヘ ジュセヨ。',ja:'いつでもご利用ください。'}]}
-]},
+miyajima:{
+  icon:'⛩️', title:'宮島・厳島神社への案内', desc:'宮島口フェリー乗り場まで。韓国語で宮島を紹介しましょう。', spot:'📍 廿日市市 / 宮島口',
+  phrases:[
+    {kor:'미야지마구치로 가겠습니다', read:'ミヤジマグチロ カゲッスムニダ', ja:'宮島口に向かいます'},
+    {kor:'페리로 약 10분이에요', read:'ペリロ ヤク シップニエヨ', ja:'フェリーで約10分です'},
+    {kor:'사슴이 자유롭게 돌아다녀요', read:'サスミ チャユロプケ トラダニョヨ', ja:'鹿が自由に歩き回っています'},
+    {kor:'굴이 유명해요', read:'クリ ユミョンヘヨ', ja:'牡蠣が有名です'},
+    {kor:'만조 때가 제일 아름다워요', read:'マンジョ テガ チェイル アルムダウォヨ', ja:'満潮の時が一番美しいです'},
+  ],
+  turns:[
+    {
+      p:'미야지마 섬에 가고 싶어요. 도리이가 보고 싶어요!',
+      read:'ミヤジマ ソメ カゴ シポヨ。トリイガ ポゴ シポヨ！',
+      ja:'宮島島に行きたいです。鳥居が見たいです！',
+      kw:['미야지마','페리','페리 터미널','분','걸','알겠','가겠'],
+      good:'✅ 目的地とフェリー乗り場への案内が完璧です！',
+      fix:'📝 Try: 「미야지마구치까지 약 30분이에요（ミヤジマグチカジ ヤク サムシップニエヨ）」',
+      vocab:{kor:'페리 터미널', read:'ペリ トミノル', ja:'フェリー乗り場。페리(ペリ)=フェリー、터미널(トミノル)=ターミナル。'},
+      sugg:[
+        {kor:'미야지마구치까지 약 30분이에요.', read:'ミヤジマグチカジ ヤク サムシップニエヨ。', ja:'宮島口まで約30分です。'},
+        {kor:'알겠습니다! 페리 터미널까지 가겠습니다.', read:'アルゲッスムニダ！ペリ トミノルカジ カゲッスムニダ。', ja:'わかりました！フェリー乗り場まで向かいます。'},
+        {kor:'좋은 선택이에요! 아름다운 곳이에요.', read:'チョウン ソンテギエヨ！アルムダウン コシエヨ。', ja:'良い選択です！美しいところですよ。'},
+      ]
+    },
+    {
+      p:'섬에 사슴이 정말 있어요?',
+      read:'ソメ サスミ チョンマル イッソヨ?',
+      ja:'島に鹿は本当にいますか？',
+      kw:['네','있','사슴','자유','돌아','가방','조심','먹이'],
+      good:'✅ 鹿の情報を韓国語で伝えられました！注意事項も◎',
+      fix:'📝 Try: 「네! 사슴이 자유롭게 돌아다녀요（ネ！サスミ チャユロプケ トラダニョヨ）」',
+      vocab:{kor:'사슴', read:'サスム', ja:'鹿。사슴이 많아요(サスミ マナヨ)=鹿がたくさんいます。'},
+      sugg:[
+        {kor:'네! 사슴이 자유롭게 돌아다녀요.', read:'ネ！サスミ チャユロプケ トラダニョヨ。', ja:'はい！鹿が自由に歩き回っています。'},
+        {kor:'가방 조심하세요!', read:'カバン チョシムハセヨ！', ja:'カバンに気をつけてください！'},
+        {kor:'먹이를 주면 안 돼요.', read:'モギルル ジュミョン アン テヨ。', ja:'餌をあげてはいけません。'},
+      ]
+    },
+    {
+      p:'섬에서 무슨 음식을 먹어야 해요?',
+      read:'ソメソ ムスン ウムシグル モゴヤ ヘヨ?',
+      ja:'島では何の食べ物を食べなければなりませんか？',
+      kw:['굴','모미지','만쥬','아나고','해산물','유명','맛있','꼭'],
+      good:'✅ 地元グルメを韓国語で紹介できました！',
+      fix:'📝 Try: 「굴이 유명해요（クリ ユミョンヘヨ）」= 牡蠣が有名です。꼭 드세요！=ぜひ食べてください！',
+      vocab:{kor:'꼭 드세요!', read:'コク トゥセヨ！', ja:'ぜひ食べてください！꼭(コク)=必ず、드세요(トゥセヨ)=召し上がってください。'},
+      sugg:[
+        {kor:'굴이 유명해요! 꼭 드세요.', read:'クリ ユミョンヘヨ！コク トゥセヨ。', ja:'牡蠣が有名です！ぜひ食べてください。'},
+        {kor:'모미지만쥬도 맛있어요.', read:'モミジマンジュド マシッソヨ。', ja:'もみじ饅頭も美味しいですよ。'},
+        {kor:'굴하고 모미지만쥬가 유명해요.', read:'クラゴ モミジマンジュガ ユミョンヘヨ。', ja:'牡蠣ともみじ饅頭が有名です。'},
+      ]
+    },
+    {
+      p:'터미널 도착했어요. 고마워요!',
+      read:'トミノル トチャケッソヨ。コマウォヨ！',
+      ja:'ターミナルに到着しました。ありがとう！',
+      kw:['천만에','아니에요','좋은','즐','만조','도리이','아름','히로시마'],
+      good:'✅ 温かい見送りができました！',
+      fix:'📝 Try: 「천만에요（チョンマネヨ）！만조 때 도리이가 아름다워요」= 満潮の時の鳥居が美しいです。',
+      vocab:{kor:'만조', read:'マンジョ', ja:'満潮。반조(バンジョ)=干潮。「만조 때 보세요」= 満潮時に見てください。'},
+      sugg:[
+        {kor:'천만에요! 만조 때 도리이가 아름다워요.', read:'チョンマネヨ！マンジョ テ トリイガ アルムダウォヨ。', ja:'どういたしまして！満潮の時の鳥居が美しいです。'},
+        {kor:'즐거운 여행 하세요!', read:'チュルゴウン ヨヘン ハセヨ！', ja:'楽しい旅行を！'},
+        {kor:'히로시마를 즐겨 주세요!', read:'ヒロシマルル チュルギョ ジュセヨ！', ja:'広島を楽しんでください！'},
+      ]
+    },
+  ]
+},
+
+food:{
+  icon:'🍳', title:'お好み焼き・広島グルメ', desc:'食事スポットへの送迎。広島グルメを韓国語で紹介しましょう。', spot:'📍 広島市内 / お好み村',
+  phrases:[
+    {kor:'오코노미야키가 유명해요', read:'オコノミヤキガ ユミョンヘヨ', ja:'お好み焼きが有名です'},
+    {kor:'오사카랑 달라요', read:'オサカラン タルラヨ', ja:'大阪と違います'},
+    {kor:'면이 들어가요', read:'ミョニ トゥロガヨ', ja:'麺が入ります'},
+    {kor:'1,000엔에서 1,500엔 정도예요', read:'チョネソ チョノペゲン チョンドエヨ', ja:'1,000円から1,500円程度です'},
+    {kor:'꼭 드셔 보세요!', read:'コク トゥショ ボセヨ！', ja:'ぜひ食べてみてください！'},
+  ],
+  turns:[
+    {
+      p:'오코노미야키가 뭐예요? 먹어봐도 돼요?',
+      read:'オコノミヤキガ ムォエヨ? モゴパド テヨ?',
+      ja:'お好み焼きって何ですか？食べてもいいですか？',
+      kw:['유명','오코노미야키','음식','면','밀가루','오사카','달라','히로시마'],
+      good:'✅ お好み焼きを韓国語で説明できました！',
+      fix:'📝 Try: 「히로시마 오코노미야키는 면이 들어가요（ヒロシマ オコノミヤキヌン ミョニ トゥロガヨ）」',
+      vocab:{kor:'면이 들어가요', read:'ミョニ トゥロガヨ', ja:'麺が入ります。面(ミョン)=麺、들어가요(トゥロガヨ)=入ります。'},
+      sugg:[
+        {kor:'히로시마 오코노미야키는 면이 들어가요!', read:'ヒロシマ オコノミヤキヌン ミョニ トゥロガヨ！', ja:'広島のお好み焼きには麺が入ります！'},
+        {kor:'오사카랑 달라요. 층층이 쌓아요.', read:'オサカラン タルラヨ。チュンチュンイ サアヨ。', ja:'大阪と違います。層に重ねます。'},
+        {kor:'광장히 맛있어요! 꼭 드세요.', read:'グァンジャンヒ マシッソヨ！コク トゥセヨ。', ja:'すごく美味しいですよ！ぜひ食べてください。'},
+      ]
+    },
+    {
+      p:'어디서 먹는 게 좋아요?',
+      read:'オディソ モンヌン ゲ チョアヨ?',
+      ja:'どこで食べるのがいいですか？',
+      kw:['오코노미무라','오코노미','무라','빌딩','가게','곳','추천','시내'],
+      good:'✅ お好み村を紹介できました！具体的で素晴らしいです。',
+      fix:'📝 Try: 「오코노미무라가 유명해요（オコノミムラガ ユミョンヘヨ）」= お好み村が有名です。',
+      vocab:{kor:'오코노미무라', read:'オコノミムラ', ja:'お好み村。6階建てのビルに24店舗！'},
+      sugg:[
+        {kor:'오코노미무라가 유명해요!', read:'オコノミムラガ ユミョンヘヨ！', ja:'お好み村が有名です！'},
+        {kor:'6층 빌딩에 24개 가게가 있어요.', read:'ユクチュン ビルディンエ イシプサゲ カゲガ イッソヨ。', ja:'6階のビルに24店舗あります。'},
+        {kor:'오코노미무라에 데려다 드릴까요?', read:'オコノミムラエ テリョダ トゥリルカヨ?', ja:'お好み村までお連れしましょうか？'},
+      ]
+    },
+    {
+      p:'얼마예요? 비싸요?',
+      read:'オルマエヨ? ビッサヨ?',
+      ja:'いくらですか？高いですか？',
+      kw:['엔','원','천','백','정도','비싸지','저렴','싸','합리'],
+      good:'✅ 価格を韓国語で伝えられました！',
+      fix:'📝 Try: 「1,000엔에서 1,500엔 정도예요（チョネソ チョノペゲン チョンドエヨ）」',
+      vocab:{kor:'비싸지 않아요', read:'ビッサジ アナヨ', ja:'高くないです。비싸다(ビッサダ)=高い、지 않아요=〜ではない。'},
+      sugg:[
+        {kor:'1,000엔에서 1,500엔 정도예요.', read:'チョネソ チョノペゲン チョンドエヨ。', ja:'1,000円から1,500円程度です。'},
+        {kor:'비싸지 않아요! 맛도 있어요.', read:'ビッサジ アナヨ！マッド イッソヨ。', ja:'高くないです！美味しいですよ。'},
+        {kor:'합리적인 가격이에요.', read:'ハムニジョギン カギョギエヨ。', ja:'リーズナブルな価格です。'},
+      ]
+    },
+    {
+      p:'다 왔어요! 냄새가 좋아요!',
+      read:'タ ワッソヨ！ネムセガ チョアヨ！',
+      ja:'着きました！いい匂いがします！',
+      kw:['맛있','즐','드세요','맛','좋아하','히로시마','왔'],
+      good:'✅ 乗客の期待を高める一言が言えました！',
+      fix:'📝 Try: 「맛있게 드세요（マシッケ トゥセヨ）！」= おいしく食べてください！',
+      vocab:{kor:'맛있게 드세요!', read:'マシッケ トゥセヨ！', ja:'おいしく食べてください！食事を見送るときの定番フレーズ。'},
+      sugg:[
+        {kor:'맛있게 드세요!', read:'マシッケ トゥセヨ！', ja:'おいしく食べてください！'},
+        {kor:'히로시마 오코노미야키는 최고예요!', read:'ヒロシマ オコノミヤキヌン チェゴエヨ！', ja:'広島のお好み焼きは最高です！'},
+        {kor:'즐거운 식사 하세요!', read:'チュルゴウン シクサ ハセヨ！', ja:'楽しいお食事を！'},
+      ]
+    },
+  ]
+},
+
+payment:{
+  icon:'💳', title:'料金・支払い', desc:'目的地に到着。料金と支払いを韓国語でスムーズに。', spot:'📍 目的地 到着',
+  phrases:[
+    {kor:'요금은 ~엔이에요', read:'ヨグムン ~エニエヨ', ja:'料金は〜円です'},
+    {kor:'카드 되세요?', read:'カドゥ テセヨ?', ja:'カードは使えますか？'},
+    {kor:'영수증 드릴까요?', read:'ヨンスジュン トゥリルカヨ?', ja:'領収書をお渡ししましょうか？'},
+    {kor:'감사합니다! 또 오세요', read:'カムサハムニダ！ット オセヨ', ja:'ありがとうございます！またお越しください'},
+    {kor:'발 조심하세요', read:'パル チョシムハセヨ', ja:'足元にお気をつけください'},
+  ],
+  turns:[
+    {
+      p:'여기예요? 빨랐네요!',
+      read:'ヨギエヨ? パルランネヨ！',
+      ja:'ここですか？早かったですね！',
+      kw:['요금','엔','천','현금','카드','네','도착','맞'],
+      good:'✅ 料金を明確に韓国語で伝えられました！',
+      fix:'📝 Try: 「요금은 1,800엔이에요（ヨグムン チョンパルベゲン イエヨ）」',
+      vocab:{kor:'요금', read:'ヨグム', ja:'料金。도착했습니다(トチャケッスムニダ)=到着しました。'},
+      sugg:[
+        {kor:'요금은 1,800엔이에요.', read:'ヨグムン チョンパルベゲン イエヨ。', ja:'料金は1,800円です。'},
+        {kor:'네, 도착했습니다! 요금은 1,800엔이에요.', read:'ネ、トチャケッスムニダ！ヨグムン チョンパルベゲン イエヨ。', ja:'はい、到着しました！料金は1,800円です。'},
+        {kor:'현금이에요, 카드예요?', read:'ヒョングミエヨ、カドゥエヨ?', ja:'現金ですか、カードですか？'},
+      ]
+    },
+    {
+      p:'카드 돼요?',
+      read:'カドゥ テヨ?',
+      ja:'カードは使えますか？',
+      kw:['네','카드','가능','돼','됩니다','비자','마스터','아이씨'],
+      good:'✅ カードOKを韓国語で伝えられました！',
+      fix:'📝 Try: 「네, 카드 됩니다（ネ、カドゥ テムニダ）」= はい、カードが使えます。',
+      vocab:{kor:'카드 됩니다', read:'カドゥ テムニダ', ja:'カードが使えます。됩니다(テムニダ)=使えます/できます。'},
+      sugg:[
+        {kor:'네, 카드 됩니다!', read:'ネ、カドゥ テムニダ！', ja:'はい、カードが使えます！'},
+        {kor:'비자, 마스터카드 다 됩니다.', read:'ビジャ、マストゥカドゥ タ テムニダ。', ja:'ビザ、マスターカードどちらも使えます。'},
+        {kor:'IC카드도 됩니다.', read:'アイシー カドゥド テムニダ。', ja:'ICカードも使えます。'},
+      ]
+    },
+    {
+      p:'영수증 주세요.',
+      read:'ヨンスジュン ジュセヨ。',
+      ja:'領収書をください。',
+      kw:['네','영수증','드리','드릴게','줄게','잠깐','잠시'],
+      good:'✅ 領収書をスムーズに渡せました！',
+      fix:'📝 Try: 「네, 영수증 드릴게요（ネ、ヨンスジュン トゥリルゲヨ）」= はい、領収書をお渡しします。',
+      vocab:{kor:'영수증', read:'ヨンスジュン', ja:'領収書。드릴게요(トゥリルゲヨ)=お渡しします。'},
+      sugg:[
+        {kor:'네, 영수증 드릴게요.', read:'ネ、ヨンスジュン トゥリルゲヨ。', ja:'はい、領収書をお渡しします。'},
+        {kor:'잠깐만요, 바로 드릴게요.', read:'チャムカンマニョ、パロ トゥリルゲヨ。', ja:'少々お待ちください、すぐお渡しします。'},
+        {kor:'여기 있습니다.', read:'ヨギ イッスムニダ。', ja:'こちらです。'},
+      ]
+    },
+    {
+      p:'감사합니다! 히로시마 정말 좋아요!',
+      read:'カムサハムニダ！ヒロシマ チョンマル チョアヨ！',
+      ja:'ありがとうございます！広島、本当に好きです！',
+      kw:['천만에','기쁘','좋아','또','다시','히로시마','오세요','즐'],
+      good:'✅ 完璧な見送りができました！また来てほしい気持ちが伝わります。',
+      fix:'📝 Try: 「또 오세요（ット オセヨ）！」= またお越しください！',
+      vocab:{kor:'또 오세요!', read:'ット オセヨ！', ja:'またお越しください！別れ際の定番フレーズ。'},
+      sugg:[
+        {kor:'감사합니다! 또 오세요!', read:'カムサハムニダ！ット オセヨ！', ja:'ありがとうございます！またお越しください！'},
+        {kor:'기뻐요! 히로시마를 즐겨 주세요!', read:'キッポヨ！ヒロシマルル チュルギョ ジュセヨ！', ja:'嬉しいです！広島を楽しんでください！'},
+        {kor:'다음에 또 만나요!', read:'タウメ ット マンナヨ！', ja:'また次回会いましょう！'},
+      ]
+    },
+  ]
+},
+
+trouble:{
+  icon:'⚠️', title:'トラブル対応', desc:'問題が起きたとき、韓国語で落ち着いて対応しましょう。', spot:'📍 車内',
+  phrases:[
+    {kor:'죄송합니다', read:'チェソンハムニダ', ja:'申し訳ありません'},
+    {kor:'잠깐만 기다려 주세요', read:'チャムカンマン キダリョ ジュセヨ', ja:'少々お待ちください'},
+    {kor:'길이 막혀요', read:'キリ マキョヨ', ja:'道が渋滞しています'},
+    {kor:'다른 길로 가겠습니다', read:'タルン キルロ カゲッスムニダ', ja:'別の道で行きます'},
+    {kor:'뭔가 두고 가셨어요?', read:'ムォンガ トゥゴ カショッソヨ?', ja:'何か忘れ物はありますか？'},
+  ],
+  turns:[
+    {
+      p:'왜 이렇게 막혀요? 시간이 없어요!',
+      read:'ウェ イロケ マキョヨ? シガニ オプソヨ！',
+      ja:'なぜこんなに渋滞してるの？時間がありません！',
+      kw:['죄송','막혀','다른','길','돌아','빨리','최대한','노력'],
+      good:'✅ 落ち着いて対応できました！謝罪と代替案がセットで◎',
+      fix:'📝 Try: 「죄송합니다。다른 길로 가겠습니다（チェソンハムニダ。タルン キルロ カゲッスムニダ）」',
+      vocab:{kor:'다른 길로 가겠습니다', read:'タルン キルロ カゲッスムニダ', ja:'別の道で行きます。トラブル時の重要フレーズ。'},
+      sugg:[
+        {kor:'죄송합니다. 다른 길로 가겠습니다.', read:'チェソンハムニダ。タルン キルロ カゲッスムニダ。', ja:'申し訳ありません。別の道で行きます。'},
+        {kor:'최대한 빨리 가겠습니다.', read:'チェデハン パルリ カゲッスムニダ。', ja:'できるだけ急ぎます。'},
+        {kor:'죄송합니다. 최대한 노력하겠습니다.', read:'チェソンハムニダ。チェデハン ノリョカゲッスムニダ。', ja:'申し訳ありません。最善を尽くします。'},
+      ]
+    },
+    {
+      p:'주소를 모르겠어요. 어떻게 해요?',
+      read:'チュソルル モルゲッソヨ。オトッケ ヘヨ?',
+      ja:'住所がわかりません。どうしたらいいですか？',
+      kw:['네','괜찮아','지도','앱','보여','알려','휴대폰','스마트폰','찾','도와'],
+      good:'✅ 地図アプリで住所を一緒に探すアプローチが完璧です！',
+      fix:'📝 Try: 「지도 앱으로 찾아볼까요?（チド エプロ チャジャボルカヨ?）」= 地図アプリで探してみましょうか？',
+      vocab:{kor:'지도 앱으로 찾아볼까요?', read:'チド エプロ チャジャボルカヨ?', ja:'地図アプリで探してみましょうか？住所不明時の定番対処法。'},
+      sugg:[
+        {kor:'지도 앱으로 찾아볼까요?', read:'チド エプロ チャジャボルカヨ?', ja:'地図アプリで探してみましょうか？'},
+        {kor:'스마트폰 보여 주세요.', read:'スマトゥポン ポヨ ジュセヨ。', ja:'スマートフォンを見せてください。'},
+        {kor:'같이 찾아볼게요.', read:'カチ チャジャボルゲヨ。', ja:'一緒に探してみます。'},
+      ]
+    },
+    {
+      p:'차 안에 지갑을 두고 내렸어요!',
+      read:'チャ アネ チガブル トゥゴ ネリョッソヨ！',
+      ja:'車の中に財布を忘れて降りました！',
+      kw:['네','있','확인','잠깐','기다려','열','찾','드릴','걱정'],
+      good:'✅ 素早く確認して安心させることができました！',
+      fix:'📝 Try: 「잠깐만요, 확인해 볼게요（チャムカンマニョ、ファギンヘ ボルゲヨ）」= 少々お待ちください、確認してみます。',
+      vocab:{kor:'잠깐만요, 확인해 볼게요', read:'チャムカンマニョ、ファギンヘ ボルゲヨ', ja:'少々お待ちください、確認してみます。忘れ物対応の定番フレーズ。'},
+      sugg:[
+        {kor:'잠깐만요, 확인해 볼게요!', read:'チャムカンマニョ、ファギンヘ ボルゲヨ！', ja:'少々お待ちください、確認してみます！'},
+        {kor:'걱정 마세요. 찾아 드릴게요.', read:'コクチョン マセヨ。チャジャ トゥリルゲヨ。', ja:'ご心配なく。探してお届けします。'},
+        {kor:'있어요! 여기 지갑이에요.', read:'イッソヨ！ヨギ チガビエヨ。', ja:'あります！こちらが財布です。'},
+      ]
+    },
+    {
+      p:'정말 도움이 됐어요. 고마워요!',
+      read:'チョンマル トウミ テッソヨ。コマウォヨ！',
+      ja:'本当に助かりました。ありがとう！',
+      kw:['천만에','아니에요','기쁘','도움','괜찮아','별말씀','편하','언제든'],
+      good:'✅ 優しく心強い見送りができました！',
+      fix:'📝 Try: 「별말씀을요（ピョルマルスムルヨ）！」= 何でもありません（謙遜の表現）。',
+      vocab:{kor:'별말씀을요', read:'ピョルマルスムルヨ', ja:'いいえ、とんでもございません。丁寧な謙遜表現。'},
+      sugg:[
+        {kor:'별말씀을요! 괜찮으세요?', read:'ピョルマルスムルヨ！クェンチャヌセヨ?', ja:'とんでもないです！大丈夫ですか？'},
+        {kor:'도움이 돼서 기뻐요!', read:'トウミ テソ キッポヨ！', ja:'お役に立てて嬉しいです！'},
+        {kor:'언제든지 이용해 주세요.', read:'オンジェドゥンジ イヨンヘ ジュセヨ。', ja:'いつでもご利用ください。'},
+      ]
+    },
+  ]
+},
+
 };
 
 // ═══════════════════════════════════════════════
 //  GUIDE DATA
 // ═══════════════════════════════════════════════
-const CAT_COLORS={history:{bg:'#fdecea',color:'#c0392b',label:'歴史'},nature:{bg:'#e8f7ef',color:'#1a9e5c',label:'自然'},food:{bg:'#fff7ed',color:'#d97706',label:'グルメ'},culture:{bg:'#ecfeff',color:'#0891b2',label:'文化'},transport:{bg:'#eff6ff',color:'#3b82f6',label:'移動'}};
+const CAT_COLORS={
+  history:{bg:'#fdecea',color:'#c0392b',label:'歴史'},
+  nature:{bg:'#e8f7ef',color:'#1a9e5c',label:'自然'},
+  food:{bg:'#fff7ed',color:'#d97706',label:'グルメ'},
+  culture:{bg:'#ecfeff',color:'#0891b2',label:'文化'},
+};
 
-const SPOTS_EN=[
-  {id:'peace',cat:'history',emoji:'☮️',bg:'#fdecea',name:'Peace Memorial Park & A-Bomb Dome',sub:'平和記念公園・原爆ドーム',desc:'A UNESCO World Heritage Site commemorating the atomic bombing of August 6, 1945.',hours:'Park: 24h / Museum: 8:30–18:00',fee:'Park: Free / Museum: ¥200',access:'Hiroshima tram to "Genbaku Dome-mae" stop',mapQ:'Peace+Memorial+Park+Hiroshima',linked:'peace',
-   phrases:[{main:"The park is free to enter.",sub:''},{main:"The Peace Museum opens at 8:30 AM.",sub:''},{main:"The A-Bomb Dome is right next to the park.",sub:''},{main:"August 6th is a very important day here.",sub:''},{main:"Please take your time — this is very moving.",sub:''}]},
-  {id:'miyajima',cat:'nature',emoji:'⛩️',bg:'#e8f7ef',name:'Miyajima Island & Itsukushima Shrine',sub:'宮島・厳島神社',desc:'Famous for its floating torii gate. UNESCO World Heritage Site with free-roaming deer.',hours:'Ferry: Early–Late / Shrine: 6:30–18:00',fee:'Ferry: ¥410 return / Shrine: ¥300',access:'Ferry from Miyajimaguchi (10 min)',mapQ:'Miyajima+Island+Hiroshima',linked:'itsukushima',
-   phrases:[{main:"The ferry takes about 10 minutes.",sub:''},{main:"The torii gate is most beautiful at high tide.",sub:''},{main:"Watch out — the deer might grab your bag!",sub:''},{main:"Momiji manju are the famous sweets here.",sub:''},{main:"Hiroshima oysters are a must-try on the island.",sub:''}]},
-  {id:'castle',cat:'culture',emoji:'🏯',bg:'#fef3c7',name:'Hiroshima Castle',sub:'広島城',desc:'Originally built in 1589, rebuilt in 1958 after the bombing. Great panoramic views from the top.',hours:'9:00–18:00 (17:00 Dec–Jan)',fee:'¥370',access:'15-min walk from Kamiyacho-higashi tram stop',mapQ:'Hiroshima+Castle',linked:'sightseeing',
-   phrases:[{main:"Hiroshima Castle is definitely worth a visit.",sub:''},{main:"The view from the top floor is amazing.",sub:''},{main:"It's about a 10-minute tram ride from the station.",sub:''},{main:"The castle was rebuilt after the war.",sub:''}]},
-  {id:'okonomiyaki',cat:'food',emoji:'🍳',bg:'#fff7ed',name:'Okonomi-mura / Hiroshima Okonomiyaki',sub:'お好み村・お好み焼き',desc:'A 6-story building housing 24 okonomiyaki restaurants. Hiroshima style is layered with noodles inside.',hours:'11:00–23:00',fee:'¥1,000–1,500 per meal',access:'5-min walk from Hatchobori tram stop',mapQ:'Okonomi-mura+Hiroshima',linked:'food',
-   phrases:[{main:"Hiroshima okonomiyaki is different from Osaka style.",sub:''},{main:"It's layered with noodles inside.",sub:''},{main:"Okonomi-mura has 24 restaurants — all okonomiyaki!",sub:''},{main:"Most meals are around 1,000 to 1,500 yen.",sub:''}]},
-  {id:'orizuru',cat:'culture',emoji:'🗼',bg:'#ecfeff',name:'Orizuru Tower',sub:'おりづるタワー',desc:'13-story building next to Peace Memorial Park with glass floor and paper crane folding experience.',hours:'10:00–18:00',fee:'¥1,700',access:'2-min walk from Genbaku Dome-mae tram stop',mapQ:'Orizuru+Tower+Hiroshima',linked:'sightseeing',
-   phrases:[{main:"Orizuru Tower has a glass floor at the top.",sub:''},{main:"You can fold paper cranes there — unique experience.",sub:''},{main:"The views of Peace Park from the top are beautiful.",sub:''},{main:"'Orizuru' means paper crane in Japanese.",sub:''}]},
-  {id:'shukkei',cat:'nature',emoji:'🌿',bg:'#f0fdf4',name:'Shukkei-en Garden',sub:'縮景園',desc:'A peaceful traditional Japanese garden built in 1620. Features a pond, bridges, and tea house.',hours:'9:00–18:00 (17:00 Oct–Mar)',fee:'¥260',access:'10-min walk from Hiroshima Station north exit',mapQ:'Shukkei-en+Garden+Hiroshima',linked:'sightseeing',
-   phrases:[{main:"Shukkei-en is a beautiful traditional Japanese garden.",sub:''},{main:"It's very peaceful — great for a quiet walk.",sub:''},{main:"The garden was built over 400 years ago.",sub:''},{main:"It's a 10-minute walk from Hiroshima Station.",sub:''}]},
-  {id:'station',cat:'transport',emoji:'🚉',bg:'#f5f3ff',name:'Hiroshima Station',sub:'広島駅',desc:'Shinkansen hub and starting point for city trams. Station building has restaurants and souvenir shops.',hours:'First–Last train',fee:'Free (facility use)',access:'Connected by tram to all major sights',mapQ:'Hiroshima+Station',linked:'station',
-   phrases:[{main:"The shinkansen platform is on the 2nd floor, north side.",sub:''},{main:"The tram stops right in front of the south exit.",sub:''},{main:"Peace Park is about 15 minutes by tram.",sub:''},{main:"Do you have a JR Pass?",sub:''}]},
-  {id:'oyster',cat:'food',emoji:'🦪',bg:'#f0fdf4',name:'Hiroshima Oysters & Seafood',sub:'広島の牡蠣・海鮮',desc:'Hiroshima produces over 60% of Japan\'s oysters. Freshest near Miyajima area.',hours:'Varies by restaurant',fee:'Oyster meal: ¥1,500–2,500',access:'Throughout Hiroshima and on Miyajima',mapQ:'Hiroshima+oyster+restaurant',linked:'food',
-   phrases:[{main:"Hiroshima produces over 60% of Japan's oysters.",sub:''},{main:"Grilled or raw — both are delicious here.",sub:''},{main:"The oysters near Miyajima are especially fresh.",sub:''},{main:"An oyster meal is about 1,500 to 2,500 yen.",sub:''}]},
+const SPOTS=[
+  {
+    id:'peace',cat:'history',emoji:'☮️',bg:'#fdecea',
+    name:'平和記念公園・原爆ドーム',
+    kor:'평화기념공원・원폭 돔',korRead:'ピョンファキニョムゴンウォン・ウォンポク トム',
+    desc:'1945年8月6日の原爆を伝える場所。原爆ドームはUNESCO世界遺産。',
+    hours:'公園：24時間 / 博物館：8:30〜18:00',fee:'公園：무료(無料) / 박물관：200엔',
+    access:'広島電鉄「原爆ドーム前」すぐ',accessKor:'히로시마 전차「원폭 돔 앞」',
+    district:'中区',mapQ:'Peace+Memorial+Park+Hiroshima',linkedScenario:'peace',
+    phrases:[
+      {kor:'공원은 무료예요.',read:'ゴンウォヌン ムリョエヨ。',ja:'公園は無料です。'},
+      {kor:'박물관은 8시 30분에 열어요.',read:'パンムルグァヌン ヨドルシ サムシップネ ヨロヨ。',ja:'博物館は8時30分に開きます。'},
+      {kor:'원폭 돔은 바로 옆에 있어요.',read:'ウォンポク トムン パロ ヨペ イッソヨ。',ja:'原爆ドームはすぐ隣にあります。'},
+      {kor:'8월 6일은 아주 중요한 날이에요.',read:'パルォル ユギルン アジュ チュンヨハン ナリエヨ。',ja:'8月6日はとても大切な日です。'},
+      {kor:'천천히 구경하세요.',read:'チョンチョニ クギョンハセヨ。',ja:'ゆっくり見てください。'},
+    ]
+  },
+  {
+    id:'miyajima',cat:'nature',emoji:'⛩️',bg:'#e8f7ef',
+    name:'宮島・厳島神社',
+    kor:'미야지마・이쓰쿠시마 신사',korRead:'ミヤジマ・イッスクシマ シンサ',
+    desc:'浮かぶ鳥居で有名。UNESCO世界遺産。野生の鹿が自由に歩く神秘の島。',
+    hours:'フェリー：早朝〜深夜 / 神社：6:30〜18:00',fee:'フェリー：왕복 410엔 / 신사：300엔',
+    access:'広電「宮島口」からフェリー約10分',accessKor:'히로시마 전차「미야지마구치」페리로 10분',
+    district:'廿日市市',mapQ:'Miyajima+Island+Hiroshima',linkedScenario:'miyajima',
+    phrases:[
+      {kor:'페리로 약 10분이에요.',read:'ペリロ ヤク シップニエヨ。',ja:'フェリーで約10分です。'},
+      {kor:'만조 때 도리이가 제일 예뻐요.',read:'マンジョ テ トリイガ チェイル イェッポヨ。',ja:'満潮の時の鳥居が一番きれいです。'},
+      {kor:'사슴이 자유롭게 돌아다녀요.',read:'サスミ チャユロプケ トラダニョヨ。',ja:'鹿が自由に歩き回っています。'},
+      {kor:'가방 조심하세요!',read:'カバン チョシムハセヨ！',ja:'カバンに気をつけてください！'},
+      {kor:'굴이랑 모미지만쥬가 유명해요.',read:'クリラン モミジマンジュガ ユミョンヘヨ。',ja:'牡蠣ともみじ饅頭が有名です。'},
+    ]
+  },
+  {
+    id:'castle',cat:'culture',emoji:'🏯',bg:'#fef3c7',
+    name:'広島城',
+    kor:'히로시마 성',korRead:'ヒロシマ ソン',
+    desc:'1589年築城、戦後1958年再建。天守閣から市内を一望できる。',
+    hours:'9:00〜18:00（12〜1月は17:00まで）',fee:'대인：370엔',
+    access:'広島電鉄「紙屋町東」から徒歩15分',accessKor:'히로시마 전차「카미야초 히가시」도보 15분',
+    district:'中区',mapQ:'Hiroshima+Castle',linkedScenario:'peace',
+    phrases:[
+      {kor:'히로시마 성은 꼭 가보세요.',read:'ヒロシマ ソンウン コク カボセヨ。',ja:'広島城はぜひ行ってみてください。'},
+      {kor:'꼭대기에서 보는 경치가 좋아요.',read:'コクテギエソ ポヌン キョンチガ チョアヨ。',ja:'頂上から見る景色が良いです。'},
+      {kor:'전차로 약 10분이에요.',read:'チョンチャロ ヤク シップニエヨ。',ja:'路面電車で約10分です。'},
+      {kor:'전쟁 후에 다시 지었어요.',read:'チョンジェン フエ タシ チオッソヨ。',ja:'戦後に再建されました。'},
+    ]
+  },
+  {
+    id:'okonomiyaki',cat:'food',emoji:'🍳',bg:'#fff7ed',
+    name:'お好み焼き・お好み村',
+    kor:'오코노미야키・오코노미무라',korRead:'オコノミヤキ・オコノミムラ',
+    desc:'6階建てに24店舗。広島焼きは麺入りの重ね焼き。大阪スタイルとは別物。',
+    hours:'11:00〜23:00',fee:'1,000〜1,500엔 정도',
+    access:'広島電鉄「八丁堀」から徒歩5分',accessKor:'히로시마 전차「핫쵸보리」도보 5분',
+    district:'中区',mapQ:'Okonomi-mura+Hiroshima',linkedScenario:'food',
+    phrases:[
+      {kor:'히로시마 오코노미야키는 면이 들어가요.',read:'ヒロシマ オコノミヤキヌン ミョニ トゥロガヨ。',ja:'広島のお好み焼きは麺が入ります。'},
+      {kor:'오사카랑 달라요.',read:'オサカラン タルラヨ。',ja:'大阪と違います。'},
+      {kor:'오코노미무라에 24개 가게가 있어요.',read:'オコノミムラエ イシプサゲ カゲガ イッソヨ。',ja:'お好み村に24店舗あります。'},
+      {kor:'1,000엔에서 1,500엔 정도예요.',read:'チョネソ チョノペゲン チョンドエヨ。',ja:'1,000円から1,500円程度です。'},
+    ]
+  },
+  {
+    id:'station',cat:'culture',emoji:'🚉',bg:'#f3f0ff',
+    name:'広島駅',
+    kor:'히로시마역',korRead:'ヒロシマヨク',
+    desc:'新幹線の停車駅。路面電車の出発点。駅ビルに飲食店・土産物店が多数。',
+    hours:'始発〜終電',fee:'무료(施設利用)',
+    access:'市内各所から路面電車でアクセス',accessKor:'시내 각지에서 전차로',
+    district:'南区',mapQ:'Hiroshima+Station',linkedScenario:'pickup',
+    phrases:[
+      {kor:'신칸센 승강장은 2층이에요.',read:'シンカンセン スンガンジャンウン イチュンイエヨ。',ja:'新幹線ホームは2階です。'},
+      {kor:'전차 정류장은 바로 앞이에요.',read:'チョンチャ チョンニュジャンウン パロ アビエヨ。',ja:'路面電車の停留所はすぐ前です。'},
+      {kor:'JR 패스 있으세요?',read:'JR ペス イッスセヨ?',ja:'JRパスはお持ちですか？'},
+      {kor:'평화공원은 전차로 15분이에요.',read:'ピョンファゴンウォヌン チョンチャロ シボニエヨ。',ja:'平和公園は路面電車で15分です。'},
+    ]
+  },
 ];
-
-const SPOTS_KR=[
-  {id:'peace',cat:'history',emoji:'☮️',bg:'#fdecea',name:'平和記念公園・原爆ドーム',sub:'평화기념공원・원폭 돔 / ピョンファキニョムゴンウォン',desc:'1945年8月6日の原爆を伝える場所。UNESCO世界遺産。',hours:'公園：24時間 / 박물관：8:30〜18:00',fee:'공원：무료 / 박물관：200엔',access:'히로시마 전차「원폭 돔 앞」',mapQ:'Peace+Memorial+Park+Hiroshima',linked:'peace',
-   phrases:[{main:'공원은 무료예요.',read:'ゴンウォヌン ムリョエヨ。',ja:'公園は無料です。'},{main:'박물관은 8시 30분에 열어요.',read:'パンムルグァヌン ヨドルシ サムシップネ ヨロヨ。',ja:'博物館は8時30分に開きます。'},{main:'원폭 돔은 바로 옆에 있어요.',read:'ウォンポク トムン パロ ヨペ イッソヨ。',ja:'原爆ドームはすぐ隣にあります。'},{main:'8월 6일은 아주 중요한 날이에요.',read:'パルォル ユギルン アジュ チュンヨハン ナリエヨ。',ja:'8月6日はとても大切な日です。'}]},
-  {id:'miyajima',cat:'nature',emoji:'⛩️',bg:'#e8f7ef',name:'宮島・厳島神社',sub:'미야지마・이쓰쿠시마 신사 / ミヤジマ',desc:'浮かぶ鳥居で有名。UNESCO世界遺産。野生の鹿が自由に歩く島。',hours:'페리：早朝〜深夜 / 신사：6:30〜18:00',fee:'페리：왕복 410엔 / 신사：300엔',access:'히로시마 전차「미야지마구치」페리로 10분',mapQ:'Miyajima+Island+Hiroshima',linked:'miyajima',
-   phrases:[{main:'페리로 약 10분이에요.',read:'ペリロ ヤク シップニエヨ。',ja:'フェリーで約10分です。'},{main:'만조 때 도리이가 제일 예뻐요.',read:'マンジョ テ トリイガ チェイル イェッポヨ。',ja:'満潮の鳥居が一番きれいです。'},{main:'사슴이 자유롭게 돌아다녀요.',read:'サスミ チャユロプケ トラダニョヨ。',ja:'鹿が自由に歩き回っています。'},{main:'굴이랑 모미지만쥬가 유명해요.',read:'クリラン モミジマンジュガ ユミョンヘヨ。',ja:'牡蠣ともみじ饅頭が有名です。'}]},
-  {id:'castle',cat:'culture',emoji:'🏯',bg:'#fef3c7',name:'広島城',sub:'히로시마 성 / ヒロシマ ソン',desc:'1589年築城、戦後1958年再建。天守閣から市内を一望できる。',hours:'9:00〜18:00（12〜1月は17:00まで）',fee:'대인：370엔',access:'히로시마 전차「카미야초 히가시」도보 15분',mapQ:'Hiroshima+Castle',linked:'peace',
-   phrases:[{main:'히로시마 성은 꼭 가보세요.',read:'ヒロシマ ソンウン コク カボセヨ。',ja:'広島城はぜひ行ってみてください。'},{main:'꼭대기에서 보는 경치가 좋아요.',read:'コクテギエソ ポヌン キョンチガ チョアヨ。',ja:'頂上から見る景色が良いです。'},{main:'전차로 약 10분이에요.',read:'チョンチャロ ヤク シップニエヨ。',ja:'路面電車で約10分です。'}]},
-  {id:'okonomiyaki',cat:'food',emoji:'🍳',bg:'#fff7ed',name:'お好み焼き・お好み村',sub:'오코노미야키・오코노미무라 / オコノミムラ',desc:'6階建てに24店舗。広島焼きは麺入り重ね焼き。大阪とは別物。',hours:'11:00〜23:00',fee:'1,000〜1,500엔 정도',access:'히로시마 전차「핫쵸보리」도보 5분',mapQ:'Okonomi-mura+Hiroshima',linked:'food',
-   phrases:[{main:'히로시마 오코노미야키는 면이 들어가요.',read:'ヒロシマ オコノミヤキヌン ミョニ トゥロガヨ。',ja:'広島のお好み焼きは麺が入ります。'},{main:'오사카랑 달라요.',read:'オサカラン タルラヨ。',ja:'大阪と違います。'},{main:'오코노미무라에 24개 가게가 있어요.',read:'オコノミムラエ イシプサゲ カゲガ イッソヨ。',ja:'お好み村に24店舗あります。'}]},
-  {id:'station',cat:'transport',emoji:'🚉',bg:'#f5f3ff',name:'広島駅',sub:'히로시마역 / ヒロシマヨク',desc:'新幹線停車駅。路面電車の出発点。飲食店・土産物店多数。',hours:'始発〜終電',fee:'무료',access:'시내 각지에서 전차로',mapQ:'Hiroshima+Station',linked:'pickup',
-   phrases:[{main:'신칸센 승강장은 2층이에요.',read:'シンカンセン スンガンジャンウン イチュンイエヨ。',ja:'新幹線ホームは2階です。'},{main:'전차 정류장은 바로 앞이에요.',read:'チョンチャ チョンニュジャンウン パロ アビエヨ。',ja:'路面電車の停留所はすぐ前です。'},{main:'평화공원은 전차로 15분이에요.',read:'ピョンファゴンウォヌン チョンチャロ シボブニエヨ。',ja:'平和公園は路面電車で15分です。'}]},
-];
-
-function getSpots(){ return lang==='en' ? SPOTS_EN : SPOTS_KR; }
-function getSC(){ return lang==='en' ? SC_EN : SC_KR; }
-
-// ═══════════════════════════════════════════════
-//  LANG SWITCH
-// ═══════════════════════════════════════════════
-function switchLang(l){
-  lang = l;
-  document.querySelector('.lang-btn.en').classList.toggle('active', l==='en');
-  document.querySelector('.lang-btn.kr').classList.toggle('active', l==='kr');
-  // Update CSS mode class on practiceView
-  document.getElementById('practiceView').className = l+'-mode';
-  document.getElementById('practiceView').style.display = 'flex';
-  document.getElementById('practiceView').style.flexDirection = 'column';
-  document.getElementById('practiceView').style.flex = '1';
-  document.getElementById('practiceView').style.overflow = 'hidden';
-  document.getElementById('practiceView').style.minHeight = '0';
-  // Update header
-  const cfg = LANG_CONFIG[l];
-  document.getElementById('headerTitle').textContent = cfg.headerTitle;
-  document.getElementById('headerSub').textContent = cfg.headerSub;
-  // Update primary/accent colors for KR
-  const root = document.documentElement;
-  if(l==='kr'){
-    root.style.setProperty('--primary','#3b5bdb');
-    root.style.setProperty('--primary-light','#eef2ff');
-    root.style.setProperty('--primary-border','rgba(59,91,219,0.28)');
-    root.style.setProperty('--accent','#e03131');
-  } else {
-    root.style.setProperty('--primary','#e05a2b');
-    root.style.setProperty('--primary-light','#fdf0eb');
-    root.style.setProperty('--primary-border','rgba(224,90,43,0.28)');
-    root.style.setProperty('--accent','#2b7de0');
-  }
-  // Rebuild scenario tabs
-  buildScenarioTabs();
-  // Update welcome
-  updateWelcome();
-  // Reset practice
-  resetPractice();
-}
-
-function buildScenarioTabs(){
-  const SC = getSC();
-  const bar = document.getElementById('scenarioBar');
-  bar.innerHTML = Object.entries(SC).map(([k,v],i)=>
-    `<button class="sc-btn${i===0?' active':''}" data-sc="${k}">${v.icon} ${v.title.length>8?v.title.slice(0,8)+'…':v.title}</button>`
-  ).join('');
-  document.querySelectorAll('.sc-btn').forEach(b=>{
-    b.addEventListener('click',()=>{
-      document.querySelectorAll('.sc-btn').forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      cur=b.dataset.sc; turn=0; score=0;
-      chat.innerHTML='';
-      document.getElementById('scoreDisplay').textContent='⭐ 0 pts';
-      const sc=getSC()[cur];
-      document.getElementById('sceneIcon').textContent=sc.icon;
-      document.getElementById('sceneTitle').textContent=sc.title;
-      document.getElementById('sceneDesc').textContent=sc.desc;
-      document.getElementById('spotTag').textContent=sc.spot;
-      if(phraseOpen){phraseOpen=false;document.getElementById('phrasePanel').classList.remove('open');document.getElementById('phraseBtn').classList.remove('on');}
-      startScenario();
-    });
-  });
-  // Set initial cur
-  cur = Object.keys(SC)[0];
-  const sc=SC[cur];
-  document.getElementById('sceneIcon').textContent=sc.icon;
-  document.getElementById('sceneTitle').textContent=sc.title;
-  document.getElementById('sceneDesc').textContent=sc.desc;
-  document.getElementById('spotTag').textContent=sc.spot;
-}
-
-function updateWelcome(){
-  const cfg = LANG_CONFIG[lang];
-  document.getElementById('welcomeEmoji').textContent = cfg.welcomeEmoji;
-  document.getElementById('welcomeTitle').textContent = cfg.welcomeTitle;
-  document.getElementById('welcomeDesc').textContent = cfg.welcomeDesc;
-  const grid = document.getElementById('welcomeGrid');
-  grid.innerHTML = cfg.welcomeTags.map(t=>`<span class="spot-tag">${t}</span>`).join('');
-}
 
 // ═══════════════════════════════════════════════
 //  MODE SWITCH
 // ═══════════════════════════════════════════════
 function switchMode(mode){
-  const pv = document.getElementById('practiceView');
-  pv.style.display = mode==='practice'?'flex':'none';
+  document.getElementById('practiceView').style.display = mode==='practice'?'flex':'none';
   document.getElementById('guideView').classList.toggle('active', mode==='guide');
   document.getElementById('modePractice').classList.toggle('active', mode==='practice');
   document.getElementById('modeGuide').classList.toggle('active', mode==='guide');
@@ -636,64 +834,64 @@ function switchMode(mode){
 // ═══════════════════════════════════════════════
 function renderGuide(cat){
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
-  const spots = getSpots();
-  const filtered = cat==='all'?spots:spots.filter(s=>s.cat===cat);
-  document.getElementById('spotCards').innerHTML = filtered.map(s=>{
+  const filtered=cat==='all'?SPOTS:SPOTS.filter(s=>s.cat===cat);
+  document.getElementById('spotCards').innerHTML=filtered.map(s=>{
     const cc=CAT_COLORS[s.cat];
     return `<div class="spot-card" onclick="openDetail('${s.id}')">
       <div class="spot-thumb" style="background:${s.bg}">${s.emoji}</div>
       <div class="spot-card-body">
         <div class="spot-card-name">${s.name}</div>
-        <div class="spot-card-sub">${s.sub||''}</div>
+        <div class="spot-card-kor">${s.kor}</div>
+        <div class="spot-card-read">${s.korRead}</div>
         <div class="spot-card-tags">
           <span class="spot-card-tag" style="background:${cc.bg};color:${cc.color}">${cc.label}</span>
+          <span class="spot-card-tag" style="background:#f0f4fa;color:#4a5070">📍 ${s.district}</span>
         </div>
         <div class="spot-card-desc">${s.desc.length>55?s.desc.slice(0,55)+'…':s.desc}</div>
       </div>
     </div>`;
   }).join('');
 }
+
 document.querySelectorAll('.cat-btn').forEach(b=>b.addEventListener('click',()=>renderGuide(b.dataset.cat)));
 
 function openDetail(id){
-  const spots = getSpots();
-  const s = spots.find(x=>x.id===id); if(!s)return;
+  const s=SPOTS.find(x=>x.id===id); if(!s)return;
   document.getElementById('detailTitle').textContent=s.name;
-  document.getElementById('detailSub').textContent=s.sub||'';
+  document.getElementById('detailSub').textContent=`${s.kor}（${s.korRead}）`;
   const mapUrl=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapQ)}`;
-  const phrasesHtml = s.phrases.map(p=>{
-    if(lang==='kr'){
-      return `<div class="detail-phrase-row">
-        <div class="dpr-main">${p.main}</div>
-        <span class="dpr-read">${p.read}</span>
-        <div class="dpr-ja">${p.ja}</div>
-      </div>`;
-    } else {
-      return `<div class="detail-phrase-row">
-        <div class="dpr-main" style="color:var(--en)">${p.main}</div>
-      </div>`;
-    }
-  }).join('');
+  const phrasesHtml=s.phrases.map(p=>`
+    <div class="kor-phrase-row">
+      <div class="kpr-kor">${p.kor}</div>
+      <span class="kpr-read">${p.read}</span>
+      <div class="kpr-ja">${p.ja}</div>
+    </div>`).join('');
   document.getElementById('detailBody').innerHTML=`
     <div class="detail-hero" style="background:${s.bg}">${s.emoji}</div>
-    <div class="detail-section"><div class="detail-section-title">📖 概要</div><p>${s.desc}</p></div>
+    <div class="detail-section">
+      <div class="detail-section-title">📖 概要</div>
+      <p>${s.desc}</p>
+    </div>
     <div class="info-grid">
       <div class="info-cell"><div class="info-cell-label">🕐 営業時間</div><div class="info-cell-value">${s.hours}</div></div>
       <div class="info-cell"><div class="info-cell-label">💴 料金</div><div class="info-cell-value">${s.fee}</div></div>
-      <div class="info-cell" style="grid-column:1/-1"><div class="info-cell-label">🚃 アクセス</div><div class="info-cell-value">${s.access}</div></div>
+      <div class="info-cell" style="grid-column:1/-1"><div class="info-cell-label">🚃 アクセス</div><div class="info-cell-value">${s.access}<br><span style="font-size:11px;color:var(--text-soft)">${s.accessKor}</span></div></div>
     </div>
-    <div class="map-placeholder" onclick="window.open('${mapUrl}','_blank')">
-      <span>🗺️</span><p>Google マップで開く</p><small>${s.name}</small>
+    <div class="map-container">
+      <div class="map-placeholder" onclick="window.open('${mapUrl}','_blank')">
+        <span>🗺️</span><p>Google マップで開く</p><small>${s.name}</small>
+      </div>
     </div>
     <div class="phrase-block">
-      <div class="phrase-block-title">🗣️ ${lang==='kr'?'韓国語':'英語'}タクシーフレーズ</div>
+      <div class="phrase-block-title">🗣️ 韓国語タクシーフレーズ</div>
       ${phrasesHtml}
     </div>
-    <button class="practice-link-btn" onclick="goToPractice('${s.linked}')">
+    <button class="practice-link-btn" onclick="goToPractice('${s.linkedScenario}')">
       🚕 このスポットのシナリオで練習する
     </button>`;
   document.getElementById('spotDetail').classList.add('open');
 }
+
 function closeDetail(){document.getElementById('spotDetail').classList.remove('open');}
 function goToPractice(scId){
   closeDetail();
@@ -704,37 +902,41 @@ function goToPractice(scId){
 // ═══════════════════════════════════════════════
 //  PRACTICE STATE
 // ═══════════════════════════════════════════════
-let cur='peace', turn=0, score=0, phraseOpen=false, busy=false;
+let cur='pickup', turn=0, score=0, phraseOpen=false, busy=false;
 const chat=document.getElementById('chat');
 const input=document.getElementById('userInput');
 const sendBtn=document.getElementById('sendBtn');
 
-function resetPractice(){
-  turn=0; score=0;
-  chat.innerHTML='';
-  document.getElementById('scoreDisplay').textContent='⭐ 0 pts';
-  // Re-add welcome
-  const w=document.createElement('div');
-  w.className='welcome'; w.id='welcome';
-  const cfg=LANG_CONFIG[lang];
-  w.innerHTML=`<div class="big">${cfg.welcomeEmoji}</div><h2>${cfg.welcomeTitle}</h2>
-    <p>${cfg.welcomeDesc.replace('\n','<br>')}</p>
-    <div class="spot-grid">${cfg.welcomeTags.map(t=>`<span class="spot-tag">${t}</span>`).join('')}</div>
-    <button class="start-btn" onclick="startScenario()">▶ 乗客を乗せる</button>`;
-  chat.appendChild(w);
-}
+document.querySelectorAll('.sc-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.sc-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    cur=b.dataset.sc; turn=0; score=0;
+    chat.innerHTML='';
+    document.getElementById('scoreDisplay').textContent='⭐ 0 pts';
+    const sc=SC[cur];
+    document.getElementById('sceneIcon').textContent=sc.icon;
+    document.getElementById('sceneTitle').textContent=sc.title;
+    document.getElementById('sceneDesc').textContent=sc.desc;
+    document.getElementById('spotTag').textContent=sc.spot;
+    if(phraseOpen){phraseOpen=false;document.getElementById('phrasePanel').classList.remove('open');document.getElementById('phraseBtn').classList.remove('on');}
+    startScenario();
+  });
+});
+
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,88)+'px';});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSend();}});
 
 function startScenario(){
   removeWelcome(); turn=0; busy=false;
-  setTimeout(()=>showPassengerLine(getSC()[cur].turns[0]),400);
+  setTimeout(()=>showPassengerLine(SC[cur].turns[0]),400);
 }
 
 function showPassengerLine(t){
   const typ=addTyping(); busy=true; sendBtn.disabled=true;
   setTimeout(()=>{
     typ.remove();
-    if(lang==='kr') addPMsgKR(t.p,t.read,t.ja);
-    else addPMsgEN(t.p,t.ja);
+    addPMsg(t.p, t.read, t.ja);
     addSuggs(t.sugg);
     busy=false; sendBtn.disabled=false; input.focus();
   },800);
@@ -747,23 +949,22 @@ function handleSend(){
   input.value=''; input.style.height='auto';
   sendBtn.disabled=true;
   addDMsg(text);
-  const t=getSC()[cur].turns[turn];
+  const t=SC[cur].turns[turn];
   const lower=text.toLowerCase();
   const ok=t.kw.some(k=>lower.includes(k));
   score+=ok?10:3;
   document.getElementById('scoreDisplay').textContent=`⭐ ${score} pts`;
   setTimeout(()=>{
-    addFB(ok?t.good:t.fix+'\n（あなたの返答も伝わります👍）',ok);
-    if(t.vocab) addVT(t.vocab);
+    addFB(ok?t.good:t.fix+'\n（入力も伝わります👍 もう少しで完璧！）',ok);
+    if(t.vocab)addVT(t.vocab);
     turn++;
-    if(turn<getSC()[cur].turns.length){
-      setTimeout(()=>showPassengerLine(getSC()[cur].turns[turn]),600);
+    if(turn<SC[cur].turns.length){
+      setTimeout(()=>showPassengerLine(SC[cur].turns[turn]),600);
     } else {
       setTimeout(()=>{
         const e=document.createElement('div');
         e.className='end-card';
-        const fin=lang==='kr'?'수고했어요！':'Well done!';
-        e.innerHTML=`<h3>🎉 シナリオ完了！ ${fin}</h3><p>「${getSC()[cur].title}」を完走しました！<br>獲得ポイント: ⭐ ${score} pts</p><button class="retry-btn" onclick="retryScenario()">🔄 もう一度</button>`;
+        e.innerHTML=`<h3>🎉 シナリオ完了！ 수고했어요!</h3><p>「${SC[cur].title}」を完走しました！<br>獲得ポイント: ⭐ ${score} pts<br><br>もう一度練習するか、別のシナリオを選んでみましょう。</p><button class="retry-btn" onclick="retryScenario()">🔄 もう一度</button>`;
         chat.appendChild(e); scroll();
       },700);
     }
@@ -777,87 +978,84 @@ function togglePhrase(){
   document.getElementById('phrasePanel').classList.toggle('open',phraseOpen);
   document.getElementById('phraseBtn').classList.toggle('on',phraseOpen);
   if(phraseOpen){
-    const SC=getSC(); const grid=document.getElementById('phraseGrid');
-    grid.innerHTML=SC[cur].phrases.map(p=>{
-      const subHtml=p.sub?`<span class="pi-sub">${p.sub}</span>`:'';
-      return `<button class="phrase-item" onclick="inp(${JSON.stringify(p.main)})">${p.main}${subHtml}</button>`;
-    }).join('');
+    const grid=document.getElementById('phraseGrid');
+    grid.innerHTML=SC[cur].phrases.map(p=>`
+      <button class="phrase-item" onclick="inp(${JSON.stringify(p.kor)})">
+        ${p.kor}<span class="pi-read">${p.read} — ${p.ja}</span>
+      </button>`).join('');
   }
 }
 function inp(p){input.value=p;input.focus();}
 
-// ── DOM Helpers ──────────────────────────────
+// ═══════════════════════════════════════════════
+//  DOM HELPERS
+// ═══════════════════════════════════════════════
 function addDMsg(text){
+  // Try to find matching phrase for reading + translation
+  const allPhrases = SC[cur].phrases;
+  const found = allPhrases.find(p=>p.kor===text||p.read.includes(text));
+  const readHtml = found ? `<div class="read">${found.read}</div><div class="ja">${found.ja}</div>` : '';
   const e=document.createElement('div');
   e.className='message driver';
-  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].driverLabel}</div><div class="bubble">${esc(text)}</div>`;
+  e.innerHTML=`<div class="msg-label">🚕 Driver (You)</div>
+    <div class="bubble"><div class="kor">${esc(text)}</div>${readHtml}</div>`;
   chat.appendChild(e); scroll();
 }
-function addPMsgEN(main,ja){
+
+function addPMsg(kor,read,ja){
   const e=document.createElement('div');
   e.className='message passenger';
-  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].passengerLabel}</div>
-    <div class="bubble">
-      <div class="main">${esc(main)}</div>
-      ${ja?`<div class="ja-line">🇯🇵 ${esc(ja)}</div>`:''}
-    </div>`;
-  chat.appendChild(e); scroll(); speak(main);
-}
-function addPMsgKR(kor,read,ja){
-  const e=document.createElement('div');
-  e.className='message passenger';
-  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].passengerLabel}</div>
+  e.innerHTML=`<div class="msg-label">🇰🇷 Tourist</div>
     <div class="bubble">
       <div class="kor">${esc(kor)}</div>
       <span class="read">${esc(read)}</span>
       <div class="ja">🇯🇵 ${esc(ja)}</div>
     </div>`;
-  chat.appendChild(e); scroll(); speak(kor);
+  chat.appendChild(e); scroll();
+  speak(kor);
 }
+
 function addFB(t,good){
   const e=document.createElement('div');
   e.className=`feedback-box ${good?'good':'fix'}`;
   e.innerHTML=esc(t).replace(/\n/g,'<br>');
   chat.appendChild(e); scroll();
 }
+
 function addVT(v){
   const e=document.createElement('div');
   e.className='vocab-tip';
-  if(lang==='kr' && typeof v==='object'){
-    e.innerHTML=`💡 <span class="v-kor">${esc(v.kor)}</span> <span class="v-read">${esc(v.read)}</span><div class="v-ja">${esc(v.ja)}</div>`;
-  } else {
-    e.textContent='💡 '+(typeof v==='string'?v:v.kor||'');
-  }
+  e.innerHTML=`💡 <span class="v-kor">${esc(v.kor)}</span> <span class="v-read">${esc(v.read)}</span><div class="v-ja">${esc(v.ja)}</div>`;
   chat.appendChild(e); scroll();
 }
+
 function addSuggs(arr){
   if(!arr?.length)return;
-  const r=document.createElement('div'); r.className='sugg-row';
+  const r=document.createElement('div');
+  r.className='sugg-row';
   arr.forEach(s=>{
-    const b=document.createElement('button'); b.className='sugg-chip';
-    if(lang==='kr'){
-      b.innerHTML=`<span class="s-kor">${esc(s.kor)}</span><span class="s-read">${esc(s.read)}</span><span class="s-ja">${esc(s.ja)}</span>`;
-      b.onclick=()=>{input.value=s.kor;input.focus();};
-    } else {
-      b.textContent=s.main||s;
-      b.onclick=()=>{input.value=s.main||s;input.focus();};
-    }
+    const b=document.createElement('button');
+    b.className='sugg-chip';
+    b.innerHTML=`<span class="s-kor">${esc(s.kor)}</span><span class="s-read">${esc(s.read)}</span><span class="s-ja">${esc(s.ja)}</span>`;
+    b.onclick=()=>{input.value=s.kor;input.focus();};
     r.appendChild(b);
   });
   chat.appendChild(r); scroll();
 }
+
 function addTyping(){
   const w=document.createElement('div');
   w.className='message passenger';
-  w.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].passengerLabel}</div><div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  w.innerHTML='<div class="msg-label">🇰🇷 Tourist</div><div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
   chat.appendChild(w); scroll(); return w;
 }
+
 function removeWelcome(){document.getElementById('welcome')?.remove();}
 function scroll(){chat.scrollTop=chat.scrollHeight;}
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 // ═══════════════════════════════════════════════
-//  VOICE
+//  VOICE (Korean TTS/STT)
 // ═══════════════════════════════════════════════
 let voiceOn=true, micActive=false, recog=null;
 const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -867,12 +1065,11 @@ function speak(text){
   if(micActive){stopMic();}
   window.speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text);
-  u.lang=LANG_CONFIG[lang].voiceLang; u.rate=0.88; u.pitch=1.0;
+  u.lang='ko-KR'; u.rate=0.85; u.pitch=1.0;
   const voices=speechSynthesis.getVoices();
-  const vl=LANG_CONFIG[lang].voiceLang;
-  const pref=voices.find(v=>v.lang===vl)||voices.find(v=>v.lang.startsWith(vl.split('-')[0]));
+  const pref=voices.find(v=>v.lang==='ko-KR')||voices.find(v=>v.lang.startsWith('ko'));
   if(pref)u.voice=pref;
-  setVoiceStatus(lang==='kr'?'🔊 韓国語を読み上げ中...':'🔊 Speaking...','speaking');
+  setVoiceStatus('🔊 韓国語を読み上げ中...','speaking');
   u.onend=()=>setVoiceStatus('');
   u.onerror=()=>setVoiceStatus('');
   speechSynthesis.speak(u);
@@ -882,9 +1079,8 @@ function toggleMic(){
   if(!SpeechRecognition){setVoiceStatus('⚠️ Chrome/Edgeでご利用ください');return;}
   if(micActive){stopMic();return;}
   recog=new SpeechRecognition();
-  recog.lang=LANG_CONFIG[lang].micLang;
-  recog.interimResults=true; recog.continuous=false;
-  recog.onstart=()=>{micActive=true;document.getElementById('micBtn').classList.add('recording');setVoiceStatus(lang==='kr'?'🎤 韓国語で話してください...':'🎤 Speak now in English...','listening');};
+  recog.lang='ko-KR'; recog.interimResults=true; recog.continuous=false;
+  recog.onstart=()=>{micActive=true;document.getElementById('micBtn').classList.add('recording');setVoiceStatus('🎤 韓国語で話してください...','listening');};
   recog.onresult=(e)=>{
     let interim='',final='';
     for(let i=e.resultIndex;i<e.results.length;i++){
@@ -898,35 +1094,41 @@ function toggleMic(){
   recog.onspeechend=()=>recog.stop();
   recog.onnomatch=()=>recog.stop();
   recog.onend=()=>{
-    micActive=false; document.getElementById('micBtn').classList.remove('recording'); setVoiceStatus('');
+    micActive=false;
+    document.getElementById('micBtn').classList.remove('recording');
+    setVoiceStatus('');
     if(input.value.trim()){
       if(!busy){setTimeout(handleSend,300);}
-      else{const saved=input.value;const retry=setInterval(()=>{if(!busy){clearInterval(retry);if(!input.value.trim())input.value=saved;setTimeout(handleSend,100);}},200);setTimeout(()=>clearInterval(retry),1500);}
+      else{
+        const saved=input.value;
+        const retry=setInterval(()=>{if(!busy){clearInterval(retry);if(!input.value.trim())input.value=saved;setTimeout(handleSend,100);}},200);
+        setTimeout(()=>clearInterval(retry),1500);
+      }
     }
   };
-  recog.onerror=(e)=>{micActive=false;document.getElementById('micBtn').classList.remove('recording');setVoiceStatus(e.error==='not-allowed'?'⚠️ マイクの許可が必要です':'⚠️ Error: '+e.error);};
+  recog.onerror=(e)=>{micActive=false;document.getElementById('micBtn').classList.remove('recording');setVoiceStatus(e.error==='not-allowed'?'⚠️ マイクの許可が必要です':'⚠️ エラー: '+e.error);};
   recog.start();
   setTimeout(()=>{if(micActive)recog.stop();},8000);
 }
+
 function stopMic(){if(recog){recog.stop();recog=null;}}
+
 function toggleVoice(){
   voiceOn=!voiceOn;
   const btn=document.getElementById('voiceToggle');
-  btn.classList.toggle('on',voiceOn); btn.textContent=voiceOn?'🔊':'🔇';
+  btn.classList.toggle('on',voiceOn);
+  btn.textContent=voiceOn?'🔊':'🔇';
   if(!voiceOn)window.speechSynthesis.cancel();
   setVoiceStatus(voiceOn?'🔊 読み上げ: ON':'🔇 読み上げ: OFF');
   setTimeout(()=>setVoiceStatus(''),1500);
 }
-function setVoiceStatus(msg,cls=''){const el=document.getElementById('voiceStatus');el.textContent=msg;el.className='voice-status'+(cls?' '+cls:'');}
-speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 
-// ═══════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════
-document.getElementById('practiceView').className='en-mode';
-document.getElementById('practiceView').style.cssText='display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;';
-buildScenarioTabs();
-updateWelcome();
+function setVoiceStatus(msg,cls=''){
+  const el=document.getElementById('voiceStatus');
+  el.textContent=msg;
+  el.className='voice-status'+(cls?' '+cls:'');
+}
+speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 </script>
 </body>
 </html>
