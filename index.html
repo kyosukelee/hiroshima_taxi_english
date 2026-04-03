@@ -59,6 +59,10 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .bubble{padding:10px 14px;border-radius:var(--radius);font-size:14px;line-height:1.6;box-shadow:var(--sh);}
 .driver .bubble{background:var(--primary);color:#fff;border-bottom-right-radius:4px;}
 
+/* Driver bubble — main text + optional Japanese translation */
+.driver .bubble .d-main{font-size:14px;line-height:1.55;}
+.driver .bubble .d-ja{margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,255,255,.25);font-size:11px;color:rgba(255,255,255,.82);font-style:italic;}
+
 /* EN passenger — 3 lines: English + katakana + Japanese */
 .en-mode .passenger .bubble{background:var(--surface);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px;}
 .en-mode .passenger .bubble .p-main{font-size:15px;font-weight:600;margin-bottom:3px;}
@@ -228,6 +232,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
       <textarea id="userInput" placeholder="入力または🎤マイクで話す..."></textarea>
       <div class="btn-row">
         <button class="icon-btn on" id="voiceToggle" onclick="toggleVoice()">🔊</button>
+        <button class="icon-btn on" id="genderBtn" onclick="toggleGender()" title="音声の性別">👩</button>
         <button class="icon-btn" id="phraseBtn" onclick="togglePhrase()">📋</button>
         <button class="icon-btn" id="micBtn" onclick="toggleMic()">🎤</button>
         <button id="sendBtn" onclick="handleSend()">➤</button>
@@ -1145,9 +1150,44 @@ function togglePhrase(){
 function inp(p){input.value=p;input.focus();}
 
 // ── DOM Helpers ──────────────────────────────
+function findDriverJa(text){
+  // Look in current scenario's phrases
+  const sc=getSC()[cur];
+  const t=text.trim().toLowerCase();
+  // Check phrases
+  for(const p of sc.phrases){
+    const key=lang==='kr'?p.main:p.main;
+    if(key.trim().toLowerCase()===t) return p.sub ? (lang==='kr'?p.sub.split(' — ')[1]||'':p.ja||'') : (p.ja||'');
+  }
+  // Check current turn's sugg
+  if(turn>0 && turn<=sc.turns.length){
+    const prevTurn=sc.turns[Math.max(0,turn-1)];
+    if(prevTurn&&prevTurn.sugg){
+      for(const s of prevTurn.sugg){
+        const key=lang==='kr'?s.kor:s.main;
+        if(key&&key.trim().toLowerCase()===t) return s.ja||'';
+      }
+    }
+  }
+  // Check all turns' sugg
+  for(const trn of sc.turns){
+    if(!trn.sugg) continue;
+    for(const s of trn.sugg){
+      const key=lang==='kr'?s.kor:s.main;
+      if(key&&key.trim().toLowerCase()===t) return s.ja||'';
+    }
+  }
+  return '';
+}
+
 function addDMsg(text){
+  const ja=findDriverJa(text);
   const e=document.createElement('div'); e.className='message driver';
-  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].driverLabel}</div><div class="bubble">${esc(text)}</div>`;
+  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].driverLabel}</div>
+    <div class="bubble">
+      <div class="d-main">${esc(text)}</div>
+      ${ja?`<div class="d-ja">🇯🇵 ${esc(ja)}</div>`:''}
+    </div>`;
   chat.appendChild(e); scroll();
 }
 
@@ -1224,7 +1264,7 @@ input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventD
 // ═══════════════════════════════
 //  VOICE
 // ═══════════════════════════════
-let voiceOn=true, micActive=false, recog=null;
+let voiceOn=true, micActive=false, recog=null, voiceGender='female';
 const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
 
 function speak(text){
@@ -1235,9 +1275,24 @@ function speak(text){
   u.lang=LANG_CONFIG[lang].voiceLang; u.rate=0.88; u.pitch=1.0;
   const voices=speechSynthesis.getVoices();
   const vl=LANG_CONFIG[lang].voiceLang;
-  const pref=voices.find(v=>v.lang===vl)||voices.find(v=>v.lang.startsWith(vl.split('-')[0]));
+  // Filter by language first
+  const langVoices=voices.filter(v=>v.lang===vl||v.lang.startsWith(vl.split('-')[0]));
+  let pref=null;
+  if(langVoices.length>0){
+    if(voiceGender==='female'){
+      // Female: prefer voices with female keywords, or avoid obvious male keywords
+      pref=langVoices.find(v=>/female|woman|girl|fiona|samantha|karen|victoria|kyoko|siri|zira|google\s*us|heidi|amelie|moira|tessa|veena|ava/i.test(v.name))
+          ||langVoices.find(v=>!/male|man|daniel|thomas|alex|fred|jorge|junior/i.test(v.name))
+          ||langVoices[0];
+    } else {
+      // Male: prefer voices with male keywords
+      pref=langVoices.find(v=>/male|man|daniel|thomas|alex|fred|jorge|junior|reed|lee/i.test(v.name))
+          ||langVoices.find(v=>!/female|woman|girl|fiona|samantha|karen|victoria|kyoko|siri|zira|heidi|moira|tessa/i.test(v.name))
+          ||langVoices[langVoices.length-1];
+    }
+  }
   if(pref)u.voice=pref;
-  setVoiceStatus(lang==='kr'?'🔊 韓国語を読み上げ中...':'🔊 Speaking...','speaking');
+  setVoiceStatus(lang==='kr'?`🔊 韓国語を読み上げ中... ${voiceGender==='female'?'👩':'👨'}`:`🔊 Speaking... ${voiceGender==='female'?'👩':'👨'}`,'speaking');
   u.onend=()=>setVoiceStatus(''); u.onerror=()=>setVoiceStatus('');
   speechSynthesis.speak(u);
 }
@@ -1276,6 +1331,14 @@ function toggleVoice(){
   btn.classList.toggle('on',voiceOn); btn.textContent=voiceOn?'🔊':'🔇';
   if(!voiceOn)window.speechSynthesis.cancel();
   setVoiceStatus(voiceOn?'🔊 読み上げ: ON':'🔇 読み上げ: OFF');
+  setTimeout(()=>setVoiceStatus(''),1500);
+}
+
+function toggleGender(){
+  voiceGender=voiceGender==='female'?'male':'female';
+  const btn=document.getElementById('genderBtn');
+  btn.textContent=voiceGender==='female'?'👩':'👨';
+  setVoiceStatus(voiceGender==='female'?'👩 女性の声に変更':'👨 男性の声に変更');
   setTimeout(()=>setVoiceStatus(''),1500);
 }
 function setVoiceStatus(msg,cls=''){const el=document.getElementById('voiceStatus');el.textContent=msg;el.className='voice-status'+(cls?' '+cls:'');}
