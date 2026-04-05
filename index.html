@@ -11,6 +11,7 @@
   --border:#e8e2d9;--border2:#d4ccbe;
   --en:#e05a2b;--en-light:#fdf0eb;--en-border:rgba(224,90,43,0.28);
   --zh:#b91c1c;--zh-light:#fff1f2;--zh-border:rgba(185,28,28,0.28);
+  --es:#c2410c;--es-light:#fff7ed;--es-border:rgba(194,65,12,0.28);
   --kr:#3b5bdb;--kr-light:#eef2ff;--kr-border:rgba(59,91,219,0.28);
   --primary:#e05a2b;--primary-light:#fdf0eb;--primary-border:rgba(224,90,43,0.28);
   --accent:#2b7de0;--accent-light:#ebf3fd;--accent-border:rgba(43,125,224,0.25);
@@ -35,6 +36,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .lang-btn.en.active{background:var(--en-light);border-color:var(--en-border);color:var(--en);}
 .lang-btn.kr.active{background:var(--kr-light);border-color:var(--kr-border);color:var(--kr);}
 .lang-btn.zh.active{background:var(--zh-light);border-color:var(--zh-border);color:var(--zh);}
+.lang-btn.es.active{background:var(--es-light);border-color:var(--es-border);color:var(--es);}
 .mode-bar{background:var(--surface);border-bottom:2px solid var(--border);padding:0 14px;display:flex;gap:0;flex-shrink:0;height:40px;align-items:flex-end;}
 .mode-btn{padding:0 16px;height:40px;border:none;border-bottom:3px solid transparent;background:transparent;color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;flex-shrink:0;margin-bottom:-2px;}
 .mode-btn.active{color:var(--primary);border-bottom-color:var(--primary);}
@@ -82,6 +84,11 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .zh-mode .passenger .bubble .p-read{display:inline-block;font-size:11px;font-weight:700;color:var(--zh);background:var(--zh-light);padding:2px 8px;border-radius:6px;margin-bottom:4px;}
 .zh-mode .passenger .bubble .p-ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
 .zh-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--zh-light);border:1px solid var(--zh-border);border-radius:12px;padding:7px 12px;font-size:12px;color:var(--zh);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);line-height:1.7;}
+.es-mode .passenger .bubble{background:var(--surface);border:1px solid var(--es-border);color:var(--text);border-bottom-left-radius:4px;}
+.es-mode .passenger .bubble .p-main{font-size:15px;font-weight:600;margin-bottom:3px;}
+.es-mode .passenger .bubble .p-read{display:inline-block;font-size:11px;font-weight:700;color:var(--es);background:var(--es-light);padding:2px 8px;border-radius:6px;margin-bottom:4px;}
+.es-mode .passenger .bubble .p-ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
+.es-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--es-light);border:1px solid var(--es-border);border-radius:12px;padding:6px 12px;font-size:12px;color:var(--es);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);}
 
 .feedback-box{margin-top:4px;border-radius:12px;padding:8px 13px;font-size:12px;line-height:1.6;max-width:90%;align-self:flex-end;animation:popIn .2s ease .08s both;box-shadow:var(--sh);}
 .feedback-box.good{background:var(--green-light);border:1px solid var(--green-border);color:var(--green);}
@@ -228,6 +235,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
     <button class="lang-btn en active" onclick="switchLang('en')">🇬🇧 EN</button>
     <button class="lang-btn kr" onclick="switchLang('kr')">🇰🇷 KR</button>
     <button class="lang-btn zh" onclick="switchLang('zh')">🇨🇳 ZH</button>
+    <button class="lang-btn es" onclick="switchLang('es')">🇪🇸 ES</button>
   </div>
 </header>
 <div class="mode-bar">
@@ -314,6 +322,11 @@ const OPENING_PHRASES = {
     {main:'지금부터 미터기를 작동시키겠습니다.',read:'チグムブト ミトギルル チャクトンシキゲッスムニダ。',ja:'いまからメーターを押させていただきます。'},
     {main:'잊고 가시는 물건은 없으신지 확인 부탁드립니다.',read:'イッコ カシヌン ムルゴヌン オプスシンジ ファギン プタクトゥリムニダ。',ja:'お忘れもののないようよろしくお願いいたします。'},
   ],
+  es:[
+    {main:'¿Tiene alguna ruta preferida?',read:'ティエネ アルグナ ルタ プレフェリダ？',ja:'ご希望のルートはございますでしょうか？'},
+    {main:'Voy a poner el taxímetro ahora.',read:'ボイ ア ポネル エル タクシメトロ アオラ。',ja:'いまからメーターを押させていただきます。'},
+    {main:'Por favor, asegúrese de no olvidar nada.',read:'ポル ファボール、アセグレセ デ ノ オルビダル ナダ。',ja:'お忘れもののないようよろしくお願いいたします。'},
+  ],
   zh:[
     {main:'请问您有想走的路线吗？',read:'チンウェン ニン ヨウ シャン ゾウ デ ルーシェン マ？',ja:'ご希望のルートはございますでしょうか？'},
     {main:'现在开始计价。',read:'シェンザイ カイシー ジージャー。',ja:'いまからメーターを押させていただきます。'},
@@ -337,7 +350,7 @@ const LANG_CONFIG = {
     headerTitle:'広島タクシー韓国語会話',headerSub:'초급 한국어 연습 — 한글・읽기・일본어',
     welcomeEmoji:'🗺️',welcomeTitle:'韓国語タクシー会話を練習しよう！',
     welcomeDesc:'韓国人観光客との会話を練習します。\nハングル・読み方・日本語がセットで表示されます。',
-    welcomeTags:['어서 오세요 オソオセヨ','알겠습니다 アルゲッスムニダ','감사합니다 カムサハムニダ','잠깐만요 チャムカンマニョ'],
+    welcomeTags:['어서 오세요 オソオセヨ／いらっしゃいませ','알겠습니다 アルゲッスムニダ／わかりました','감사합니다 カムサハムニダ／ありがとう','잠깐만요 チャムカンマニョ／少々お待ちください'],
     driverLabel:'🚕 Driver (You)',passengerLabel:'🇰🇷 Tourist',
     phraseTitle:'📋 よく使う韓国語フレーズ',voiceLang:'ko-KR',micLang:'ko-KR',
   },
@@ -345,10 +358,19 @@ const LANG_CONFIG = {
     headerTitle:'広島タクシー中国語会話',headerSub:'初级中文练习 — 汉字・读音・日语',
     welcomeEmoji:'🌏',welcomeTitle:'中国語タクシー会話を練習しよう！',
     welcomeDesc:'中国人観光客との会話を練習します。\n漢字・カタカナ読み・日本語がセットで表示されます。',
-    welcomeTags:['你好 ニーハオ','谢谢 シェシェ','好的 ハオダ','请问 チンウェン'],
+    welcomeTags:['你好 ニーハオ／こんにちは','谢谢 シェシェ／ありがとう','好的 ハオダ／わかりました','请问 チンウェン／すみません'],
     driverLabel:'🚕 Driver (You)',passengerLabel:'🇨🇳 Tourist',
     phraseTitle:'📋 よく使う中国語フレーズ',voiceLang:'zh-CN',micLang:'zh-CN',
     nextBtn:'次の会話へ ▶',endMsg:'做得好！',
+  },
+  es:{
+    headerTitle:'広島タクシースペイン語会話',headerSub:'Práctica de español en taxi — Hiroshima',
+    welcomeEmoji:'🌍',welcomeTitle:'¡スペイン語タクシー会話を練習しよう！',
+    welcomeDesc:'スペイン語観光客との会話を練習します。\nスペイン語・カタカナ読み・日本語がセットで表示されます。',
+    welcomeTags:['Hola オラ／こんにちは','Gracias グラシアス／ありがとう','De nada デ ナダ／どういたしまして','Por favor ポル ファボール／お願いします'],
+    driverLabel:'🚕 Driver (You)',passengerLabel:'🇪🇸 Tourist',
+    phraseTitle:'📋 よく使うスペイン語フレーズ',voiceLang:'es-ES',micLang:'es-ES',
+    nextBtn:'次の会話へ ▶',endMsg:'¡Muy bien!',
   },
 };
 
@@ -1211,6 +1233,283 @@ turns:[
 };
 
 
+const SC_ES = {
+pickup:{icon:'🚦',title:'乗車・行き先確認',desc:'スペイン語圏の観光客が乗車。行き先をスペイン語で確認しましょう。',spot:'📍 広島市内',
+phrases:[
+  {main:'¡Bienvenido/a!',read:'ビエンベニード/ア！',ja:'いらっしゃいませ！'},
+  {main:'¿A dónde le llevo?',read:'ア ドンデ レ ジェボ？',ja:'どちらへお連れしましょうか？'},
+  {main:'¡Claro, sin problema!',read:'クラロ、シン プロブレマ！',ja:'もちろん、大丈夫です！'},
+  {main:'Por favor, abróchese el cinturón.',read:'ポル ファボール、アブロチェセ エル シントゥロン。',ja:'シートベルトをお締めください。'},
+  {main:'Tardaremos unos 15 minutos.',read:'タルダレモス ウノス キンセ ミヌトス。',ja:'約15分かかります。'},
+],
+turns:[
+  {p:'¡Hola! ¿Me puede llevar a la estación de Hiroshima?',read:'オラ！メ プエデ ジェバル ア ラ エスタシオン デ ヒロシマ？',ja:'こんにちは！広島駅まで連れて行ってもらえますか？',
+   kw:['claro','sí','estación','hiroshima','minutos','cinturón','problema','supuesto'],
+   good:'✅ ¡Muy bien！目的地確認がスペイン語でできました！',fix:'📝 Try: "¡Claro! ¿La estación de Hiroshima, verdad? Unos 15 minutos."',
+   vocab:'💡 "¡Claro, sin problema!" = クラロ、シン プロブレマ！— もちろん、大丈夫です！',
+   sugg:[{main:'¡Claro! ¿La estación de Hiroshima?',read:'クラロ！ラ エスタシオン デ ヒロシマ？',ja:'もちろん！広島駅ですね？'},
+         {main:'¡Por supuesto! Por favor, abróchese el cinturón.',read:'ポル スプエスト！ポル ファボール、アブロチェセ エル シントゥロン。',ja:'もちろん！シートベルトをお締めください。'},
+         {main:'¡Sin problema! Unos 15 minutos.',read:'シン プロブレマ！ウノス キンセ ミヌトス。',ja:'大丈夫です！約15分です。'}]},
+  {p:'¿Cuánto tiempo tardamos?',read:'クアント ティエンポ タルダモス？',ja:'どのくらいかかりますか？',
+   kw:['minutos','15','quince','unos','tráfico','tranquilo'],
+   good:'✅ 所要時間をスペイン語で伝えられました！',fix:'📝 Try: "Unos 15 minutos. El tráfico está tranquilo."',
+   vocab:'💡 "Unos 15 minutos" = ウノス キンセ ミヌトス — 約15分。',
+   sugg:[{main:'Unos 15 minutos.',read:'ウノス キンセ ミヌトス。',ja:'約15分です。'},
+         {main:'Unos 15 minutos. El tráfico está tranquilo.',read:'ウノス キンセ ミヌトス。エル トラフィコ エスタ トランキロ。',ja:'約15分です。道は空いています。'},
+         {main:'Si hay tráfico, quizás 20 minutos.',read:'シ アイ トラフィコ、キサス ベインテ ミヌトス。',ja:'混んでいたら20分かもしれません。'}]},
+  {p:'¡Conoce muy bien las calles!',read:'コノセ ムイ ビエン ラス カジェス！',ja:'道をとても良くご存知ですね！',
+   kw:['gracias','años','local','hiroshima','conozco','trabajo','taxi','vivo'],
+   good:'✅ 地元ならではの話がスペイン語でできました！',fix:'📝 Try: "¡Gracias! Llevo 10 años conduciendo aquí."',
+   vocab:'💡 "Llevo ~ años conduciendo" = ジェボ〜アニョス コンドゥシエンド — 〜年間運転しています。',
+   sugg:[{main:'¡Gracias! Llevo 10 años conduciendo aquí.',read:'グラシアス！ジェボ ディエス アニョス コンドゥシエンド アキ。',ja:'ありがとうございます！ここで10年間運転しています。'},
+         {main:'Soy de aquí, conozco bien la ciudad.',read:'ソイ デ アキ、コノスコ ビエン ラ シウダ。',ja:'地元なので、街をよく知っています。'},
+         {main:'¡Hiroshima es mi ciudad!',read:'ヒロシマ エス ミ シウダ！',ja:'広島は私の街です！'}]},
+  {p:'¡Ya llegamos! ¡Muchas gracias!',read:'ジャ ジェガモス！ムチャス グラシアス！',ja:'着きました！本当にありがとうございます！',
+   kw:['de nada','bienvenido','disfrute','estancia','hiroshima','gracias','placer'],
+   good:'✅ 温かいお見送りがスペイン語でできました！',fix:'📝 Try: "¡De nada! ¡Disfrute su estancia en Hiroshima!"',
+   vocab:'💡 "¡De nada!" = デ ナダ！— どういたしまして！',
+   sugg:[{main:'¡De nada! ¡Disfrute su estancia!',read:'デ ナダ！ディスフルテ ス エスタンシア！',ja:'どういたしまして！ご滞在をお楽しみください！'},
+         {main:'¡Con mucho gusto! ¡Que lo pase bien!',read:'コン ムチョ グスト！ケ ロ パセ ビエン！',ja:'どういたしまして！良い時間をお過ごしください！'},
+         {main:'¡Vuelva a Hiroshima!',read:'ブエルバ ア ヒロシマ！',ja:'また広島にお越しください！'}]}
+]},
+peace:{icon:'☮️',title:'平和記念公園への送迎',desc:'平和記念公園・原爆ドームへ案内します。スペイン語で案内しましょう。',spot:'📍 中区 / 原爆ドーム近く',
+phrases:[
+  {main:'Vamos al Parque Memorial de la Paz.',read:'バモス アル パルケ メモリアル デ ラ パス。',ja:'平和記念公園に向かっています。'},
+  {main:'La entrada al parque es gratuita.',read:'ラ エントラダ アル パルケ エス グラトゥイタ。',ja:'公園への入場は無料です。'},
+  {main:'La Cúpula A-bomba está justo al lado.',read:'ラ クプラ ア-ボンバ エスタ フスト アル ラド。',ja:'原爆ドームはすぐ隣にあります。'},
+  {main:'Recomiendo ir temprano por la mañana.',read:'レコミエンド イル テンプラノ ポル ラ マニャナ。',ja:'朝早く行くことをお勧めします。'},
+  {main:'El 6 de agosto es un día muy importante.',read:'エル セイス デ アゴスト エス ウン ディア ムイ インポルタンテ。',ja:'8月6日はとても大切な日です。'},
+],
+turns:[
+  {p:'¿Puede llevarme al Parque Memorial de la Paz?',read:'プエデ ジェバルメ アル パルケ メモリアル デ ラ パス？',ja:'平和記念公園まで連れて行ってもらえますか？',
+   kw:['claro','sí','parque','paz','minutos','cinturón','supuesto'],
+   good:'✅ 目的地確認がスペイン語でできました！',fix:'📝 Try: "¡Claro! Unos 10 minutos desde aquí."',
+   vocab:'💡 "¡Por supuesto!" = ポル スプエスト！— もちろん！',
+   sugg:[{main:'¡Claro! Unos 10 minutos desde aquí.',read:'クラロ！ウノス ディエス ミヌトス デスデ アキ。',ja:'もちろん！ここから約10分です。'},
+         {main:'¡Por supuesto! Por favor, abróchese el cinturón.',read:'ポル スプエスト！ポル ファボール、アブロチェセ エル シントゥロン。',ja:'もちろん！シートベルトをお締めください。'},
+         {main:'¡Sí! El parque no está lejos.',read:'シ！エル パルケ ノ エスタ レホス。',ja:'はい！公園は遠くありません。'}]},
+  {p:'¿La Cúpula A-bomba está cerca del parque?',read:'ラ クプラ ア-ボンバ エスタ セルカ デル パルケ？',ja:'原爆ドームは公園の近くにありますか？',
+   kw:['sí','lado','cerca','misma','zona','caminar','junto'],
+   good:'✅ 場所をスペイン語で説明できました！',fix:'📝 Try: "Sí, está justo al lado del parque."',
+   vocab:'💡 "Justo al lado" = フスト アル ラド — すぐ隣に。',
+   sugg:[{main:'Sí, está justo al lado del parque.',read:'シ、エスタ フスト アル ラド デル パルケ。',ja:'はい、公園のすぐ隣にあります。'},
+         {main:'Están en la misma zona, muy cerca.',read:'エスタン エン ラ ミスマ ソナ、ムイ セルカ。',ja:'同じエリアにあって、とても近いです。'},
+         {main:'A 2 minutos caminando del parque.',read:'ア ドス ミヌトス カミナンド デル パルケ。',ja:'公園から歩いて2分です。'}]},
+  {p:'¿Hay que pagar entrada?',read:'アイ ケ パガル エントラダ？',ja:'入場料はありますか？',
+   kw:['gratuita','gratis','museo','yenes','libre','pagar'],
+   good:'✅ 公園と博物館の料金をスペイン語で説明できました！',fix:'📝 Try: "El parque es gratuito, pero el museo cuesta 200 yenes."',
+   vocab:'💡 "Es gratuito" = エス グラトゥイト — 無料です。',
+   sugg:[{main:'El parque es gratuito.',read:'エル パルケ エス グラトゥイト。',ja:'公園は無料です。'},
+         {main:'El parque es gratis, el museo 200 yenes.',read:'エル パルケ エス グラティス、エル ムセオ ドスシエントス イェネス。',ja:'公園は無料、博物館は200円です。'},
+         {main:'La entrada al parque es libre.',read:'ラ エントラダ アル パルケ エス リブレ。',ja:'公園への入場は無料です。'}]},
+  {p:'¡Hemos llegado! Este lugar es muy impresionante.',read:'エモス ジェガド！エステ ルガル エス ムイ インプレシオナンテ。',ja:'着きました！この場所は非常に印象的ですね。',
+   kw:['de nada','disfrute','visita','tiempo','bienvenido','placer'],
+   good:'✅ 温かいお見送りができました！',fix:'📝 Try: "¡De nada! Tómese su tiempo para visitar."',
+   vocab:'💡 "Tómese su tiempo" = トメセ ス ティエンポ — ゆっくりどうぞ。',
+   sugg:[{main:'¡De nada! Tómese su tiempo para visitar.',read:'デ ナダ！トメセ ス ティエンポ パラ ビシタル。',ja:'どういたしまして！ゆっくりご覧ください。'},
+         {main:'¡Disfrute su visita! Es un lugar muy emotivo.',read:'ディスフルテ ス ビシタ！エス ウン ルガル ムイ エモティボ。',ja:'ご見学をお楽しみください！とても心に響く場所です。'},
+         {main:'¡Que tenga una visita memorable!',read:'ケ テンガ ウナ ビシタ メモラブレ！',ja:'心に残る見学を！'}]}
+]},
+miyajima:{icon:'⛩️',title:'宮島・厳島神社への送迎',desc:'宮島口フェリー乗り場まで。スペイン語で宮島を紹介しましょう。',spot:'📍 廿日市市 / 宮島口',
+phrases:[
+  {main:'Vamos al embarcadero de Miyajimaguchi.',read:'バモス アル エンバルカデロ デ ミヤジマグチ。',ja:'宮島口フェリー乗り場に向かっています。'},
+  {main:'El ferry tarda unos 10 minutos.',read:'エル フェリ タルダ ウノス ディエス ミヌトス。',ja:'フェリーで約10分です。'},
+  {main:'¡Cuidado con los ciervos, pueden robar su bolso!',read:'クイダド コン ロス シエルボス、プエデン ロバル ス ボルソ！',ja:'鹿に注意、カバンをつかむかもしれません！'},
+  {main:'La puerta torii es preciosa con la marea alta.',read:'ラ プエルタ トリイ エス プレシオサ コン ラ マレア アルタ。',ja:'鳥居は満潮時にとても美しいです。'},
+  {main:'Las ostras de Hiroshima son imprescindibles.',read:'ラス オストラス デ ヒロシマ ソン インプレシンディブレス。',ja:'広島の牡蠣はぜひ食べてみてください。'},
+],
+turns:[
+  {p:'¡Quiero ir a la isla de Miyajima! ¡Quiero ver el torii flotante!',read:'キエロ イル ア ラ イスラ デ ミヤジマ！キエロ ベル エル トリイ フロタンテ！',ja:'宮島に行きたいです！浮かぶ鳥居が見たいです！',
+   kw:['claro','miyajima','ferry','embarcadero','minutos','supuesto'],
+   good:'✅ 目的地とフェリー乗り場への案内ができました！',fix:'📝 Try: "¡Claro! Al embarcadero, unos 30 minutos."',
+   vocab:'💡 "Embarcadero" = エンバルカデロ — フェリー乗り場。',
+   sugg:[{main:'¡Claro! Al embarcadero, unos 30 minutos.',read:'クラロ！アル エンバルカデロ、ウノス トレインタ ミヌトス。',ja:'もちろん！フェリー乗り場まで約30分です。'},
+         {main:'¡Buena elección! El torii es impresionante.',read:'ブエナ エレクシオン！エル トリイ エス インプレシオナンテ。',ja:'良い選択です！鳥居は素晴らしいです。'},
+         {main:'¡Por supuesto! Le llevo al ferry.',read:'ポル スプエスト！レ ジェボ アル フェリ。',ja:'もちろん！フェリー乗り場までお連れします。'}]},
+  {p:'¿Cuánto dura el viaje en ferry?',read:'クアント ドゥラ エル ビアヘ エン フェリ？',ja:'フェリーの乗車時間はどのくらいですか？',
+   kw:['minutos','10','diez','poco','frecuente','cada','15'],
+   good:'✅ 所要時間と運行頻度が伝えられました！',fix:'📝 Try: "Unos 10 minutos. Salen cada 15 minutos."',
+   vocab:'💡 "Salen cada 15 minutos" = サレン カダ キンセ ミヌトス — 15分ごとに出ます。',
+   sugg:[{main:'Unos 10 minutos.',read:'ウノス ディエス ミヌトス。',ja:'約10分です。'},
+         {main:'Solo 10 minutos. Salen cada 15 minutos.',read:'ソロ ディエス ミヌトス。サレン カダ キンセ ミヌトス。',ja:'たった10分です。15分ごとに出ます。'},
+         {main:'Muy corto, solo 10 minutos.',read:'ムイ コルト、ソロ ディエス ミヌトス。',ja:'とても短く、たった10分です。'}]},
+  {p:'¿Es verdad que hay ciervos salvajes en la isla?',read:'エス ベルダ ケ アイ シエルボス サルバヘス エン ラ イスラ？',ja:'島に野生の鹿がいるというのは本当ですか？',
+   kw:['sí','ciervos','cuidado','bolso','amistosos','verdad'],
+   good:'✅ 鹿の情報と注意事項がスペイン語で伝えられました！',fix:'📝 Try: "¡Sí! Los ciervos van sueltos. ¡Cuidado con su bolso!"',
+   vocab:'💡 "¡Cuidado con su bolso!" = クイダド コン ス ボルソ！— カバンに気をつけて！',
+   sugg:[{main:'¡Sí! Los ciervos van sueltos por toda la isla.',read:'シ！ロス シエルボス バン スエルトス ポル トダ ラ イスラ。',ja:'はい！鹿が島中を自由に歩き回っています。'},
+         {main:'¡Son amistosos, pero cuidado con su bolso!',read:'ソン アミストソス、ペロ クイダド コン ス ボルソ！',ja:'人懐こいですが、カバンに気をつけてください！'},
+         {main:'No les dé comida, por favor.',read:'ノ レス デ コミダ、ポル ファボール。',ja:'餌をあげないでください。'}]},
+  {p:'¿Qué debo comer en la isla?',read:'ケ デボ コメル エン ラ イスラ？',ja:'島では何を食べるべきですか？',
+   kw:['ostras','hiroshima','momiji','manju','especialidad','probar','recomiendo'],
+   good:'✅ 地元グルメをスペイン語で紹介できました！',fix:'📝 Try: "¡Las ostras de Hiroshima y los momiji manju son imprescindibles!"',
+   vocab:'💡 "Imprescindible" = インプレシンディブレ — ぜひ食べるべき・必須。',
+   sugg:[{main:'¡Las ostras de Hiroshima son un must!',read:'ラス オストラス デ ヒロシマ ソン ウン マスト！',ja:'広島の牡蠣は必須です！'},
+         {main:'¡Pruebe los momiji manju, el dulce típico!',read:'プルエベ ロス モミジ マンジュ、エル ドゥルセ ティピコ！',ja:'もみじ饅頭を試してください、地元の有名なお菓子！'},
+         {main:'¡Las ostras y los momiji manju son famosos aquí!',read:'ラス オストラス イ ロス モミジ マンジュ ソン ファモソス アキ！',ja:'牡蠣ともみじ饅頭はここで有名です！'}]},
+  {p:'¡Ya llegamos! ¡Qué zona más bonita!',read:'ジャ ジェガモス！ケ ソナ マス ボニタ！',ja:'着きました！とても素敵なエリアですね！',
+   kw:['disfrute','bienvenido','marea','torii','placer','gracias'],
+   good:'✅ 温かい見送りができました！',fix:'📝 Try: "¡Disfrute! Visite el torii con la marea alta para la mejor vista."',
+   vocab:'💡 "Marea alta" = マレア アルタ — 満潮。',
+   sugg:[{main:'¡Disfrute! El torii es más bonito con la marea alta.',read:'ディスフルテ！エル トリイ エス マス ボニト コン ラ マレア アルタ。',ja:'お楽しみください！満潮時の鳥居が一番きれいです。'},
+         {main:'¡Que pase un buen rato en la isla!',read:'ケ パセ ウン ブエン ラト エン ラ イスラ！',ja:'島で良い時間をお過ごしください！'},
+         {main:'¡Muchas gracias! ¡Disfrute Miyajima!',read:'ムチャス グラシアス！ディスフルテ ミヤジマ！',ja:'ありがとうございます！宮島を楽しんでください！'}]}
+]},
+food:{icon:'🍳',title:'お好み焼き・広島グルメ',desc:'食事スポットへの送迎。広島グルメをスペイン語で紹介してみよう！',spot:'📍 広島市内 / お好み村など',
+phrases:[
+  {main:'El okonomiyaki de Hiroshima lleva fideos.',read:'エル オコノミヤキ デ ヒロシマ ジェバ フィデオス。',ja:'広島のお好み焼きには麺が入っています。'},
+  {main:'Es diferente al estilo de Osaka.',read:'エス ディフェレンテ アル エスティロ デ オサカ。',ja:'大阪スタイルとは違います。'},
+  {main:'Se hace en capas, no mezclado.',read:'セ アセ エン カパス、ノ メスクラド。',ja:'層になっています、混ぜません。'},
+  {main:'¡El Okonomi-mura tiene 24 restaurantes!',read:'エル オコノミムラ ティエネ ベインティクアトロ レストゥランテス！',ja:'お好み村には24店舗あります！'},
+  {main:'¡Las ostras de Hiroshima son las mejores de Japón!',read:'ラス オストラス デ ヒロシマ ソン ラス メホレス デ ハポン！',ja:'広島の牡蠣は日本で一番です！'},
+],
+turns:[
+  {p:'¿El okonomiyaki de Hiroshima es realmente diferente al de Osaka?',read:'エル オコノミヤキ デ ヒロシマ エス レアルメンテ ディフェレンテ アル デ オサカ？',ja:'広島のお好み焼きは本当に大阪と違いますか？',
+   kw:['sí','diferente','capas','fideos','osaka','hiroshima','mezcla'],
+   good:'✅ お好み焼きの違いをスペイン語で説明できました！',fix:'📝 Try: "¡Sí! El de Hiroshima se hace en capas con fideos."',
+   vocab:'💡 "En capas" = エン カパス — 層になっている。広島スタイルのキーワード！',
+   sugg:[{main:'¡Sí! El de Hiroshima se hace en capas con fideos.',read:'シ！エル デ ヒロシマ セ アセ エン カパス コン フィデオス。',ja:'はい！広島のは麺が入った層になっています。'},
+         {main:'¡Muy diferente! En Hiroshima no se mezcla, se apila.',read:'ムイ ディフェレンテ！エン ヒロシマ ノ セ メスクラ、セ アピラ。',ja:'全然違います！広島では混ぜません、重ねます。'},
+         {main:'¡Osaka se mezcla, Hiroshima se hace en capas!',read:'オサカ セ メスクラ、ヒロシマ セ アセ エン カパス！',ja:'大阪は混ぜます。広島は層にします！'}]},
+  {p:'¿Dónde es el mejor sitio para comer okonomiyaki?',read:'ドンデ エス エル メホル シティオ パラ コメル オコノミヤキ？',ja:'お好み焼きを食べるのに最も良い場所はどこですか？',
+   kw:['okonomi','mura','edificio','24','restaurante','recomiendo','famoso'],
+   good:'✅ お好み村をスペイン語で紹介できました！',fix:'📝 Try: "¡El Okonomi-mura! Un edificio entero con 24 restaurantes."',
+   vocab:'💡 "Un edificio entero" = ウン エディフィシオ エンテロ — ビル丸ごと。',
+   sugg:[{main:'¡El Okonomi-mura! 24 restaurantes, todo okonomiyaki.',read:'エル オコノミムラ！ベインティクアトロ レストゥランテス、トド オコノミヤキ。',ja:'お好み村！24店舗、全部お好み焼き！'},
+         {main:'Le recomiendo el Okonomi-mura, ¡es famoso!',read:'レ レコミエンド エル オコノミムラ、エス ファモソ！',ja:'お好み村をお勧めします、有名ですよ！'},
+         {main:'El Okonomi-mura es el más popular.',read:'エル オコノミムラ エス エル マス ポプラル。',ja:'お好み村が最も人気のある場所です。'}]},
+  {p:'¿Qué más es famoso en Hiroshima para comer?',read:'ケ マス エス ファモソ エン ヒロシマ パラ コメル？',ja:'食べ物では広島は他に何が有名ですか？',
+   kw:['ostras','hiroshima','momiji','manju','60','famoso','especialidad'],
+   good:'✅ 広島グルメをスペイン語で紹介できました！',fix:'📝 Try: "¡Las ostras! Hiroshima produce el 60% de las ostras de Japón."',
+   vocab:'💡 "Produce el 60%" = プロドゥセ エル セセンタ ポル シエント — 60%を生産。',
+   sugg:[{main:'¡Las ostras! Hiroshima produce el 60% de Japón.',read:'ラス オストラス！ヒロシマ プロドゥセ エル セセンタ ポルシエント デ ハポン。',ja:'牡蠣！広島は日本の60%を生産しています！'},
+         {main:'¡Pruebe el anago, anguila de mar, cerca de Miyajima!',read:'プルエベ エル アナゴ、アンギラ デ マル、セルカ デ ミヤジマ！',ja:'宮島近くで穴子を試してください！'},
+         {main:'Las ostras y los momiji manju son los más famosos.',read:'ラス オストラス イ ロス モミジ マンジュ ソン ロス マス ファモソス。',ja:'牡蠣ともみじ饅頭が最も有名です。'}]},
+  {p:'¡Ya llegamos! ¡Qué rico huele!',read:'ジャ ジェガモス！ケ リコ ウエレ！',ja:'着きました！いい匂いがしますね！',
+   kw:['disfrute','delicioso','buen','provecho','huele','rico'],
+   good:'✅ 乗客の期待を高める一言がスペイン語で言えました！',fix:'📝 Try: "¡Disfrute! ¡Sabe aún mejor de lo que huele!"',
+   vocab:'💡 "¡Buen provecho!" = ブエン プロベチョ！— いただきます・召し上がれ！',
+   sugg:[{main:'¡Disfrute! ¡Sabe aún mejor de lo que huele!',read:'ディスフルテ！サベ アウン メホル デ ロ ケ ウエレ！',ja:'お楽しみください！匂いよりもさらに美味しいですよ！'},
+         {main:'¡Buen provecho!',read:'ブエン プロベチョ！',ja:'召し上がれ！'},
+         {main:'¡El okonomiyaki de Hiroshima es el mejor!',read:'エル オコノミヤキ デ ヒロシマ エス エル メホル！',ja:'広島のお好み焼きは最高です！'}]}
+]},
+payment:{icon:'💳',title:'料金・支払い',desc:'目的地に到着。料金案内と支払いをスペイン語でスムーズに。',spot:'📍 目的地 到着',
+phrases:[
+  {main:'Son 1.800 yenes, por favor.',read:'ソン ミル オチョシエントス イェネス、ポル ファボール。',ja:'1,800円になります。'},
+  {main:'Aceptamos tarjetas y tarjetas IC.',read:'アセプタモス タルヘタス イ タルヘタス IC。',ja:'カードとICカードが使えます。'},
+  {main:'Aquí tiene su recibo.',read:'アキ ティエネ ス レシボ。',ja:'こちらが領収書です。'},
+  {main:'¡Gracias por usar nuestro taxi!',read:'グラシアス ポル ウサル ヌエストロ タクシ！',ja:'ご乗車ありがとうございました！'},
+  {main:'¡Vuelva pronto a Hiroshima!',read:'ブエルバ プロント ア ヒロシマ！',ja:'また広島にお越しください！'},
+],
+turns:[
+  {p:'¿Ya hemos llegado? ¡Qué rápido!',read:'ジャ エモス ジェガド？ケ ラピド！',ja:'もう着いたんですか？早かったですね！',
+   kw:['sí','llegado','tarifa','yenes','efectivo','tarjeta','total'],
+   good:'✅ 料金をスペイン語で伝えられました！',fix:'📝 Try: "¡Sí! La tarifa es 1.800 yenes. ¿Efectivo o tarjeta?"',
+   vocab:'💡 "La tarifa es ~" = ラ タリファ エス〜 — 料金は〜です。',
+   sugg:[{main:'¡Sí! La tarifa es 1.800 yenes. ¿Efectivo o tarjeta?',read:'シ！ラ タリファ エス ミル オチョシエントス イェネス。エフェクティボ オ タルヘタ？',ja:'はい！料金は1,800円です。現金かカードですか？'},
+         {main:'¡Hemos llegado! Son 1.800 yenes.',read:'エモス ジェガド！ソン ミル オチョシエントス イェネス。',ja:'到着しました！1,800円です。'},
+         {main:'¡Ya estamos! El total es 1.800 yenes.',read:'ジャ エスタモス！エル トタル エス ミル オチョシエントス イェネス。',ja:'到着です！合計1,800円です。'}]},
+  {p:'¿Aceptan tarjeta de crédito?',read:'アセプタン タルヘタ デ クレディト？',ja:'クレジットカードは使えますか？',
+   kw:['sí','tarjeta','visa','mastercard','ic','aceptamos','claro'],
+   good:'✅ カード利用可能をスペイン語で伝えられました！',fix:'📝 Try: "¡Sí! Visa, Mastercard y tarjetas IC."',
+   vocab:'💡 "Aceptamos ~" = アセプタモス〜 — 〜が使えます（受け付けます）。',
+   sugg:[{main:'¡Sí! Visa, Mastercard y tarjetas IC.',read:'シ！ビサ、マスタカル イ タルヘタス IC。',ja:'はい！ビザ、マスターカード、ICカード。'},
+         {main:'¡Por supuesto! Aceptamos todas las tarjetas.',read:'ポル スプエスト！アセプタモス トダス ラス タルヘタス。',ja:'もちろん！すべてのカードが使えます。'},
+         {main:'Sí, todas las tarjetas principales.',read:'シ、トダス ラス タルヘタス プリンシパレス。',ja:'はい、主要カードはすべて使えます。'}]},
+  {p:'¿Me puede dar un recibo?',read:'メ プエデ ダル ウン レシボ？',ja:'領収書をもらえますか？',
+   kw:['sí','recibo','claro','momento','aquí','tiene'],
+   good:'✅ 領収書をスペイン語でスムーズに渡せました！',fix:'📝 Try: "¡Claro! Aquí tiene su recibo."',
+   vocab:'💡 "Aquí tiene" = アキ ティエネ — こちらです・どうぞ。',
+   sugg:[{main:'¡Claro! Aquí tiene su recibo.',read:'クラロ！アキ ティエネ ス レシボ。',ja:'もちろん！こちらが領収書です。'},
+         {main:'¡Por supuesto! Aquí lo tiene.',read:'ポル スプエスト！アキ ロ ティエネ。',ja:'もちろん！こちらです。'},
+         {main:'Un momento, se lo doy ahora mismo.',read:'ウン モメント、セ ロ ドイ アオラ ミスモ。',ja:'少々お待ちください、すぐお渡しします。'}]},
+  {p:'¡Quédese con el cambio! ¡Qué buen servicio!',read:'ケデセ コン エル カンビオ！ケ ブエン セルビシオ！',ja:'おつりはいいですよ！素晴らしいサービスでした。',
+   kw:['gracias','amable','disfrute','hiroshima','placer','vuelva'],
+   good:'✅ 自然で温かいお見送りができました！',fix:'📝 Try: "¡Muchas gracias! ¡Es usted muy amable! ¡Disfrute Hiroshima!"',
+   vocab:'💡 "¡Es usted muy amable!" = エス ウステ ムイ アマブレ！— ご親切にありがとうございます！',
+   sugg:[{main:'¡Muchas gracias! ¡Es usted muy amable!',read:'ムチャス グラシアス！エス ウステ ムイ アマブレ！',ja:'本当にありがとうございます！ご親切に！'},
+         {main:'¡Con mucho gusto! ¡Disfrute Hiroshima!',read:'コン ムチョ グスト！ディスフルテ ヒロシマ！',ja:'どういたしまして！広島を楽しんでください！'},
+         {main:'¡Gracias! ¡Vuelva pronto!',read:'グラシアス！ブエルバ プロント！',ja:'ありがとうございます！またお越しください！'}]}
+]},
+trouble:{icon:'⚠️',title:'トラブル対応',desc:'問題が起きたとき、スペイン語で落ち着いて対応しましょう。',spot:'📍 車内',
+phrases:[
+  {main:'Lo siento mucho.',read:'ロ シエント ムチョ。',ja:'大変申し訳ありません。'},
+  {main:'Voy a buscar otra ruta.',read:'ボイ ア ブスカル オトラ ルタ。',ja:'別の道を探します。'},
+  {main:'Un momento, por favor.',read:'ウン モメント、ポル ファボール。',ja:'少々お待ちください。'},
+  {main:'¿Se ha dejado algo en el taxi?',read:'セ ア デハド アルゴ エン エル タクシ？',ja:'何か忘れ物はありますか？'},
+  {main:'Déjeme comprobar la dirección.',read:'デヘメ コンプロバル ラ ディレクシオン。',ja:'住所を確認させてください。'},
+],
+turns:[
+  {p:'¿Por qué hay tanto tráfico? ¡Voy a llegar tarde!',read:'ポル ケ アイ タント トラフィコ？ボイ ア ジェガル タルデ！',ja:'なぜこんなに渋滞しているの？遅刻してしまいます！',
+   kw:['siento','ruta','camino','otro','rápido','disculpe','pronto'],
+   good:'✅ 落ち着いた謝罪と代替案がスペイン語でできました！',fix:'📝 Try: "¡Lo siento! Voy a buscar una ruta más rápida."',
+   vocab:'💡 "Voy a buscar otra ruta" = ボイ ア ブスカル オトラ ルタ — 別の道を探します。',
+   sugg:[{main:'¡Lo siento! Voy a buscar una ruta más rápida.',read:'ロ シエント！ボイ ア ブスカル ウナ ルタ マス ラピダ。',ja:'申し訳ありません！早いルートを探します。'},
+         {main:'Disculpe. Voy a tomar otro camino.',read:'ディスクルペ。ボイ ア トマル オトロ カミノ。',ja:'申し訳ありません。別の道を通ります。'},
+         {main:'Entendido. Haré lo posible para llegar pronto.',read:'エンテンディド。アレ ロ ポシブレ パラ ジェガル プロント。',ja:'わかりました。できるだけ急ぎます。'}]},
+  {p:'No sé la dirección exacta. ¿Puede ayudarme?',read:'ノ セ ラ ディレクシオン エクサクタ。プエデ アユダルメ？',ja:'正確な住所がわかりません。助けてもらえますか？',
+   kw:['sí','claro','mapa','teléfono','buscar','ayuda','juntos'],
+   good:'✅ 一緒に探すアプローチがスペイン語でできました！',fix:'📝 Try: "¡Claro! ¿Me muestra en su teléfono? Lo buscaremos juntos."',
+   vocab:'💡 "Lo buscaremos juntos" = ロ ブスカレモス フントス — 一緒に探しましょう。',
+   sugg:[{main:'¡Claro! ¿Me muestra en su teléfono?',read:'クラロ！メ ムエストラ エン ス テレフォノ？',ja:'もちろん！電話で見せてください。'},
+         {main:'Sin problema. Lo buscaremos juntos.',read:'シン プロブレマ。ロ ブスカレモス フントス。',ja:'大丈夫です。一緒に探しましょう。'},
+         {main:'Voy a buscarlo en el GPS ahora mismo.',read:'ボイ ア ブスカルロ エン エル GPS アオラ ミスモ。',ja:'今すぐGPSで調べます。'}]},
+  {p:'¡Oh, no! ¡He olvidado mi cartera en el taxi!',read:'オ、ノ！エ オルビダド ミ カルテラ エン エル タクシ！',ja:'大変！財布をタクシーに忘れてしまいました！',
+   kw:['momento','buscar','encontré','aquí','espere','reviso'],
+   good:'✅ 素早く確認して安心させられました！',fix:'📝 Try: "Un momento, voy a revisar... ¡La encontré! Aquí la tiene."',
+   vocab:'💡 "Un momento, voy a revisar" = ウン モメント、ボイ ア レビサル — 少々お待ちください、確認します。',
+   sugg:[{main:'¡Un momento! Voy a revisar.',read:'ウン モメント！ボイ ア レビサル。',ja:'少々お待ちください！確認します。'},
+         {main:'¡No se preocupe! ¡La encontré! Aquí la tiene.',read:'ノ セ プレオクペ！ラ エンコントレ！アキ ラ ティエネ。',ja:'ご心配なく！見つかりました！こちらです。'},
+         {main:'Voy a revisar el asiento trasero.',read:'ボイ ア レビサル エル アシエント トラセロ。',ja:'後部座席を確認します。'}]},
+  {p:'¡Muchas gracias por su ayuda!',read:'ムチャス グラシアス ポル ス アユダ！',ja:'本当にありがとうございました！',
+   kw:['de nada','placer','alegra','ayudar','servicio','anytime'],
+   good:'✅ 温かい見送りがスペイン語でできました！',fix:'📝 Try: "¡De nada! Me alegra haber podido ayudarle."',
+   vocab:'💡 "Me alegra haberle ayudado" = メ アレグラ アベルレ アユダド — お役に立てて嬉しいです。',
+   sugg:[{main:'¡De nada! Me alegra haberle podido ayudar.',read:'デ ナダ！メ アレグラ アベルレ ポディド アユダル。',ja:'どういたしまして！お役に立てて嬉しいです。'},
+         {main:'¡No hay de qué! ¡Que tenga un buen día!',read:'ノ アイ デ ケ！ケ テンガ ウン ブエン ディア！',ja:'とんでもないです！良い一日を！'},
+         {main:'¡Estamos para servirle!',read:'エスタモス パラ セルビルレ！',ja:'いつでもお役に立ちます！'}]}
+]},
+smalltalk:{icon:'💬',title:'雑談・会話',desc:'移動中の雑談。スペイン語で広島について話しましょう。',spot:'📍 移動中',
+phrases:[
+  {main:'¿Es su primera vez en Hiroshima?',read:'エス ス プリメラ ベス エン ヒロシマ？',ja:'広島は初めてですか？'},
+  {main:'¿Cuánto tiempo lleva en Japón?',read:'クアント ティエンポ ジェバ エン ハポン？',ja:'日本にはどのくらいいますか？'},
+  {main:'Le recomiendo visitar Miyajima.',read:'レ レコミエンド ビシタル ミヤジマ。',ja:'宮島を訪れることをお勧めします。'},
+  {main:'¡Hoy hace muy buen tiempo!',read:'オイ アセ ムイ ブエン ティエンポ！',ja:'今日はとても良い天気ですね！'},
+  {main:'¿De dónde es usted?',read:'デ ドンデ エス ウステ？',ja:'どちらのご出身ですか？'},
+],
+turns:[
+  {p:'¿Le gusta trabajar de taxista?',read:'レ グスタ トラバハル デ タクシスタ？',ja:'タクシードライバーとして働くのは好きですか？',
+   kw:['sí','gusta','conocer','turistas','hiroshima','trabajo','rewarding','satisfactorio'],
+   good:'✅ 仕事への思いがスペイン語で伝えられました！',fix:'📝 Try: "¡Sí! Me encanta conocer gente de todo el mundo."',
+   vocab:'💡 "Me encanta conocer gente" = メ エンカンタ コノセル ヘンテ — 人々と出会うのが大好きです。',
+   sugg:[{main:'¡Sí! Me encanta conocer gente de todo el mundo.',read:'シ！メ エンカンタ コノセル ヘンテ デ トド エル ムンド。',ja:'はい！世界中の人々と出会えて大好きです。'},
+         {main:'¡Es muy gratificante! Me gusta mostrar Hiroshima.',read:'エス ムイ グラティフィカンテ！メ グスタ モストラル ヒロシマ。',ja:'とてもやりがいがあります！広島を案内するのが好きです。'},
+         {main:'¡Me encanta! Cada día es diferente.',read:'メ エンカンタ！カダ ディア エス ディフェレンテ。',ja:'大好きです！毎日が違います。'}]},
+  {p:'¿Cuántos años lleva siendo taxista?',read:'クアントス アニョス ジェバ シエンド タクシスタ？',ja:'タクシーの運転手を何年されていますか？',
+   kw:['años','llevo','trabajo','hiroshima','ciudad','taxi','local'],
+   good:'✅ 個人の経験がスペイン語で伝えられました！',fix:'📝 Try: "¡Llevo 10 años! Me encanta este trabajo."',
+   vocab:'💡 "Llevo ~ años" = ジェボ〜アニョス — 〜年間〜しています。',
+   sugg:[{main:'¡Llevo 10 años conduciendo aquí!',read:'ジェボ ディエス アニョス コンドゥシエンド アキ！',ja:'10年間ここで運転しています！'},
+         {main:'Unos 15 años. ¡Me encanta este trabajo!',read:'ウノス キンセ アニョス。メ エンカンタ エステ トラバホ！',ja:'約15年。この仕事が大好きです！'},
+         {main:'¡Muchos años! Conozco cada calle de Hiroshima.',read:'ムチョス アニョス！コノスコ カダ カジェ デ ヒロシマ。',ja:'長い年月！広島のすべての道を知っています。'}]},
+  {p:'¿Qué recomienda ver en Hiroshima?',read:'ケ レコミエンダ ベル エン ヒロシマ？',ja:'広島でおすすめの観光地はありますか？',
+   kw:['parque','paz','miyajima','okonomiyaki','ostras','recomiendo','visitar'],
+   good:'✅ 広島のおすすめをスペイン語で紹介できました！',fix:'📝 Try: "¡El Parque de la Paz, Miyajima y el okonomiyaki son imprescindibles!"',
+   vocab:'💡 "Imprescindible" = インプレシンディブレ — 必見・必須。',
+   sugg:[{main:'¡El Parque de la Paz, Miyajima y el okonomiyaki!',read:'エル パルケ デ ラ パス、ミヤジマ イ エル オコノミヤキ！',ja:'平和公園、宮島、そしてお好み焼き！'},
+         {main:'Miyajima es absolutamente impresionante.',read:'ミヤジマ エス アブソルタメンテ インプレシオナンテ。',ja:'宮島は絶対に素晴らしいです。'},
+         {main:'¡Pruebe las ostras, son las mejores de Japón!',read:'プルエベ ラス オストラス、ソン ラス メホレス デ ハポン！',ja:'牡蠣を試してください、日本で一番です！'}]},
+  {p:'¿Qué es lo que más le gusta de Hiroshima?',read:'ケ エス ロ ケ マス レ グスタ デ ヒロシマ？',ja:'広島で一番好きなものは何ですか？',
+   kw:['gente','amable','comida','historia','ciudad','ostras','okonomiyaki','paz'],
+   good:'✅ 個人的な思いをスペイン語で伝えられました！',fix:'📝 Try: "¡La gente es muy amable, y la comida es increíble!"',
+   vocab:'💡 "La gente es muy amable" = ラ ヘンテ エス ムイ アマブレ — 人々がとても親切。',
+   sugg:[{main:'¡La gente de aquí es muy amable!',read:'ラ ヘンテ デ アキ エス ムイ アマブレ！',ja:'ここの人々はとても親切です！'},
+         {main:'¡La comida! El okonomiyaki y las ostras son los mejores.',read:'ラ コミダ！エル オコノミヤキ イ ラス オストラス ソン ロス メホレス。',ja:'食べ物です！お好み焼きと牡蠣が最高。'},
+         {main:'La historia y los paisajes preciosos.',read:'ラ イストリア イ ロス パイサヘス プレシオソス。',ja:'歴史と美しい景色です。'}]}
+]},
+};
+
+
 // ═══════════════════════════════
 //  GUIDE DATA
 // ═══════════════════════════════
@@ -1303,8 +1602,69 @@ const SPOTS_ZH=[
 ];
 
 
-function getSpots(){return lang==='en'?SPOTS_EN:lang==='kr'?SPOTS_KR:SPOTS_ZH;}
-function getSC(){return lang==='en'?SC_EN:lang==='kr'?SC_KR:SC_ZH;}
+const SPOTS_ES=[
+  {id:'peace',cat:'history',emoji:'☮️',bg:'#fdecea',
+   name:'Parque Memorial de la Paz y Cúpula A-bomba',sub:'平和記念公園・原爆ドーム / パルケ メモリアル デ ラ パス',
+   desc:'Patrimonio de la UNESCO. Conmemora el bombardeo atómico del 6 de agosto de 1945.',
+   hours:'Parque: 24h / Museo: 8:30–18:00',fee:'Parque: Gratis / Museo: 200 yenes',
+   access:'Tranvía de Hiroshima, parada "Genbaku Dome-mae"',
+   mapQ:'Peace+Memorial+Park+Hiroshima',linked:'peace',
+   phrases:[
+     {main:'La entrada al parque es gratuita.',read:'ラ エントラダ アル パルケ エス グラトゥイタ。',ja:'公園への入場は無料です。'},
+     {main:'La Cúpula A-bomba está justo al lado.',read:'ラ クプラ ア-ボンバ エスタ フスト アル ラド。',ja:'原爆ドームはすぐ隣にあります。'},
+     {main:'El 6 de agosto es muy importante aquí.',read:'エル セイス デ アゴスト エス ムイ インポルタンテ アキ。',ja:'8月6日はここでとても大切な日です。'},
+     {main:'Tómese su tiempo para visitar.',read:'トメセ ス ティエンポ パラ ビシタル。',ja:'ゆっくりご覧ください。'},
+   ]},
+  {id:'miyajima',cat:'nature',emoji:'⛩️',bg:'#e8f7ef',
+   name:'Isla Miyajima y Santuario Itsukushima',sub:'宮島・厳島神社 / イスラ ミヤジマ',
+   desc:'Famosa por su torii flotante. Patrimonio de la UNESCO. Ciervos salvajes vagan libremente.',
+   hours:'Ferry: desde madrugada / Santuario: 6:30–18:00',fee:'Ferry: 410 yenes ida y vuelta / Santuario: 300 yenes',
+   access:'Tranvía hasta Miyajimaguchi, ferry 10 min',
+   mapQ:'Miyajima+Island+Hiroshima',linked:'miyajima',
+   phrases:[
+     {main:'El ferry tarda unos 10 minutos.',read:'エル フェリ タルダ ウノス ディエス ミヌトス。',ja:'フェリーで約10分です。'},
+     {main:'El torii es más bonito con la marea alta.',read:'エル トリイ エス マス ボニト コン ラ マレア アルタ。',ja:'満潮時の鳥居が一番美しいです。'},
+     {main:'¡Cuidado con los ciervos y su bolso!',read:'クイダド コン ロス シエルボス イ ス ボルソ！',ja:'鹿とカバンに気をつけてください！'},
+     {main:'Las ostras y los momiji manju son famosos.',read:'ラス オストラス イ ロス モミジ マンジュ ソン ファモソス。',ja:'牡蠣ともみじ饅頭が有名です。'},
+   ]},
+  {id:'castle',cat:'culture',emoji:'🏯',bg:'#fef3c7',
+   name:'Castillo de Hiroshima',sub:'広島城 / カスティジョ デ ヒロシマ',
+   desc:'Construido en 1589, reconstruido en 1958. Vistas panorámicas desde la torre del castillo.',
+   hours:'9:00–18:00 (17:00 dic–ene)',fee:'370 yenes',
+   access:'15 min a pie desde la parada Kamiyacho-higashi',
+   mapQ:'Hiroshima+Castle',linked:'smalltalk',
+   phrases:[
+     {main:'El castillo de Hiroshima merece la visita.',read:'エル カスティジョ デ ヒロシマ メレセ ラ ビシタ。',ja:'広島城はぜひ訪れる価値があります。'},
+     {main:'Las vistas desde arriba son increíbles.',read:'ラス ビスタス デスデ アリバ ソン インクレイブレス。',ja:'頂上からの眺めは素晴らしいです。'},
+     {main:'Unos 10 minutos en tranvía.',read:'ウノス ディエス ミヌトス エン トランビア。',ja:'路面電車で約10分です。'},
+   ]},
+  {id:'okonomiyaki',cat:'food',emoji:'🍳',bg:'#fff7ed',
+   name:'Okonomiyaki y Okonomi-mura',sub:'お好み焼き・お好み村 / オコノミヤキ イ オコノミムラ',
+   desc:'Un edificio con 24 restaurantes de okonomiyaki. El estilo Hiroshima lleva fideos y se hace en capas.',
+   hours:'11:00–23:00',fee:'Aprox. 1.000–1.500 yenes',
+   access:'5 min a pie desde la parada Hatchobori',
+   mapQ:'Okonomi-mura+Hiroshima',linked:'food',
+   phrases:[
+     {main:'El okonomiyaki de Hiroshima lleva fideos.',read:'エル オコノミヤキ デ ヒロシマ ジェバ フィデオス。',ja:'広島のお好み焼きには麺が入っています。'},
+     {main:'Se hace en capas, diferente al de Osaka.',read:'セ アセ エン カパス、ディフェレンテ アル デ オサカ。',ja:'層になっています、大阪とは違います。'},
+     {main:'El Okonomi-mura tiene 24 restaurantes.',read:'エル オコノミムラ ティエネ ベインティクアトロ レストゥランテス。',ja:'お好み村には24店舗あります。'},
+   ]},
+  {id:'station',cat:'transport',emoji:'🚉',bg:'#f5f3ff',
+   name:'Estación de Hiroshima',sub:'広島駅 / エスタシオン デ ヒロシマ',
+   desc:'Parada de Shinkansen y punto de partida de los tranvías. Restaurantes y tiendas de recuerdos.',
+   hours:'Primer tren–último tren',fee:'Gratis (uso de instalaciones)',
+   access:'Conectada por tranvía a todos los puntos turísticos',
+   mapQ:'Hiroshima+Station',linked:'pickup',
+   phrases:[
+     {main:'El Shinkansen está en el 2º piso.',read:'エル シンカンセン エスタ エン エル セグンド ピソ。',ja:'新幹線は2階にあります。'},
+     {main:'La parada del tranvía está justo enfrente.',read:'ラ パラダ デル トランビア エスタ フスト エンフレンテ。',ja:'路面電車の停留所はすぐ前にあります。'},
+     {main:'El Parque de la Paz está a 15 min en tranvía.',read:'エル パルケ デ ラ パス エスタ ア キンセ ミヌトス エン トランビア。',ja:'平和公園は路面電車で15分です。'},
+   ]},
+];
+
+
+function getSpots(){return lang==='en'?SPOTS_EN:lang==='kr'?SPOTS_KR:lang==='zh'?SPOTS_ZH:SPOTS_ES;}
+function getSC(){return lang==='en'?SC_EN:lang==='kr'?SC_KR:lang==='zh'?SC_ZH:SC_ES;}
 
 // ═══════════════════════════════
 //  MODE SWITCH
@@ -1361,6 +1721,12 @@ function openDetail(id){
         ${p.read?`<span class="dpr-read" style="color:var(--zh);background:var(--zh-light)">${p.read}</span>`:''}
         ${p.ja?`<div class="dpr-ja">${p.ja}</div>`:''}
       </div>`;
+    } else if(lang==='es'){
+      return `<div class="detail-phrase-row">
+        <div class="dpr-main" style="color:var(--es)">${p.main}</div>
+        ${p.read?`<span class="dpr-read" style="color:var(--es);background:var(--es-light)">${p.read}</span>`:''}
+        ${p.ja?`<div class="dpr-ja">${p.ja}</div>`:''}
+      </div>`;
     } else {
       return `<div class="detail-phrase-row">
         <div class="dpr-main">${p.main}</div>
@@ -1407,6 +1773,7 @@ function switchLang(l){
   document.querySelector('.lang-btn.en').classList.toggle('active',l==='en');
   document.querySelector('.lang-btn.kr').classList.toggle('active',l==='kr');
   document.querySelector('.lang-btn.zh').classList.toggle('active',l==='zh');
+  document.querySelector('.lang-btn.es').classList.toggle('active',l==='es');
   const pv=document.getElementById('practiceView');
   pv.className=l+'-mode';
   const inPractice=document.getElementById('modePractice').classList.contains('active');
@@ -1425,6 +1792,11 @@ function switchLang(l){
     root.style.setProperty('--primary','#b91c1c');
     root.style.setProperty('--primary-light','#fff1f2');
     root.style.setProperty('--primary-border','rgba(185,28,28,0.28)');
+    root.style.setProperty('--accent','#0891b2');
+  } else if(l==='es'){
+    root.style.setProperty('--primary','#c2410c');
+    root.style.setProperty('--primary-light','#fff7ed');
+    root.style.setProperty('--primary-border','rgba(194,65,12,0.28)');
     root.style.setProperty('--accent','#0891b2');
   } else {
     root.style.setProperty('--primary','#e05a2b');
@@ -1535,6 +1907,7 @@ function showPassengerLine(t){
     typ.remove();
     if(lang==='kr') addPMsgKR(t.p,t.read,t.ja);
     else if(lang==='zh') addPMsgZH(t.p,t.read,t.ja);
+    else if(lang==='es') addPMsgES(t.p,t.read,t.ja);
     else addPMsgEN(t.p,t.read,t.ja);
     addSuggs(t.sugg);
     busy=false; sendBtn.disabled=false; input.focus();
@@ -1670,6 +2043,18 @@ function addPMsgZH(zh,read,ja){
   chat.appendChild(e); scroll(); speak(zh);
 }
 
+// ES passenger: 3 lines — Spanish + カタカナ読み + 日本語
+function addPMsgES(es,read,ja){
+  const e=document.createElement('div'); e.className='message passenger';
+  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].passengerLabel}</div>
+    <div class="bubble">
+      <div class="p-main">${esc(es)}</div>
+      ${read?`<span class="p-read">${esc(read)}</span>`:''}
+      ${ja?`<div class="p-ja">🇯🇵 ${esc(ja)}</div>`:''}
+    </div>`;
+  chat.appendChild(e); scroll(); speak(es);
+}
+
 // KR passenger: 3 lines — Hangul + カタカナ読み + 日本語
 function addPMsgKR(kor,read,ja){
   const e=document.createElement('div'); e.className='message passenger';
@@ -1712,7 +2097,7 @@ function addSuggs(arr){
       b.innerHTML=`<span class="s-main">${esc(s.zh)}</span><span class="s-read">${esc(s.read)}</span><span class="s-sub">${esc(s.ja)}</span>`;
       b.onclick=()=>{input.value=s.zh;input.focus();};
     } else {
-      b.innerHTML=`<span class="s-main">${esc(s.main)}</span>${s.read?`<span class="s-read">${esc(s.read)}</span>`:''}`;
+      b.innerHTML=`<span class="s-main">${esc(s.main)}</span>${s.read?`<span class="s-read">${esc(s.read)}</span>`:''}${s.ja?`<span class="s-sub">${esc(s.ja)}</span>`:''}`;
       b.onclick=()=>{input.value=s.main;input.focus();};
     }
     r.appendChild(b);
