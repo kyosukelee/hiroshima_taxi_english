@@ -10,6 +10,7 @@
   --bg:#f5f3ef;--surface:#fff;--surface2:#faf8f5;
   --border:#e8e2d9;--border2:#d4ccbe;
   --en:#e05a2b;--en-light:#fdf0eb;--en-border:rgba(224,90,43,0.28);
+  --zh:#b91c1c;--zh-light:#fff1f2;--zh-border:rgba(185,28,28,0.28);
   --kr:#3b5bdb;--kr-light:#eef2ff;--kr-border:rgba(59,91,219,0.28);
   --primary:#e05a2b;--primary-light:#fdf0eb;--primary-border:rgba(224,90,43,0.28);
   --accent:#2b7de0;--accent-light:#ebf3fd;--accent-border:rgba(43,125,224,0.25);
@@ -22,8 +23,8 @@
   --radius:14px;--sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
   --sh-md:0 4px 14px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden;}
 header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 14px;height:54px;display:flex;align-items:center;gap:8px;flex-shrink:0;box-shadow:var(--sh);}
 .taxi-badge{background:var(--primary);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:1.5px;padding:4px 9px;border-radius:6px;flex-shrink:0;}
 .header-text h1{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--text);line-height:1.1;}
@@ -33,6 +34,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .lang-btn{padding:5px 10px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;}
 .lang-btn.en.active{background:var(--en-light);border-color:var(--en-border);color:var(--en);}
 .lang-btn.kr.active{background:var(--kr-light);border-color:var(--kr-border);color:var(--kr);}
+.lang-btn.zh.active{background:var(--zh-light);border-color:var(--zh-border);color:var(--zh);}
 .mode-bar{background:var(--surface);border-bottom:2px solid var(--border);padding:0 14px;display:flex;gap:0;flex-shrink:0;height:40px;align-items:flex-end;}
 .mode-btn{padding:0 16px;height:40px;border:none;border-bottom:3px solid transparent;background:transparent;color:var(--text-soft);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;flex-shrink:0;margin-bottom:-2px;}
 .mode-btn.active{color:var(--primary);border-bottom-color:var(--primary);}
@@ -48,7 +50,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;font-family:'Nunito',sans-serif;}
 .tag.role{background:var(--primary-light);border:1px solid var(--primary-border);color:var(--primary);}
 .tag.spot{background:var(--amber-light);border:1px solid var(--amber-border);color:var(--amber);}
-#chat{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+#chat{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;-webkit-overflow-scrolling:touch;}
 .message{display:flex;flex-direction:column;max-width:90%;animation:popIn .2s ease;}
 @keyframes popIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
 .message.driver{align-self:flex-end;align-items:flex-end;}
@@ -74,15 +76,21 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .kr-mode .passenger .bubble .p-main{font-size:15px;font-weight:700;margin-bottom:4px;letter-spacing:.3px;}
 .kr-mode .passenger .bubble .p-read{display:inline-block;font-size:11px;font-weight:700;color:var(--kr);background:var(--kr-light);padding:2px 8px;border-radius:6px;margin-bottom:4px;}
 .kr-mode .passenger .bubble .p-ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
+/* ZH passenger */
+.zh-mode .passenger .bubble{background:var(--surface);border:1px solid var(--zh-border);color:var(--text);border-bottom-left-radius:4px;}
+.zh-mode .passenger .bubble .p-main{font-size:15px;font-weight:700;margin-bottom:4px;}
+.zh-mode .passenger .bubble .p-read{display:inline-block;font-size:11px;font-weight:700;color:var(--zh);background:var(--zh-light);padding:2px 8px;border-radius:6px;margin-bottom:4px;}
+.zh-mode .passenger .bubble .p-ja{font-size:11px;color:var(--text-mid);font-style:italic;border-top:1px solid var(--border);margin-top:5px;padding-top:5px;}
+.zh-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--zh-light);border:1px solid var(--zh-border);border-radius:12px;padding:7px 12px;font-size:12px;color:var(--zh);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);line-height:1.7;}
 
 .feedback-box{margin-top:4px;border-radius:12px;padding:8px 13px;font-size:12px;line-height:1.6;max-width:90%;align-self:flex-end;animation:popIn .2s ease .08s both;box-shadow:var(--sh);}
 .feedback-box.good{background:var(--green-light);border:1px solid var(--green-border);color:var(--green);}
 .feedback-box.fix{background:var(--orange-light);border:1px solid rgba(234,88,12,.2);color:var(--orange);}
 .en-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--amber-light);border:1px solid var(--amber-border);border-radius:12px;padding:6px 12px;font-size:12px;color:var(--amber);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);}
 .kr-mode .vocab-tip{align-self:flex-start;margin-top:2px;background:var(--purple-light);border:1px solid var(--purple-border);border-radius:12px;padding:7px 12px;font-size:12px;color:var(--purple);max-width:90%;animation:popIn .2s ease .12s both;box-shadow:var(--sh);line-height:1.7;}
-.kr-mode .vocab-tip .v-kor{font-size:15px;font-weight:800;letter-spacing:.3px;display:block;}
-.kr-mode .vocab-tip .v-read{font-size:11px;opacity:.8;display:block;}
-.kr-mode .vocab-tip .v-ja{font-size:11px;font-style:italic;opacity:.85;display:block;}
+.kr-mode .vocab-tip .v-main,.zh-mode .vocab-tip .v-main{font-size:15px;font-weight:800;letter-spacing:.3px;display:block;}
+.kr-mode .vocab-tip .v-read,.zh-mode .vocab-tip .v-read{font-size:11px;opacity:.8;display:block;}
+.kr-mode .vocab-tip .v-ja,.zh-mode .vocab-tip .v-ja{font-size:11px;font-style:italic;opacity:.85;display:block;}
 
 /* Suggestion chips — EN: 3 lines (phrase + katakana + ja), KR: 3 lines */
 .sugg-row{align-self:flex-end;display:flex;flex-wrap:wrap;gap:5px;margin-top:3px;max-width:96%;justify-content:flex-end;animation:popIn .2s ease .15s both;}
@@ -117,18 +125,18 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .phrase-item:hover{border-color:var(--primary-border);color:var(--primary);background:var(--primary-light);}
 .phrase-item .pi-read{font-size:10px;color:var(--primary);display:block;font-weight:700;}
 .phrase-item .pi-sub{font-size:10px;display:block;color:var(--text-soft);font-style:italic;}
-.input-area{background:var(--surface);border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0;box-shadow:0 -1px 4px rgba(0,0,0,.04);}
+.input-area{background:var(--surface);border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0;box-shadow:0 -1px 4px rgba(0,0,0,.04);padding-bottom:max(10px,env(safe-area-inset-bottom));}
 .input-row{display:flex;gap:6px;align-items:flex-end;}
-#userInput{flex:1;background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;color:var(--text);font-family:'Nunito Sans',sans-serif;font-size:14px;resize:none;outline:none;min-height:42px;max-height:88px;line-height:1.5;transition:border-color .15s;}
+#userInput{flex:1;background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;color:var(--text);font-family:'Nunito Sans',sans-serif;font-size:16px;resize:none;outline:none;min-height:44px;max-height:88px;line-height:1.5;transition:border-color .15s;}
 #userInput:focus{border-color:var(--primary);}
 #userInput::placeholder{color:var(--text-soft);font-size:12px;}
 .btn-row{display:flex;gap:5px;}
-.icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text-soft);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh);}
+.icon-btn{width:44px;height:44px;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text-soft);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh);}
 .icon-btn:hover{border-color:var(--primary-border);color:var(--primary);background:var(--primary-light);}
 .icon-btn.on{background:var(--primary-light);border-color:var(--primary-border);color:var(--primary);}
 #micBtn.recording{background:var(--primary);border-color:var(--primary);color:#fff;animation:pulse 1s infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,90,43,.4);}50%{box-shadow:0 0 0 7px rgba(224,90,43,0);}}
-#sendBtn{width:42px;height:42px;background:var(--primary);border:none;border-radius:12px;color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh-md);}
+#sendBtn{width:44px;height:44px;background:var(--primary);border:none;border-radius:12px;color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;box-shadow:var(--sh-md);}
 #sendBtn:hover:not(:disabled){filter:brightness(1.07);transform:scale(1.04);}
 #sendBtn:disabled{opacity:.35;cursor:default;transform:none;}
 .voice-status{font-size:11px;text-align:center;margin-top:5px;min-height:15px;color:var(--text-soft);font-weight:600;}
@@ -179,6 +187,33 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
 .map-placeholder small{font-size:10px;color:var(--text-soft);}
 .practice-link-btn{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-md);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
 .practice-link-btn:hover{filter:brightness(1.06);transform:translateY(-1px);}
+
+
+/* Opening phrases card */
+.opening-card{background:var(--surface);border:1px solid var(--amber-border);border-left:3px solid var(--amber);border-radius:12px;padding:10px 13px;margin:8px 10px 0;flex-shrink:0;box-shadow:var(--sh);animation:popIn .3s ease;}
+.opening-card-title{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+.opening-phrase-row{padding:5px 0;border-bottom:1px solid var(--border);}
+.opening-phrase-row:last-child{border-bottom:none;padding-bottom:0;}
+.opr-main{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.opr-read{display:inline-block;font-size:10px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:1px 7px;border-radius:5px;margin-bottom:2px;}
+.opr-ja{font-size:10px;color:var(--text-soft);font-style:italic;}
+/* Next button */
+.next-btn{align-self:center;margin-top:6px;padding:10px 26px;background:var(--primary);color:#fff;border:none;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-md);animation:popIn .25s ease .1s both;min-height:44px;}
+.next-btn:hover{filter:brightness(1.06);transform:translateY(-1px);}
+/* Driver speak button */
+.driver-speak-btn{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#fff;border-radius:8px;padding:3px 9px;font-size:10px;font-weight:700;cursor:pointer;margin-top:5px;transition:all .15s;display:inline-block;}
+.driver-speak-btn:hover{background:rgba(255,255,255,0.35);}
+
+@media(max-width:390px){
+  header{padding:0 10px;}
+  .lang-btn{padding:5px 7px;font-size:11px;}
+  .bubble{font-size:13px;padding:8px 11px;}
+  .passenger .bubble .p-main{font-size:13px;}
+  #sceneCard{padding:8px 10px;}
+  .scene-info h3{font-size:12px;}
+  .icon-btn{width:40px;height:40px;}
+  #sendBtn{width:40px;height:40px;}
+}
 </style>
 </head>
 <body>
@@ -192,6 +227,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   <div class="lang-switcher">
     <button class="lang-btn en active" onclick="switchLang('en')">🇬🇧 EN</button>
     <button class="lang-btn kr" onclick="switchLang('kr')">🇰🇷 KR</button>
+    <button class="lang-btn zh" onclick="switchLang('zh')">🇨🇳 ZH</button>
   </div>
 </header>
 <div class="mode-bar">
@@ -263,6 +299,28 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   <div class="detail-body" id="detailBody"></div>
 </div>
 <script>
+
+// ═══════════════════════════════
+//  OPENING PHRASES
+// ═══════════════════════════════
+const OPENING_PHRASES = {
+  en:[
+    {main:"Do you have a preferred route?",read:'ドゥ ユー ハブ ア プリファード ルート？',ja:'ご希望のルートはございますでしょうか？'},
+    {main:"I will start the meter now.",read:'アイ ウィル スタート ザ メーター ナウ。',ja:'いまからメーターを押させていただきます。'},
+    {main:"Please make sure you haven't left anything behind.",read:'プリーズ メイク シュア ユー ハブント レフト エニシング ビハインド。',ja:'お忘れもののないようよろしくお願いいたします。'},
+  ],
+  kr:[
+    {main:'원하시는 루트가 있으신가요?',read:'ウォナシヌン ルトゥガ イッスシンガヨ？',ja:'ご希望のルートはございますでしょうか？'},
+    {main:'지금부터 미터기를 작동시키겠습니다.',read:'チグムブト ミトギルル チャクトンシキゲッスムニダ。',ja:'いまからメーターを押させていただきます。'},
+    {main:'잊고 가시는 물건은 없으신지 확인 부탁드립니다.',read:'イッコ カシヌン ムルゴヌン オプスシンジ ファギン プタクトゥリムニダ。',ja:'お忘れもののないようよろしくお願いいたします。'},
+  ],
+  zh:[
+    {main:'请问您有想走的路线吗？',read:'チンウェン ニン ヨウ シャン ゾウ デ ルーシェン マ？',ja:'ご希望のルートはございますでしょうか？'},
+    {main:'现在开始计价。',read:'シェンザイ カイシー ジージャー。',ja:'いまからメーターを押させていただきます。'},
+    {main:'请确认一下有没有遗落的物品。',read:'チン チュエレン イーシャー ヨウメイヨウ イーラオ デ ウーピン。',ja:'お忘れもののないようよろしくお願いいたします。'},
+  ],
+};
+
 // ═══════════════════════════════
 //  LANG CONFIG
 // ═══════════════════════════════
@@ -282,7 +340,16 @@ const LANG_CONFIG = {
     welcomeTags:['어서 오세요 オソオセヨ','알겠습니다 アルゲッスムニダ','감사합니다 カムサハムニダ','잠깐만요 チャムカンマニョ'],
     driverLabel:'🚕 Driver (You)',passengerLabel:'🇰🇷 Tourist',
     phraseTitle:'📋 よく使う韓国語フレーズ',voiceLang:'ko-KR',micLang:'ko-KR',
-  }
+  },
+  zh:{
+    headerTitle:'広島タクシー中国語会話',headerSub:'初级中文练习 — 汉字・读音・日语',
+    welcomeEmoji:'🌏',welcomeTitle:'中国語タクシー会話を練習しよう！',
+    welcomeDesc:'中国人観光客との会話を練習します。\n漢字・カタカナ読み・日本語がセットで表示されます。',
+    welcomeTags:['你好 ニーハオ','谢谢 シェシェ','好的 ハオダ','请问 チンウェン'],
+    driverLabel:'🚕 Driver (You)',passengerLabel:'🇨🇳 Tourist',
+    phraseTitle:'📋 よく使う中国語フレーズ',voiceLang:'zh-CN',micLang:'zh-CN',
+    nextBtn:'次の会話へ ▶',endMsg:'做得好！',
+  },
 };
 
 // ═══════════════════════════════
@@ -874,6 +941,276 @@ turns:[
 
 };
 
+const SC_ZH = {
+pickup:{icon:'🚦',title:'乗車・行き先確認',desc:'中国人観光客が乗車。行き先を中国語で確認しましょう。',spot:'📍 広島市内',
+phrases:[
+  {main:'欢迎乘车！',sub:'ファンイン チョンチョー！ — いらっしゃいませ！'},
+  {main:'您要去哪里？',sub:'ニン ヤオ チュ ナーリー？ — どちらへ？'},
+  {main:'好的，没问题！',sub:'ハオダ、メイウェンティ！ — わかりました！'},
+  {main:'请系好安全带。',sub:'チン ジーハオ アンチュエンダイ。 — シートベルトをお締めください。'},
+  {main:'大概需要15分钟。',sub:'ダガイ シューヤオ シーウー フェンジョン。 — 約15分かかります。'},
+],
+turns:[
+  {p:'你好！请送我去广岛站。',read:'ニーハオ！チン ソン ウォ チュ グアンダオ ジャン。',ja:'こんにちは！広島駅まで連れて行ってください。',
+   kw:['好的','知道','广岛站','没问题','当然','分钟','安全带','明白'],
+   good:'✅ 完璧！目的地確認と所要時間が伝えられました。',fix:'📝 Try: 「好的！广岛站，对吗？大概15分钟（ハオダ！グアンダオジャン ドゥイマ？ダガイ シーウー フェンジョン）」',
+   vocab:{zh:'好的，没问题！',read:'ハオダ、メイウェンティ！',ja:'わかりました、大丈夫です！タクシーの定番の返答。'},
+   sugg:[{zh:'好的！广岛站，对吗？',read:'ハオダ！グアンダオジャン、ドゥイマ？',ja:'わかりました！広島駅ですね？'},
+         {zh:'当然！请系好安全带。',read:'ダンラン！チン ジーハオ アンチュエンダイ。',ja:'もちろん！シートベルトをお締めください。'},
+         {zh:'没问题！大概15分钟。',read:'メイウェンティ！ダガイ シーウー フェンジョン。',ja:'大丈夫です！約15分です。'}]},
+  {p:'需要多长时间？',read:'シューヤオ ドゥオチャン シージャン？',ja:'どのくらいかかりますか？',
+   kw:['分钟','15','大概','不堵','顺利'],
+   good:'✅ 所要時間を中国語で伝えられました！',fix:'📝 Try: 「大概15分钟（ダガイ シーウー フェンジョン）」',
+   vocab:{zh:'大概~分钟',read:'ダガイ~フェンジョン',ja:'約〜分。大概=だいたい、分钟=分。'},
+   sugg:[{zh:'大概15分钟。',read:'ダガイ シーウー フェンジョン。',ja:'約15分です。'},
+         {zh:'大概15分钟，不堵车。',read:'ダガイ シーウー フェンジョン、ブードゥーチョー。',ja:'約15分です。混んでいません。'},
+         {zh:'如果堵车可能要20分钟。',read:'ルーグオ ドゥーチョー クーネン ヤオ アーシー フェンジョン。',ja:'混んでいたら20分かもしれません。'}]},
+  {p:'您对广岛很熟悉啊！',read:'ニン ドゥイ グアンダオ ヘン シューシー アー！',ja:'広島のことをよくご存知ですね！',
+   kw:['谢谢','年','本地','出生','广岛','熟悉','工作','开'],
+   good:'✅ 地元ならではの話ができました！',fix:'📝 Try: 「谢谢！我在广岛开了10年出租车（シェシェ！ウォ ザイ グアンダオ カイラ シーニェン チューズーチョー）」',
+   vocab:{zh:'我是本地人',read:'ウォ シー ベンディーレン',ja:'私は地元の人間です。本地=地元。'},
+   sugg:[{zh:'谢谢！我在广岛开了10年出租车。',read:'シェシェ！ウォ ザイ グアンダオ カイラ シーニェン チューズーチョー。',ja:'ありがとうございます！10年運転しています。'},
+         {zh:'我是本地人，对这里很熟悉。',read:'ウォ シー ベンディーレン、ドゥイ ジェリ ヘン シューシー。',ja:'地元の人間なのでよく知っています。'},
+         {zh:'广岛是我的家乡！',read:'グアンダオ シー ウォ デ ジャーシャン！',ja:'広島は私の故郷です！'}]},
+  {p:'到了！谢谢您！',read:'ダオラ！シェシェ ニン！',ja:'着きました！ありがとうございます！',
+   kw:['不客气','欢迎','好好','玩','广岛','再来','祝'],
+   good:'✅ 温かいお見送りができました！',fix:'📝 Try: 「不客气！欢迎再来广岛！（ブークーチー！ファンイン ザイライ グアンダオ！）」',
+   vocab:{zh:'不客气',read:'ブークーチー',ja:'どういたしまして。最も一般的な丁寧な表現。'},
+   sugg:[{zh:'不客气！欢迎再来广岛！',read:'ブークーチー！ファンイン ザイライ グアンダオ！',ja:'どういたしまして！また広島にお越しください！'},
+         {zh:'祝您玩得开心！',read:'ジュ ニン ワン デ カイシン！',ja:'楽しい旅行を！'},
+         {zh:'谢谢您的乘坐！',read:'シェシェ ニン デ チョンズオ！',ja:'ご乗車ありがとうございました！'}]}
+]},
+peace:{icon:'☮️',title:'平和記念公園への案内',desc:'平和記念公園・原爆ドームへ向かいます。中国語で案内しましょう。',spot:'📍 中区 / 原爆ドーム近く',
+phrases:[
+  {main:'我们去和平纪念公园。',sub:'ウォーメン チュ ヘーピン ジーニェン ゴンユェン。 — 平和記念公園に向かいます。'},
+  {main:'公园免费入场。',sub:'ゴンユェン ミェンフェイ ルーチャン。 — 入場は無料です。'},
+  {main:'原爆遗址就在公园旁边。',sub:'ユェンバオ イージー ジウ ザイ ゴンユェン パンビェン。 — 原爆ドームはすぐ隣にあります。'},
+  {main:'建议早上早点去。',sub:'ジェンイー ザオシャン ザオディェン チュ。 — 朝早く行くことをお勧めします。'},
+  {main:'8月6日是重要的纪念日。',sub:'バーユェ リウリー シー チョンヤオ デ ジーニェンリー。 — 8月6日は大切な記念日です。'},
+],
+turns:[
+  {p:'请带我去和平纪念公园。',read:'チン ダイ ウォ チュ ヘーピン ジーニェン ゴンユェン。',ja:'平和記念公園まで連れて行ってください。',
+   kw:['好的','公园','分钟','没问题','当然','明白','知道'],
+   good:'✅ 完璧！目的地確認と所要時間が伝えられました。',fix:'📝 Try: 「好的！大概10分钟（ハオダ！ダガイ シーフェンジョン）」',
+   vocab:{zh:'好的，没问题！',read:'ハオダ、メイウェンティ！',ja:'わかりました、大丈夫です！'},
+   sugg:[{zh:'好的！大概10分钟。',read:'ハオダ！ダガイ シーフェンジョン。',ja:'わかりました！約10分です。'},
+         {zh:'当然！请系好安全带。',read:'ダンラン！チン ジーハオ アンチュエンダイ。',ja:'もちろん！シートベルトをお締めください。'},
+         {zh:'没问题！马上出发。',read:'メイウェンティ！マーシャン チューファー。',ja:'大丈夫です！すぐ出発します。'}]},
+  {p:'原爆遗址在公园附近吗？',read:'ユェンバオ イージー ザイ ゴンユェン フージン マ？',ja:'原爆ドームは公園の近くにありますか？',
+   kw:['在','旁边','附近','走路','近','同一','就'],
+   good:'✅ 場所を中国語で説明できました！',fix:'📝 Try: 「就在公园旁边（ジウ ザイ ゴンユェン パンビェン）」',
+   vocab:{zh:'就在旁边',read:'ジウ ザイ パンビェン',ja:'すぐ隣にあります。就=すぐ、旁边=隣。'},
+   sugg:[{zh:'就在公园旁边。',read:'ジウ ザイ ゴンユェン パンビェン。',ja:'公園のすぐ隣にあります。'},
+         {zh:'走路只要2分钟。',read:'ゾウルー ジーヤオ アールフェンジョン。',ja:'歩いて2分だけです。'},
+         {zh:'在同一个区域，非常近。',read:'ザイ トンイーゴ チューユー、フェイチャン ジン。',ja:'同じエリアにあって、とても近いです。'}]},
+  {p:'需要门票吗？',read:'シューヤオ メンピャオ マ？',ja:'入場料はありますか？',
+   kw:['免费','公园','博物馆','日元','不要'],
+   good:'✅ 公園と博物館の料金を区別して説明できました！',fix:'📝 Try: 「公园免费，博物馆200日元（ゴンユェン ミェンフェイ、ボーウーグァン アールバイ リーユェン）」',
+   vocab:{zh:'免费',read:'ミェンフェイ',ja:'無料。入场费=入場料、日元=日本円。'},
+   sugg:[{zh:'公园免费入场。',read:'ゴンユェン ミェンフェイ ルーチャン。',ja:'公園は無料入場です。'},
+         {zh:'公园免费，博物馆200日元。',read:'ゴンユェン ミェンフェイ、ボーウーグァン アールバイ リーユェン。',ja:'公園は無料、博物館は200円です。'},
+         {zh:'公园不需要门票。',read:'ゴンユェン ブーシューヤオ メンピャオ。',ja:'公園はチケット不要です。'}]},
+  {p:'到了！这里真的很震撼。',read:'ダオラ！ジェリ ジェンデ ヘン ジェンハン。',ja:'着きました！ここは本当に心を揺さぶられますね。',
+   kw:['不客气','慢慢','参观','欢迎','再来','好好','祝'],
+   good:'✅ 温かい見送りができました！',fix:'📝 Try: 「不客气，请慢慢参观（ブークーチー、チン マンマン ツァングァン）」',
+   vocab:{zh:'请慢慢参观',read:'チン マンマン ツァングァン',ja:'ゆっくりご覧ください。慢慢=ゆっくり、参观=見学。'},
+   sugg:[{zh:'不客气，请慢慢参观。',read:'ブークーチー、チン マンマン ツァングァン。',ja:'どういたしまして、ゆっくりご覧ください。'},
+         {zh:'祝您参观愉快！',read:'ジュ ニン ツァングァン ユーカイ！',ja:'楽しい見学を！'},
+         {zh:'这是一个很有意义的地方。',read:'ジェ シー イーゴ ヘン ヨウイーイー デ ディーファン。',ja:'とても意義深い場所です。'}]}
+]},
+miyajima:{icon:'⛩️',title:'宮島・厳島神社への案内',desc:'宮島口フェリー乗り場まで。中国語で宮島を紹介しましょう。',spot:'📍 廿日市市 / 宮島口',
+phrases:[
+  {main:'我们去宫岛渡轮乘船处。',sub:'ウォーメン チュ ゴンダオ ドゥールン チョンチュアンチュ。 — 宮島口フェリー乗り場に向かいます。'},
+  {main:'坐渡轮大概10分钟。',sub:'ズオ ドゥールン ダガイ シーフェンジョン。 — フェリーで約10分です。'},
+  {main:'注意鹿，它们会抢包！',sub:'ジュイー ルー、ターメン フイ チャン バオ！ — 鹿に注意、カバンをつかみます！'},
+  {main:'满潮时大鸟居最漂亮。',sub:'マンチャオ シー ダートリイ ズイ ピャオリャン。 — 満潮時に鳥居が一番美しいです。'},
+  {main:'广岛的牡蛎一定要尝尝！',sub:'グアンダオ デ ムーリー イーディン ヤオ チャンチャン！ — 広島の牡蠣はぜひ食べて！'},
+],
+turns:[
+  {p:'我想去宫岛！想看浮在水上的鸟居！',read:'ウォ シャン チュ ゴンダオ！シャン カン フー ザイ シュイシャン デ トリイ！',ja:'宮島に行きたいです！水に浮かぶ鳥居が見たいです！',
+   kw:['好的','宫岛','渡轮','分钟','港','没问题','当然'],
+   good:'✅ 目的地とフェリー乗り場への案内が完璧！',fix:'📝 Try: 「好的！到港口大概30分钟（ハオダ！ダオ ガンコウ ダガイ サンシー フェンジョン）」',
+   vocab:{zh:'渡轮乘船处',read:'ドゥールン チョンチュアンチュ',ja:'フェリー乗り場。渡轮=フェリー。'},
+   sugg:[{zh:'好的！到港口大概30分钟。',read:'ハオダ！ダオ ガンコウ ダガイ サンシー フェンジョン。',ja:'わかりました！港まで約30分です。'},
+         {zh:'好选择！鸟居非常壮观。',read:'ハオ シュアンツェ！トリイ フェイチャン ジュアングァン。',ja:'良い選択です！鳥居はとても壮観です。'},
+         {zh:'没问题！我送您去渡轮口。',read:'メイウェンティ！ウォ ソン ニン チュ ドゥールン コウ。',ja:'大丈夫です！フェリー乗り場までお連れします。'}]},
+  {p:'渡轮要多长时间？',read:'ドゥールン ヤオ ドゥオチャン シージャン？',ja:'フェリーはどのくらいかかりますか？',
+   kw:['10','十','分钟','短','频繁','每隔'],
+   good:'✅ 所要時間と運行頻度が伝えられました！',fix:'📝 Try: 「大概10分钟，每15分钟一班（ダガイ シーフェンジョン、メイ シーウー フェンジョン イーバン）」',
+   vocab:{zh:'每15分钟一班',read:'メイ シーウー フェンジョン イーバン',ja:'15分ごとに1本。每=毎、班=便。'},
+   sugg:[{zh:'大概10分钟。',read:'ダガイ シーフェンジョン。',ja:'約10分です。'},
+         {zh:'很短！只要10分钟，每15分钟一班。',read:'ヘン ドゥアン！ジーヤオ シーフェンジョン、メイ シーウー フェンジョン イーバン。',ja:'とても短く10分だけです。15分ごとに1本あります。'},
+         {zh:'渡轮很频繁，不用担心。',read:'ドゥールン ヘン ピンファン、ブーヨン ダンシン。',ja:'フェリーは頻繁にあるので、ご心配なく。'}]},
+  {p:'岛上真的有野生鹿吗？',read:'ダオシャン ジェンデ ヨウ イエシェン ルー マ？',ja:'島に本当に野生の鹿がいますか？',
+   kw:['有','鹿','到处','走','注意','包','别喂'],
+   good:'✅ 鹿の情報と注意事項が伝えられました！',fix:'📝 Try: 「有！鹿到处走，注意包！（ヨウ！ルー ダオチュ ゾウ、ジュイー バオ！）」',
+   vocab:{zh:'注意您的包！',read:'ジュイー ニン デ バオ！',ja:'カバンに気をつけてください！注意=注意、包=カバン。'},
+   sugg:[{zh:'有！鹿到处走，很亲近人。',read:'ヨウ！ルー ダオチュ ゾウ、ヘン チンジンレン。',ja:'います！鹿はどこでも歩き回って人懐こいです。'},
+         {zh:'注意您的包！鹿会抢的。',read:'ジュイー ニン デ バオ！ルー フイ チャン デ。',ja:'カバンに気をつけてください！鹿はつかみます。'},
+         {zh:'别喂食它们。',read:'ビェ ウェイシー ターメン。',ja:'餌をあげないでください。'}]},
+  {p:'到了！这里真的很美！',read:'ダオラ！ジェリ ジェンデ ヘン メイ！',ja:'着きました！ここは本当に美しいですね！',
+   kw:['不客气','满潮','鸟居','漂亮','玩','祝','欢迎'],
+   good:'✅ 温かい見送りができました！',fix:'📝 Try: 「满潮时鸟居最漂亮！（マンチャオ シー トリイ ズイ ピャオリャン！）」',
+   vocab:{zh:'满潮',read:'マンチャオ',ja:'満潮。退潮=干潮。'},
+   sugg:[{zh:'满潮时鸟居最漂亮，好好享受！',read:'マンチャオ シー トリイ ズイ ピャオリャン、ハオハオ シャンショウ！',ja:'満潮の時の鳥居が一番きれいです、楽しんでください！'},
+         {zh:'祝您玩得开心！',read:'ジュ ニン ワン デ カイシン！',ja:'楽しい旅行を！'},
+         {zh:'不客气！慢慢游玩吧。',read:'ブークーチー！マンマン ヨウワン バ。',ja:'どういたしまして！ゆっくり楽しんでください。'}]}
+]},
+food:{icon:'🍳',title:'お好み焼き・広島グルメ',desc:'食事スポットへの送迎。広島グルメを中国語で紹介しましょう。',spot:'📍 広島市内 / お好み村',
+phrases:[
+  {main:'广岛烧里面有面条。',sub:'グアンダオヤオ リーミェン ヨウ ミェンティアオ。 — 広島焼きの中には麺が入っています。'},
+  {main:'和大阪烧不一样。',sub:'ヘ ダーバンヤオ ブーイーヤン。 — 大阪焼きと違います。'},
+  {main:'是一层一层的。',sub:'シー イーツェン イーツェン デ。 — 層になっています。'},
+  {main:'大概1000到1500日元。',sub:'ダガイ イーチェン ダオ イーチェンウーバイ リーユェン。 — 1,000〜1,500円程度です。'},
+  {main:'一定要尝尝！',sub:'イーディン ヤオ チャンチャン！ — ぜひ食べてみてください！'},
+],
+turns:[
+  {p:'广岛烧和大阪烧有什么区别？',read:'グアンダオヤオ ヘ ダーバンヤオ ヨウ シェンマ チューピェ？',ja:'広島焼きと大阪焼きはどう違いますか？',
+   kw:['面条','不一样','层','不混','大阪','广岛'],
+   good:'✅ お好み焼きの違いを中国語で説明できました！',fix:'📝 Try: 「广岛的有面条，是一层一层的（グアンダオ デ ヨウ ミェンティアオ、シー イーツェン イーツェン デ）」',
+   vocab:{zh:'一层一层',read:'イーツェン イーツェン',ja:'層になっている。一层=一層。広島スタイルのキーワード。'},
+   sugg:[{zh:'广岛的里面有面条，是层叠的！',read:'グアンダオ デ リーミェン ヨウ ミェンティアオ、シー ツェンディエ デ！',ja:'広島のは中に麺が入って、層になっています！'},
+         {zh:'大阪是混合的，广岛是分层的。',read:'ダーバン シー フンヘー デ、グアンダオ シー フェンツェン デ。',ja:'大阪は混ぜて、広島は層にします。'},
+         {zh:'非常不一样！广岛的更好吃！',read:'フェイチャン ブーイーヤン！グアンダオ デ ゴン ハオチー！',ja:'全然違います！広島のはさらに美味しいです！'}]},
+  {p:'在哪里吃最好？',read:'ザイ ナーリー チー ズイ ハオ？',ja:'どこで食べるのが一番いいですか？',
+   kw:['大阪烧村','村','大楼','店','推荐','出名'],
+   good:'✅ お好み村を中国語で紹介できました！',fix:'📝 Try: 「大阪烧村最有名！（ダーバンヤオツン ズイ ヨウミン！）」',
+   vocab:{zh:'大阪烧村',read:'ダーバンヤオツン',ja:'お好み村（中国語訳）。6階に24店舗！'},
+   sugg:[{zh:'大阪烧村最有名！',read:'ダーバンヤオツン ズイ ヨウミン！',ja:'お好み村が一番有名です！'},
+         {zh:'那里有24家店，全是广岛烧。',read:'ナーリー ヨウ アールシーシー ジア ディェン、チュアン シー グアンダオヤオ。',ja:'そこには24店舗、全部広島焼きです。'},
+         {zh:'要去大阪烧村吗？我送您去。',read:'ヤオ チュ ダーバンヤオツン マ？ウォ ソン ニン チュ。',ja:'お好み村に行きますか？お連れします。'}]},
+  {p:'广岛还有什么特色食物？',read:'グアンダオ ハイ ヨウ シェンマ トーセー シーウー？',ja:'広島には他に何の名物料理がありますか？',
+   kw:['牡蛎','海鳗','枫叶糕','有名','特色'],
+   good:'✅ 広島グルメを中国語で紹介できました！',fix:'📝 Try: 「牡蛎！广岛产日本60%的牡蛎（ムーリー！グアンダオ チャン リーベン リウシーフェンジー デ ムーリー）」',
+   vocab:{zh:'牡蛎',read:'ムーリー',ja:'牡蠣。枫叶糕=もみじ饅頭、海鳗=穴子。'},
+   sugg:[{zh:'牡蛎！广岛产日本60%的牡蛎！',read:'ムーリー！グアンダオ チャン リーベン リウシーフェンジー デ ムーリー！',ja:'牡蠣！広島は日本の60%の牡蠣を生産しています！'},
+         {zh:'还有枫叶糕，宫岛的名产！',read:'ハイ ヨウ フォンイエガオ、ゴンダオ デ ミンチャン！',ja:'もみじ饅頭もあります、宮島の名産です！'},
+         {zh:'牡蛎和枫叶糕都很有名。',read:'ムーリー ヘ フォンイエガオ ドウ ヘン ヨウミン。',ja:'牡蠣ともみじ饅頭はどちらも有名です。'}]},
+  {p:'到了！好香啊！',read:'ダオラ！ハオ シャン アー！',ja:'着きました！いい匂いですね！',
+   kw:['不客气','好吃','享受','慢慢','美味','祝'],
+   good:'✅ 乗客の期待を高める一言！',fix:'📝 Try: 「闻着香，吃起来更美味！（ウェンジェ シャン、チーチーライ ゴン メイウェイ！）」',
+   vocab:{zh:'慢慢享受！',read:'マンマン シャンショウ！',ja:'ゆっくり楽しんでください！慢慢=ゆっくり。'},
+   sugg:[{zh:'闻着香，吃起来更美味！',read:'ウェンジェ シャン、チーチーライ ゴン メイウェイ！',ja:'匂いがいいですが、食べるともっと美味しいですよ！'},
+         {zh:'慢慢享受！',read:'マンマン シャンショウ！',ja:'ゆっくり楽しんでください！'},
+         {zh:'广岛烧是最好的！',read:'グアンダオヤオ シー ズイ ハオ デ！',ja:'広島焼きは最高です！'}]}
+]},
+payment:{icon:'💳',title:'料金・支払い',desc:'目的地に到着。料金と支払いを中国語でスムーズに。',spot:'📍 目的地 到着',
+phrases:[
+  {main:'车费是1800日元。',sub:'チョーフェイ シー イーチェンバーバイ リーユェン。 — 料金は1,800円です。'},
+  {main:'可以刷卡。',sub:'クーイー シュアカー。 — カードが使えます。'},
+  {main:'需要收据吗？',sub:'シューヤオ ショウジュー マ？ — 領収書は必要ですか？'},
+  {main:'谢谢您的乘坐！',sub:'シェシェ ニン デ チョンズオ！ — ご乗車ありがとうございました！'},
+  {main:'请注意脚下。',sub:'チン ジュイー ジャオシャ。 — 足元にお気をつけください。'},
+],
+turns:[
+  {p:'已经到了吗？真快！',read:'イージン ダオラ マ？ジェン クアイ！',ja:'もう着いたんですか？早いですね！',
+   kw:['到了','车费','日元','现金','刷卡','收据'],
+   good:'✅ 料金を明確に中国語で伝えられました！',fix:'📝 Try: 「到了！车费是1800日元（ダオラ！チョーフェイ シー イーチェンバーバイ リーユェン）」',
+   vocab:{zh:'车费',read:'チョーフェイ',ja:'車代・タクシー料金。日元=日本円。'},
+   sugg:[{zh:'到了！车费是1800日元。',read:'ダオラ！チョーフェイ シー イーチェンバーバイ リーユェン。',ja:'到着です！料金は1,800円です。'},
+         {zh:'是的！现金还是刷卡？',read:'シーダ！シェンジン ハイシ シュアカー？',ja:'はい！現金かカードですか？'},
+         {zh:'到了，车费1800日元。',read:'ダオラ、チョーフェイ イーチェンバーバイ リーユェン。',ja:'着きました、料金は1,800円です。'}]},
+  {p:'可以刷银行卡吗？',read:'クーイー シュア インハンカー マ？',ja:'銀行カードは使えますか？',
+   kw:['可以','刷卡','信用卡','交通卡','VISA','万事达'],
+   good:'✅ カード利用可能を中国語で伝えられました！',fix:'📝 Try: 「可以！VISA、万事达都可以（クーイー！VISA、ワンシーダ ドウ クーイー）」',
+   vocab:{zh:'可以刷卡',read:'クーイー シュアカー',ja:'カードが使えます。可以=できる、刷卡=カード払い。'},
+   sugg:[{zh:'可以！VISA、万事达都可以。',read:'クーイー！VISA、ワンシーダ ドウ クーイー。',ja:'使えます！VISAもマスターカードも使えます。'},
+         {zh:'当然！也可以用IC卡。',read:'ダンラン！イェ クーイー ヨン IC カー。',ja:'もちろん！ICカードも使えます。'},
+         {zh:'刷卡没问题！',read:'シュアカー メイウェンティ！',ja:'カード払い大丈夫です！'}]},
+  {p:'请给我收据。',read:'チン ゲイ ウォ ショウジュー。',ja:'領収書をください。',
+   kw:['好的','收据','没问题','稍等','给您'],
+   good:'✅ 領収書をスムーズに渡せました！',fix:'📝 Try: 「好的！这是您的收据（ハオダ！ジェ シー ニン デ ショウジュー）」',
+   vocab:{zh:'这是您的收据',read:'ジェ シー ニン デ ショウジュー',ja:'こちらが領収書です。收据=領収書。'},
+   sugg:[{zh:'好的！这是您的收据。',read:'ハオダ！ジェ シー ニン デ ショウジュー。',ja:'わかりました！こちらが領収書です。'},
+         {zh:'稍等，马上给您。',read:'シャオダン、マーシャン ゲイ ニン。',ja:'少々お待ちください、すぐお渡しします。'},
+         {zh:'给您，请收好。',read:'ゲイ ニン、チン ショウハオ。',ja:'どうぞ、大切にしまってください。'}]},
+  {p:'谢谢！广岛真的很棒！',read:'シェシェ！グアンダオ ジェンデ ヘン バン！',ja:'ありがとうございます！広島は本当に素晴らしいですね！',
+   kw:['不客气','高兴','欢迎','再来','祝','享受','广岛'],
+   good:'✅ 完璧な見送りができました！',fix:'📝 Try: 「欢迎再来广岛！（ファンイン ザイライ グアンダオ！）」',
+   vocab:{zh:'欢迎再来！',read:'ファンイン ザイライ！',ja:'またお越しください！欢迎=歓迎、再来=また来る。'},
+   sugg:[{zh:'欢迎再来广岛！',read:'ファンイン ザイライ グアンダオ！',ja:'また広島にお越しください！'},
+         {zh:'谢谢！祝您旅途愉快！',read:'シェシェ！ジュ ニン リュートゥ ユーカイ！',ja:'ありがとうございます！楽しい旅行を！'},
+         {zh:'很高兴为您服务！',read:'ヘン ガオシン ウェイ ニン フーウー！',ja:'ご利用いただいて光栄です！'}]}
+]},
+trouble:{icon:'⚠️',title:'トラブル対応',desc:'問題が起きたとき、中国語で落ち着いて対応しましょう。',spot:'📍 車内',
+phrases:[
+  {main:'非常抱歉！',sub:'フェイチャン バオチェン！ — 大変申し訳ありません！'},
+  {main:'我换条路走。',sub:'ウォ フアン ティアオ ルー ゾウ。 — 別の道に変えます。'},
+  {main:'请稍等一下。',sub:'チン シャオダン イーシャ。 — 少々お待ちください。'},
+  {main:'您有东西落在车上吗？',sub:'ニン ヨウ ドンシー ラオ ザイ チョーシャン マ？ — 車内に忘れ物はありますか？'},
+  {main:'让我再确认一下地址。',sub:'ラン ウォ ザイ チュエレン イーシャ ディーチー。 — 住所をもう一度確認させてください。'},
+],
+turns:[
+  {p:'为什么这么堵？我要迟到了！',read:'ウェイシェンマ ジェーマ ドゥー？ウォ ヤオ チーダオラ！',ja:'なぜこんなに渋滞しているの？遅刻してしまいます！',
+   kw:['抱歉','换路','绕道','尽快','路线','别的'],
+   good:'✅ 落ち着いた謝罪と代替案がセット！',fix:'📝 Try: 「非常抱歉！我马上换条路（フェイチャン バオチェン！ウォ マーシャン フアン ティアオ ルー）」',
+   vocab:{zh:'我马上换条路。',read:'ウォ マーシャン フアン ティアオ ルー。',ja:'すぐ別の道に変えます。马上=すぐ、换=変える。'},
+   sugg:[{zh:'非常抱歉！我马上换条路。',read:'フェイチャン バオチェン！ウォ マーシャン フアン ティアオ ルー。',ja:'大変申し訳ありません！すぐ別の道に変えます。'},
+         {zh:'对不起！我尽量快一点。',read:'ドゥイブチー！ウォ ジンリャン クアイ イーディェン。',ja:'申し訳ありません！できるだけ急ぎます。'},
+         {zh:'抱歉，我绕路走。',read:'バオチェン、ウォ ラオルー ゾウ。',ja:'失礼しました、迂回して行きます。'}]},
+  {p:'我不知道具体地址，能帮忙吗？',read:'ウォ ブーチーダオ ジュティー ディーチー、ネン バンマン マ？',ja:'正確な住所がわかりません。助けてもらえますか？',
+   kw:['可以','帮','手机','地图','一起','找','导航'],
+   good:'✅ 一緒に探すアプローチが完璧！',fix:'📝 Try: 「可以！用手机地图一起找（クーイー！ヨン ショウジー ディートゥ イーチー ジャオ）」',
+   vocab:{zh:'用手机地图一起找',read:'ヨン ショウジー ディートゥ イーチー ジャオ',ja:'スマホの地図で一緒に探しましょう。'},
+   sugg:[{zh:'可以！请把手机给我看看。',read:'クーイー！チン バ ショウジー ゲイ ウォ カンカン。',ja:'もちろん！スマホを見せてください。'},
+         {zh:'我用导航帮您找。',read:'ウォ ヨン ダオハン バン ニン ジャオ。',ja:'カーナビで探してあげます。'},
+         {zh:'没问题，我们一起找。',read:'メイウェンティ、ウォーメン イーチー ジャオ。',ja:'大丈夫です、一緒に探しましょう。'}]},
+  {p:'我把钱包落在出租车上了！',read:'ウォ バ チェンバオ ラオ ザイ チューズーチョーシャン ラ！',ja:'財布をタクシーに忘れてしまいました！',
+   kw:['找','检查','后座','稍等','在','找到','别担心'],
+   good:'✅ 素早く確認して安心させられました！',fix:'📝 Try: 「请稍等，我帮您找（チン シャオダン、ウォ バン ニン ジャオ）」',
+   vocab:{zh:'请稍等，我帮您找。',read:'チン シャオダン、ウォ バン ニン ジャオ。',ja:'少々お待ちください、探してあげます。'},
+   sugg:[{zh:'请稍等！我帮您找一下。',read:'チン シャオダン！ウォ バン ニン ジャオ イーシャ。',ja:'少々お待ちください！探してみます。'},
+         {zh:'别担心！找到了！',read:'ビェ ダンシン！ジャオダオラ！',ja:'ご心配なく！見つかりました！'},
+         {zh:'我看看后座。',read:'ウォ カンカン ホウズオ。',ja:'後部座席を見てみます。'}]},
+  {p:'太感谢了！真的帮了大忙！',read:'タイ ガンシェラ！ジェンデ バンラ ダーマン！',ja:'本当にありがとうございます！とても助かりました！',
+   kw:['不客气','哪里','高兴','帮到','没关系','应该','服务'],
+   good:'✅ 優しく心強い見送りができました！',fix:'📝 Try: 「哪里，这是应该的！（ナーリー、ジェ シー インガイ デ！）」',
+   vocab:{zh:'哪里，这是应该的！',read:'ナーリー、ジェ シー インガイ デ！',ja:'いいえ、当然のことです！謙遜の表現。'},
+   sugg:[{zh:'哪里，这是应该的！',read:'ナーリー、ジェ シー インガイ デ！',ja:'いいえ、当然のことです！'},
+         {zh:'能帮到您，我很高兴！',read:'ネン バンダオ ニン、ウォ ヘン ガオシン！',ja:'お役に立てて嬉しいです！'},
+         {zh:'随时为您服务！',read:'スイシー ウェイ ニン フーウー！',ja:'いつでもお役に立ちます！'}]}
+]},
+smalltalk:{icon:'💬',title:'雑談・会話',desc:'移動中の雑談。中国語で広島や日常会話を楽しみましょう。',spot:'📍 移動中',
+phrases:[
+  {main:'今天天气真好！',sub:'ジンティェン ティェンチー ジェン ハオ！ — 今日は天気が良いですね！'},
+  {main:'广岛是个很棒的城市。',sub:'グアンダオ シー ゴ ヘン バン デ チョンシー。 — 広島は素晴らしい街です。'},
+  {main:'一定要去宫岛。',sub:'イーディン ヤオ チュ ゴンダオ。 — 必ず宮島に行ってください。'},
+  {main:'您从哪里来？',sub:'ニン ツォン ナーリー ライ？ — どちらから来られましたか？'},
+  {main:'希望您玩得开心！',sub:'シーワン ニン ワン デ カイシン！ — 楽しんでください！'},
+],
+turns:[
+  {p:'您喜欢开出租车这份工作吗？',read:'ニン シーファン カイ チューズーチョー ジェフェン ゴンズオ マ？',ja:'タクシーを運転するお仕事は好きですか？',
+   kw:['喜欢','有意思','遇到','游客','介绍','广岛','满意','开心'],
+   good:'✅ 仕事への思いが中国語で伝えられました！',fix:'📝 Try: 「喜欢！可以认识来自各地的游客（シーファン！クーイー レンシー ライズー ガーディー デ ヨウクー）」',
+   vocab:{zh:'来自各地的游客',read:'ライズー ガーディー デ ヨウクー',ja:'各地からの観光客。来自=〜から来た。'},
+   sugg:[{zh:'喜欢！可以认识来自各地的游客！',read:'シーファン！クーイー レンシー ライズー ガーディー デ ヨウクー！',ja:'好きです！各地からの観光客と知り合えます！'},
+         {zh:'非常喜欢！每天都很充实。',read:'フェイチャン シーファン！メイティェン ドウ ヘン チョンシー。',ja:'とても好きです！毎日充実しています。'},
+         {zh:'喜欢，可以给大家介绍广岛！',read:'シーファン、クーイー ゲイ ダージア ジェシャオ グアンダオ！',ja:'好きです、みんなに広島を紹介できますから！'}]},
+  {p:'您在广岛住了多久？',read:'ニン ザイ グアンダオ ジュラ ドゥオジウ？',ja:'広島にどのくらい住んでいますか？',
+   kw:['年','在这里','从小','生长','很久','一直','住'],
+   good:'✅ 地元ならではの話ができました！',fix:'📝 Try: 「我是土生土长的广岛人！（ウォ シー トゥーシェン トゥージャン デ グアンダオレン！）」',
+   vocab:{zh:'土生土长的广岛人',read:'トゥーシェン トゥージャン デ グアンダオレン',ja:'広島生まれ広島育ちの広島人。'},
+   sugg:[{zh:'我是土生土长的广岛人！',read:'ウォ シー トゥーシェン トゥージャン デ グアンダオレン！',ja:'私は広島生まれの広島育ちです！'},
+         {zh:'我在这里开了15年出租车。',read:'ウォ ザイ ジェリ カイラ シーウーニェン チューズーチョー。',ja:'ここでタクシーを15年運転しています。'},
+         {zh:'住了很多年，对这里很熟悉。',read:'ジュラ ヘン ドゥオニェン、ドゥイ ジェリ ヘン シューシー。',ja:'長年住んでいて、ここのことはよく知っています。'}]},
+  {p:'广岛有什么推荐的地方？',read:'グアンダオ ヨウ シェンマ トゥイジェン デ ディーファン？',ja:'広島でおすすめの場所はありますか？',
+   kw:['和平','公园','宫岛','大阪烧','牡蛎','推荐','一定'],
+   good:'✅ 広島のおすすめを中国語で紹介できました！',fix:'📝 Try: 「一定要去和平公园和宫岛！（イーディン ヤオ チュ ヘーピン ゴンユェン ヘ ゴンダオ！）」',
+   vocab:{zh:'一定要去',read:'イーディン ヤオ チュ',ja:'必ず行ってください。一定=必ず、要=〜しなければ。'},
+   sugg:[{zh:'一定要去和平公园和宫岛！',read:'イーディン ヤオ チュ ヘーピン ゴンユェン ヘ ゴンダオ！',ja:'必ず平和公園と宮島に行ってください！'},
+         {zh:'还有广岛烧和牡蛎！',read:'ハイ ヨウ グアンダオヤオ ヘ ムーリー！',ja:'お好み焼きと牡蠣もありますよ！'},
+         {zh:'宫岛非常美，强烈推荐！',read:'ゴンダオ フェイチャン メイ、チャンリェ トゥイジェン！',ja:'宮島はとても美しく、強くお勧めします！'}]},
+  {p:'您最喜欢广岛的什么？',read:'ニン ズイ シーファン グアンダオ デ シェンマ？',ja:'広島で一番好きなものは何ですか？',
+   kw:['人','食物','历史','风景','喜欢','大阪烧','牡蛎','和平'],
+   good:'✅ 個人的な思いを中国語で伝えられました！',fix:'📝 Try: 「这里的人非常热情！（ジェリ デ レン フェイチャン ルーチン！）」',
+   vocab:{zh:'热情好客',read:'ルーチン ハオクー',ja:'温かくてもてなし上手。広島の人の特徴を伝えるフレーズ。'},
+   sugg:[{zh:'这里的人非常热情！',read:'ジェリ デ レン フェイチャン ルーチン！',ja:'ここの人々はとても温かいです！'},
+         {zh:'食物！广岛烧和牡蛎最棒。',read:'シーウー！グアンダオヤオ ヘ ムーリー ズイバン。',ja:'食べ物です！お好み焼きと牡蠣が最高。'},
+         {zh:'历史和美丽的风景。',read:'リーシー ヘ メイリー デ フォンジン。',ja:'歴史と美しい景色です。'}]}
+]},
+};
+
+
 // ═══════════════════════════════
 //  GUIDE DATA
 // ═══════════════════════════════
@@ -909,8 +1246,65 @@ const SPOTS_KR=[
    phrases:[{main:'신칸센 승강장은 2층이에요.',read:'シンカンセン スンガンジャンウン イチュンイエヨ。',ja:'新幹線ホームは2階です。'},{main:'전차 정류장은 바로 앞이에요.',read:'チョンチャ チョンニュジャンウン パロ アビエヨ。',ja:'路面電車の停留所はすぐ前です。'},{main:'평화공원은 전차로 15분이에요.',read:'ピョンファゴンウォヌン チョンチャロ シボブニエヨ。',ja:'平和公園は路面電車で15分です。'}]},
 ];
 
-function getSpots(){return lang==='en'?SPOTS_EN:SPOTS_KR;}
-function getSC(){return lang==='en'?SC_EN:SC_KR;}
+
+const SPOTS_ZH=[
+  {id:'peace',cat:'history',emoji:'☮️',bg:'#fdecea',
+   name:'和平纪念公园・原爆遗址',sub:'平和記念公園・原爆ドーム / ヘーピン ジーニェン ゴンユェン',
+   desc:'1945年8月6日原子弹爆炸的历史见证。联合国教科文组织世界遗产。',
+   hours:'公园：24小时 / 博物馆：8:30〜18:00',fee:'公园：免费 / 博物馆：200日元',
+   access:'广岛电车「原爆圆顶前」站下车',mapQ:'Peace+Memorial+Park+Hiroshima',linked:'peace',
+   phrases:[
+     {main:'公园免费入场。',read:'ゴンユェン ミェンフェイ ルーチャン。',ja:'公園は無料入場です。'},
+     {main:'原爆遗址就在公园旁边。',read:'ユェンバオ イージー ジウ ザイ ゴンユェン パンビェン。',ja:'原爆ドームはすぐ隣にあります。'},
+     {main:'8月6日是非常重要的纪念日。',read:'バーユェ リウリー シー フェイチャン チョンヤオ デ ジーニェンリー。',ja:'8月6日はとても大切な記念日です。'},
+     {main:'请慢慢参观。',read:'チン マンマン ツァングァン。',ja:'ゆっくりご覧ください。'},
+   ]},
+  {id:'miyajima',cat:'nature',emoji:'⛩️',bg:'#e8f7ef',
+   name:'宫岛・严岛神社',sub:'宮島・厳島神社 / ゴンダオ・イツクシマジンジャ',
+   desc:'以浮在水面的大鸟居闻名。联合国教科文组织世界遗产。岛上野生鹿自由漫步。',
+   hours:'渡轮：早班〜末班 / 神社：6:30〜18:00',fee:'渡轮：往返410日元 / 神社：300日元',
+   access:'广岛电车「宫岛口」坐渡轮约10分钟',mapQ:'Miyajima+Island+Hiroshima',linked:'miyajima',
+   phrases:[
+     {main:'坐渡轮大概10分钟。',read:'ズオ ドゥールン ダガイ シーフェンジョン。',ja:'フェリーで約10分です。'},
+     {main:'满潮时大鸟居最漂亮。',read:'マンチャオ シー ダートリイ ズイ ピャオリャン。',ja:'満潮時に鳥居が一番美しいです。'},
+     {main:'注意鹿，它们会抢包！',read:'ジュイー ルー、ターメン フイ チャン バオ！',ja:'鹿に注意、カバンをつかみます！'},
+     {main:'广岛的牡蛎一定要尝尝！',read:'グアンダオ デ ムーリー イーディン ヤオ チャンチャン！',ja:'広島の牡蠣はぜひ食べてください！'},
+   ]},
+  {id:'castle',cat:'culture',emoji:'🏯',bg:'#fef3c7',
+   name:'广岛城',sub:'広島城 / グアンダオ チョン',
+   desc:'1589年建成，战后1958年重建。可从天守阁俯瞰市内全景。',
+   hours:'9:00〜18:00（12〜1月至17:00）',fee:'大人：370日元',
+   access:'广岛电车「纸屋町东」站步行15分钟',mapQ:'Hiroshima+Castle',linked:'smalltalk',
+   phrases:[
+     {main:'广岛城一定要去看看。',read:'グアンダオ チョン イーディン ヤオ チュ カンカン。',ja:'広島城はぜひ行ってみてください。'},
+     {main:'从顶层可以看到很好的风景。',read:'ツォン ディンツェン クーイー カンダオ ヘン ハオ デ フォンジン。',ja:'頂上から素晴らしい景色が見えます。'},
+     {main:'坐电车大概10分钟。',read:'ズオ ディェンチョー ダガイ シーフェンジョン。',ja:'路面電車で約10分です。'},
+   ]},
+  {id:'okonomiyaki',cat:'food',emoji:'🍳',bg:'#fff7ed',
+   name:'大阪烧・大阪烧村',sub:'お好み焼き・お好み村 / ダーバンヤオ・ダーバンヤオツン',
+   desc:'6层楼共有24家大阪烧餐厅。广岛风格有面条，与大阪风格不同。',
+   hours:'11:00〜23:00',fee:'大约1,000〜1,500日元',
+   access:'广岛电车「八丁堀」站步行5分钟',mapQ:'Okonomi-mura+Hiroshima',linked:'food',
+   phrases:[
+     {main:'广岛烧里面有面条。',read:'グアンダオヤオ リーミェン ヨウ ミェンティアオ。',ja:'広島焼きの中には麺が入っています。'},
+     {main:'和大阪烧不一样，是层叠的。',read:'ヘ ダーバンヤオ ブーイーヤン、シー ツェンディエ デ。',ja:'大阪焼きと違って、層になっています。'},
+     {main:'大阪烧村有24家店。',read:'ダーバンヤオツン ヨウ アールシーシー ジア ディェン。',ja:'お好み村には24店舗あります。'},
+   ]},
+  {id:'station',cat:'transport',emoji:'🚉',bg:'#f5f3ff',
+   name:'广岛站',sub:'広島駅 / グアンダオ ジャン',
+   desc:'新干线停靠站。市内电车的出发点。站内有餐厅和纪念品商店。',
+   hours:'首班〜末班',fee:'免费（设施利用）',
+   access:'市内各处坐电车即可到达',mapQ:'Hiroshima+Station',linked:'pickup',
+   phrases:[
+     {main:'新干线站台在2楼。',read:'シンカンシェン ジャンタイ ザイ アールロウ。',ja:'新幹線ホームは2階です。'},
+     {main:'电车站就在正前方。',read:'ディェンチョー ジャン ジウ ザイ ジェンチェンファン。',ja:'路面電車の停留所はすぐ前です。'},
+     {main:'和平公园坐电车大概15分钟。',read:'ヘーピン ゴンユェン ズオ ディェンチョー ダガイ シーウー フェンジョン。',ja:'平和公園は路面電車で15分です。'},
+   ]},
+];
+
+
+function getSpots(){return lang==='en'?SPOTS_EN:lang==='kr'?SPOTS_KR:SPOTS_ZH;}
+function getSC(){return lang==='en'?SC_EN:lang==='kr'?SC_KR:SC_ZH;}
 
 // ═══════════════════════════════
 //  MODE SWITCH
@@ -961,6 +1355,12 @@ function openDetail(id){
         <span class="dpr-read" style="color:var(--kr);background:var(--kr-light)">${p.read}</span>
         <div class="dpr-ja">${p.ja}</div>
       </div>`;
+    } else if(lang==='zh'){
+      return `<div class="detail-phrase-row">
+        <div class="dpr-main">${p.main}</div>
+        ${p.read?`<span class="dpr-read" style="color:var(--zh);background:var(--zh-light)">${p.read}</span>`:''}
+        ${p.ja?`<div class="dpr-ja">${p.ja}</div>`:''}
+      </div>`;
     } else {
       return `<div class="detail-phrase-row">
         <div class="dpr-main">${p.main}</div>
@@ -980,7 +1380,7 @@ function openDetail(id){
       <span>🗺️</span><p>Google マップで開く</p><small>${s.name}</small>
     </div>
     <div class="phrase-block">
-      <div class="phrase-block-title">🗣️ ${lang==='kr'?'韓国語':'英語'}タクシーフレーズ</div>
+      <div class="phrase-block-title">🗣️ ${lang==='kr'?'韓国語':lang==='zh'?'中国語':'英語'}タクシーフレーズ</div>
       ${phrasesHtml}
     </div>
     <button class="practice-link-btn" onclick="goToPractice('${s.linked}')">
@@ -1002,8 +1402,11 @@ let lang='en';
 
 function switchLang(l){
   lang=l;
+  // スポット詳細が開いていたら閉じる
+  closeDetail();
   document.querySelector('.lang-btn.en').classList.toggle('active',l==='en');
   document.querySelector('.lang-btn.kr').classList.toggle('active',l==='kr');
+  document.querySelector('.lang-btn.zh').classList.toggle('active',l==='zh');
   const pv=document.getElementById('practiceView');
   pv.className=l+'-mode';
   const inPractice=document.getElementById('modePractice').classList.contains('active');
@@ -1018,6 +1421,11 @@ function switchLang(l){
     root.style.setProperty('--primary-light','#eef2ff');
     root.style.setProperty('--primary-border','rgba(59,91,219,0.28)');
     root.style.setProperty('--accent','#e03131');
+  } else if(l==='zh'){
+    root.style.setProperty('--primary','#b91c1c');
+    root.style.setProperty('--primary-light','#fff1f2');
+    root.style.setProperty('--primary-border','rgba(185,28,28,0.28)');
+    root.style.setProperty('--accent','#0891b2');
   } else {
     root.style.setProperty('--primary','#e05a2b');
     root.style.setProperty('--primary-light','#fdf0eb');
@@ -1029,6 +1437,12 @@ function switchLang(l){
   const _pb=document.getElementById('phraseBtn'); if(_pb)_pb.classList.remove('on');
   buildScenarioTabs();
   resetPractice();
+  // 観光案内モード中なら再描画
+  const inGuide=document.getElementById('modeGuide').classList.contains('active');
+  if(inGuide){
+    const activeCat=document.querySelector('.cat-btn.active')?.dataset.cat||'all';
+    renderGuide(activeCat);
+  }
 }
 
 // ═══════════════════════════════
@@ -1088,7 +1502,31 @@ function resetPractice(){
 
 function startScenario(){
   removeWelcome(); turn=0; busy=false;
-  setTimeout(()=>showPassengerLine(getSC()[cur].turns[0]),400);
+  showOpeningPhrases();
+}
+
+function showOpeningPhrases(){
+  const phrases=OPENING_PHRASES[lang];
+  if(!phrases) return;
+  const card=document.createElement('div');
+  card.className='opening-card';
+  card.innerHTML=`<div class="opening-card-title">🚕 タクシー基本フレーズ（${lang.toUpperCase()}）</div>`+
+    phrases.map(p=>`<div class="opening-phrase-row">
+      <div class="opr-main">${esc(p.main)}</div>
+      <span class="opr-read">${esc(p.read)}</span>
+      <div class="opr-ja">🇯🇵 ${esc(p.ja)}</div>
+    </div>`).join('');
+  chat.appendChild(card);
+  // 「会話に進む」ボタン
+  const startBtn=document.createElement('button');
+  startBtn.className='next-btn';
+  startBtn.textContent='🚕 会話に進む';
+  startBtn.onclick=()=>{
+    startBtn.remove();
+    showPassengerLine(getSC()[cur].turns[0]);
+  };
+  chat.appendChild(startBtn);
+  scroll();
 }
 
 function showPassengerLine(t){
@@ -1096,6 +1534,7 @@ function showPassengerLine(t){
   setTimeout(()=>{
     typ.remove();
     if(lang==='kr') addPMsgKR(t.p,t.read,t.ja);
+    else if(lang==='zh') addPMsgZH(t.p,t.read,t.ja);
     else addPMsgEN(t.p,t.read,t.ja);
     addSuggs(t.sugg);
     busy=false; sendBtn.disabled=false; input.focus();
@@ -1119,11 +1558,11 @@ function handleSend(){
     if(t.vocab)addVT(t.vocab);
     turn++;
     if(turn<getSC()[cur].turns.length){
-      setTimeout(()=>showPassengerLine(getSC()[cur].turns[turn]),600);
+      addNextButton(turn);
     } else {
       setTimeout(()=>{
         const e=document.createElement('div'); e.className='end-card';
-        const fin=lang==='kr'?'수고했어요！':'Well done!';
+        const fin=LANG_CONFIG[lang].endMsg||'Well done!';
         e.innerHTML=`<h3>🎉 シナリオ完了！ ${fin}</h3><p>「${getSC()[cur].title}」を完走しました！<br>獲得ポイント: ⭐ ${score} pts</p><button class="retry-btn" onclick="retryScenario()">🔄 もう一度</button>`;
         chat.appendChild(e); scroll();
       },700);
@@ -1139,10 +1578,11 @@ function togglePhrase(){
   document.getElementById('phraseBtn').classList.toggle('on',phraseOpen);
   if(phraseOpen){
     document.getElementById('phraseGrid').innerHTML=getSC()[cur].phrases.map(p=>{
-      const sub=p.sub||p.read||'';
-      return `<button class="phrase-item" onclick="inp(${JSON.stringify(p.main)})">${p.main}
+      const sub=p.sub||'';
+      const mainText=p.main;
+      return `<button class="phrase-item" onclick="inp(${JSON.stringify(mainText)})">${mainText}
         ${p.read&&lang==='en'?`<span class="pi-read">${p.read}</span>`:''}
-        ${sub&&lang==='kr'?`<span class="pi-sub">${sub}</span>`:''}
+        ${sub&&(lang==='kr'||lang==='zh')?`<span class="pi-sub">${sub}</span>`:''}
       </button>`;
     }).join('');
   }
@@ -1164,7 +1604,7 @@ function findDriverJa(text){
     const prevTurn=sc.turns[Math.max(0,turn-1)];
     if(prevTurn&&prevTurn.sugg){
       for(const s of prevTurn.sugg){
-        const key=lang==='kr'?s.kor:s.main;
+        const key=lang==='kr'?s.kor:(lang==='zh'?s.zh:s.main);
         if(key&&key.trim().toLowerCase()===t) return s.ja||'';
       }
     }
@@ -1173,11 +1613,23 @@ function findDriverJa(text){
   for(const trn of sc.turns){
     if(!trn.sugg) continue;
     for(const s of trn.sugg){
-      const key=lang==='kr'?s.kor:s.main;
+      const key=lang==='kr'?s.kor:(lang==='zh'?s.zh:s.main);
       if(key&&key.trim().toLowerCase()===t) return s.ja||'';
     }
   }
   return '';
+}
+
+function addNextButton(nextTurn){
+  const cfg=LANG_CONFIG[lang];
+  const b=document.createElement('button');
+  b.className='next-btn';
+  b.textContent=cfg.nextBtn||'次の会話へ ▶';
+  b.onclick=()=>{
+    b.remove();
+    showPassengerLine(getSC()[cur].turns[nextTurn]);
+  };
+  chat.appendChild(b); scroll();
 }
 
 function addDMsg(text){
@@ -1187,7 +1639,10 @@ function addDMsg(text){
     <div class="bubble">
       <div class="d-main">${esc(text)}</div>
       ${ja?`<div class="d-ja">🇯🇵 ${esc(ja)}</div>`:''}
+      <button class="driver-speak-btn" id="ds_${Date.now()}">🔊 再生</button>
     </div>`;
+  // eventListenerでspeakDriver呼び出し（XSS対策）
+  setTimeout(()=>{const btn=e.querySelector('.driver-speak-btn');if(btn)btn.addEventListener('click',()=>speakDriver(text));},0);
   chat.appendChild(e); scroll();
 }
 
@@ -1201,6 +1656,18 @@ function addPMsgEN(main,read,ja){
       ${ja?`<div class="p-ja">🇯🇵 ${esc(ja)}</div>`:''}
     </div>`;
   chat.appendChild(e); scroll(); speak(main);
+}
+
+// ZH passenger: 3 lines — Chinese + カタカナ読み + 日本語
+function addPMsgZH(zh,read,ja){
+  const e=document.createElement('div'); e.className='message passenger';
+  e.innerHTML=`<div class="msg-label">${LANG_CONFIG[lang].passengerLabel}</div>
+    <div class="bubble">
+      <div class="p-main">${esc(zh)}</div>
+      <span class="p-read">${esc(read)}</span>
+      <div class="p-ja">🇯🇵 ${esc(ja)}</div>
+    </div>`;
+  chat.appendChild(e); scroll(); speak(zh);
 }
 
 // KR passenger: 3 lines — Hangul + カタカナ読み + 日本語
@@ -1224,10 +1691,11 @@ function addFB(t,good){
 
 function addVT(v){
   const e=document.createElement('div'); e.className='vocab-tip';
-  if(lang==='kr'&&typeof v==='object'){
-    e.innerHTML=`💡 <span class="v-kor">${esc(v.kor)}</span> <span class="v-read">${esc(v.read)}</span><div class="v-ja">${esc(v.ja)}</div>`;
+  if((lang==='kr'||lang==='zh')&&typeof v==='object'){
+    const main=v.kor||v.zh||'';
+    e.innerHTML=`💡 <span class="v-main">${esc(main)}</span> <span class="v-read">${esc(v.read||'')}</span><div class="v-ja">${esc(v.ja||'')}</div>`;
   } else {
-    e.textContent='💡 '+(typeof v==='string'?v:(v.kor||''));
+    e.textContent='💡 '+(typeof v==='string'?v:(v.kor||v.zh||''));
   }
   chat.appendChild(e); scroll();
 }
@@ -1240,6 +1708,9 @@ function addSuggs(arr){
     if(lang==='kr'){
       b.innerHTML=`<span class="s-main">${esc(s.kor)}</span><span class="s-read">${esc(s.read)}</span><span class="s-sub">${esc(s.ja)}</span>`;
       b.onclick=()=>{input.value=s.kor;input.focus();};
+    } else if(lang==='zh'){
+      b.innerHTML=`<span class="s-main">${esc(s.zh)}</span><span class="s-read">${esc(s.read)}</span><span class="s-sub">${esc(s.ja)}</span>`;
+      b.onclick=()=>{input.value=s.zh;input.focus();};
     } else {
       b.innerHTML=`<span class="s-main">${esc(s.main)}</span>${s.read?`<span class="s-read">${esc(s.read)}</span>`:''}`;
       b.onclick=()=>{input.value=s.main;input.focus();};
@@ -1272,7 +1743,9 @@ function speak(text){
   if(micActive){stopMic();}
   window.speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text);
-  u.lang=LANG_CONFIG[lang].voiceLang; u.rate=0.88; u.pitch=1.0;
+  u.lang=LANG_CONFIG[lang].voiceLang;
+  u.rate=voiceGender==='male'?0.84:0.88;
+  u.pitch=voiceGender==='male'?0.6:1.0;
   const voices=speechSynthesis.getVoices();
   const vl=LANG_CONFIG[lang].voiceLang;
   // Filter by language first
@@ -1293,6 +1766,32 @@ function speak(text){
   }
   if(pref)u.voice=pref;
   setVoiceStatus(lang==='kr'?`🔊 韓国語を読み上げ中... ${voiceGender==='female'?'👩':'👨'}`:`🔊 Speaking... ${voiceGender==='female'?'👩':'👨'}`,'speaking');
+  u.onend=()=>setVoiceStatus(''); u.onerror=()=>setVoiceStatus('');
+  speechSynthesis.speak(u);
+}
+
+function speakDriver(text){
+  if(!voiceOn)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=LANG_CONFIG[lang].voiceLang;
+  u.rate=voiceGender==='male'?0.84:0.88;
+  u.pitch=voiceGender==='male'?0.6:1.0;
+  const voices=speechSynthesis.getVoices();
+  const vl=LANG_CONFIG[lang].voiceLang;
+  const langVoices=voices.filter(v=>v.lang===vl||v.lang.startsWith(vl.split('-')[0]));
+  let pref=null;
+  if(langVoices.length>0){
+    if(voiceGender==='female'){
+      pref=langVoices.find(v=>/female|woman|samantha|karen|kyoko|siri|zira/i.test(v.name))
+          ||langVoices[0];
+    } else {
+      pref=langVoices.find(v=>/male|man|daniel|alex|fred/i.test(v.name))
+          ||langVoices[langVoices.length-1];
+    }
+  }
+  if(pref)u.voice=pref;
+  setVoiceStatus(`🔊 ドライバー音声再生中... ${voiceGender==='female'?'👩':'👨'}`,'speaking');
   u.onend=()=>setVoiceStatus(''); u.onerror=()=>setVoiceStatus('');
   speechSynthesis.speak(u);
 }
